@@ -1,0 +1,142 @@
+<!-- This is a temporary file -->
+<!-- Filters -->
+<div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+  <div class="dropdown-menu show">
+    <h6 class="dropdown-header">Filter for:</h6>
+    <div class="dropright">
+      <!-- TODO: On button click, toggle the checkbox :checked attribute -->
+      <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <input type="checkbox" value="year" checked /> <label>Year</label>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu--submenu">
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="2018" checked /> <label>2018</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="2017" /> <label>2017</label>
+        </button>
+      </div>
+      <div class="dropdown-item-selection active">
+        <span class="dropdown-item-text">2018</span>
+      </div>
+    </div>
+    <div class="dropright">
+      <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu--submenu">
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+        </button>
+      </div>
+      <div class="dropdown-item-selection active"></div>
+    </div>
+    <div class="dropright">
+      <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <input type="checkbox" value="management" checked /> <label>Management Level</label>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu--submenu">
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="C-Level" checked /> <label>C-Level</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Middle Management" checked /> <label>Middle Management</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Low Management" /> <label>Low Management</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="Staff" /> <label>Staff</label>
+        </button>
+      </div>
+      <div class="dropdown-item-selection active">
+        <span class="dropdown-item-text">C-Level</span>
+        <span class="dropdown-item-text">Middle Management</span>
+      </div>
+    </div>
+    <div class="dropright">
+      <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <input type="checkbox" value="geography" /> <label>Geography</label>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu--submenu"></div>
+      <div class="dropdown-item-selection active"></div>
+    </div>
+    <div class="dropright">
+      <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <input type="checkbox" value="tenure" /> <label>Tenure</label>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu--submenu">
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
+        </button>
+        <button class="dropdown-item md-cb" type="button">
+          <input type="checkbox" value="3+ year" /> <label>3+ year</label>
+        </button>
+      </div>
+      <div class="dropdown-item-selection active"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Categories -->
+<div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
+  <div class="dropdown-menu show">
+    <h6 class="dropdown-header">Breakdown By:</h6>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+    </button>
+  </div>
+</div>
+<!-- Modals -->
+<div class="sidepanel sidepanel--action clearfix js-action-panel">
+  <div class="dropdown-menu show">
+    <h6 class="dropdown-header">See All:</h6>
+    <button type="button" class="dropdown-item js-show-modal" data-type="categories" data-toggle="modal" data-target="#modalCategories">
+      <i class="far fa-eye"></i> <label>Categories</label>
+    </button>
+    <button type="button" class="dropdown-item js-show-modal" data-type="questions">
+      <i class="far fa-question-circle"></i> <label>Questions</label>
+    </button>
+  </div>
+</div>
+<!-- Sort By -->
+<div class="sidepanel sidepanel--sortby hide clearfix js-sortby-panel js-tab-question-controls">
+  <div class="dropdown-menu show">
+    <h6 class="dropdown-header">Sort By:</h6>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="sort_by" value="category" checked /> <label>Category</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="sort_by" value="number" /> <label>Number</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="sort_by" value="performance-b2w" /> <label>Performance<br>(best to worst)</label>
+    </button>
+    <button type="button" class="dropdown-item md-cb md-cb--radio">
+      <input type="radio" name="sort_by" value="performance-w2b" /> <label>Performance<br>(worst to best)</label>
+    </button>
+  </div>
+</div>

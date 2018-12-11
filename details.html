@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- fonts -->
+    <script defer src="fonts/js/all.min.js"></script>
+
+    <title>Strategy 360° Radar</title>
+  </head>
+  <body>
+
+    <header>
+
+      <!-- Logo -->
+      <nav class="site-nav-logo navbar navbar-light bg-light">
+        <div class="container">
+
+          <a class="navbar-brand" href="index.html">
+            <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
+            Strategy 360° radar
+          </a>
+
+          <!-- client logo -->
+          <a class="float-right" href="#">
+            <img class="rounded-circle border" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2275%22%20height%3D%2275%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2075%2075%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1675f575c26%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.1)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1675f575c26%22%3E%3Crect%20width%3D%2275%22%20height%3D%2275%22%20fill%3D%22white%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2218.5546875%22%20y%3D%2242%22%3E75x75%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" width="145" height="45" class="d-inline-block align-top" alt="">
+          </a>
+
+        </div>
+      </nav>
+
+      <!-- Navigation -->
+      <nav class="site-nav navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.html">Overview</a>
+              <a class="nav-item nav-link active" href="details.html">Details</a>
+              <a class="nav-item nav-link" href="archetypes.html">Archetypes</a>
+              <a class="nav-item nav-link" href="consistency.html">Consistency</a>
+              <a class="nav-item nav-link" href="demographics.html">Demographics</a>
+              <a class="nav-item nav-link" href="#">Pulse Check</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!--
+      <nav class="site-sub-nav navbar navbar-light bg-light">
+        <div class="container">
+          <div class="gutter"></div>
+          <div class="navbar-collapse">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link active" href="#">Dashboard</a>
+              <a class="nav-item nav-link" href="#">Insights</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      -->
+
+      <!-- Navigation: Sub Header -->
+      <nav class="site-sub-nav">
+        <div class="container">
+
+          <div class="gutter"></div>
+          <div class="nav nav--sub" role="tablist">
+            <a class="nav-item nav-link active" id="nav-cat-tab" data-toggle="tab" href="#nav-cat" role="tab" aria-controls="nav-cat" aria-selected="true">Categories</a>
+            <span class="sep border-right"></span>
+            <a class="nav-item nav-link" id="nav-questions-tab" data-toggle="tab" href="#nav-questions" role="tab" aria-controls="nav-questions" aria-selected="false">Questions</a>
+          </div>
+
+        </div>
+      </nav>
+
+    </header>
+
+
+    <main class="mt-2">
+
+      <div class="container">
+
+        <div class="row">
+
+          <!-- Side Panel -->
+          <div class="col-3">
+
+            <!-- Filters -->
+            <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">Filter for:</h6>
+                <div class="dropright">
+                  <!-- TODO: On button click, toggle the checkbox :checked attribute -->
+                  <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="year" checked /> <label>Year</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="2018" checked /> <label>2018</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="2017" /> <label>2017</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active">
+                    <span class="dropdown-item-text">2018</span>
+                  </div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="management" checked /> <label>Management Level</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="C-Level" checked /> <label>C-Level</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Middle Management" checked /> <label>Middle Management</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Low Management" /> <label>Low Management</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Staff" /> <label>Staff</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active">
+                    <span class="dropdown-item-text">C-Level</span>
+                    <span class="dropdown-item-text">Middle Management</span>
+                  </div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="geography" /> <label>Geography</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu"></div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="tenure" /> <label>Tenure</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="3+ year" /> <label>3+ year</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">Breakdown By:</h6>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sort By -->
+            <div class="sidepanel sidepanel--sortby hide clearfix js-sortby-panel js-tab-question-controls">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">Sort By:</h6>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="sort_by" value="category" checked /> <label>Category</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="sort_by" value="number" /> <label>Number</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="sort_by" value="performance-b2w" /> <label>Performance<br>(best to worst)</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="sort_by" value="performance-w2b" /> <label>Performance<br>(worst to best)</label>
+                </button>
+              </div>
+            </div>
+
+            <!-- Trigger Modals -->
+            <div class="sidepanel sidepanel--action clearfix js-action-panel">
+
+              <div class="dropdown-menu show">
+
+                <button type="button" class="dropdown-item js-show-modal js-tab-category-controls" data-type="categories" data-toggle="modal" data-target="#modalCategories">
+                  <i class="far fa-eye"></i>
+                  <label>Show/Hide Categories</label>
+                </button>
+
+                <button type="button" class="dropdown-item js-show-modal js-tab-question-controls hide" data-type="questions-list" data-toggle="modal" data-target="#modalAllQuestionFilter">
+                  <i class="far fa-eye"></i>
+                  <label>Show/Hide Questions</label>
+                </button>
+
+              </div>
+              
+            </div>
+
+          </div>
+
+          <div class="col-9">
+
+            <!-- Tabbed Content -->
+            <div class="tab-content">
+
+              <!-- Categories -->
+              <div class="tab-pane fade show active" id="nav-cat" role="tabpanel" aria-labelledby="nav-cat-tab">
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+
+                <h5 class="alert alert--head bg-red pl-3" role="alert">Categories</h5>
+
+                <!-- Graph -->
+                <div class="js-graph-categories ml-3" id="categories_list"></div>
+                
+              </div>
+
+              <!-- Questions -->
+              <div class="tab-pane fade" id="nav-questions" role="tabpanel" aria-labelledby="nav-questions-tab">
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+
+                <!-- Graph -->
+                <div class="js-graph-questions" id="questions_list"></div>
+                
+              </div>
+
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+
+      <!-- Camera Button -->
+      <button class="btn btn-camera js-btn-camera js-tab-question-controls" data-target="#questions_list">
+        <i class="fas fa-camera" aria-hidden="true"></i>
+      </button>
+
+      <!-- Camera Button -->
+      <button class="btn btn-camera js-btn-camera" data-target="#categories_list">
+        <i class="fas fa-camera" aria-hidden="true"></i>
+      </button>
+      
+    </main>
+
+    <!-- Site Footer -->
+    <footer>
+
+      <div class="container">
+
+        <p>© 2018 PwC. All rights reserved. PwC refers to the PwC network and/or one or more of its member firms, each of which is a separate legal entity. Please see <a href="www.pwc.com/structure">www.pwc.com/structure</a> for further details.</p>
+
+        <nav class="nav">
+          <a class="nav-link pl-0" href="#">Privacy policy</a>
+          <a class="nav-link" href="#">Terms of use</a>
+          <a class="nav-link" href="#">Cookies info</a>
+          <a class="nav-link" href="#">About site provider</a>
+        </nav>
+        
+      </div>
+      
+    </footer>
+
+
+    <!-- Modals -->
+
+    <!-- 1. Categories Modal -->
+    <div class="modal fade js-modal-inclusive" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="modalCategoriesTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCategoriesTitle">Show/Hide Categories</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            
+            <div class="container-fluid p-0">
+              
+              <div class="row justify-content-center m-0">
+                                
+                <div class="col sidepanel sidepanel--category clearfix m-0 p-0 js-category-panel">
+
+                  <div class="dropdown-menu show m-0 border-0">
+                    <h6 class="dropdown-header">Categories:</h6>
+                    
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Strategy 360">
+                      <label>Strategy 360°</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Value Proposition">
+                      <label>Value Proposition</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Capabilities">
+                      <label>Capabilities</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Portfolio">
+                      <label>Portfolio</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Leadership">
+                      <label>Leadership</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb">
+                      <input type="checkbox" checked value="Impact">
+                      <label>Impact</label>
+                    </button>
+
+                    
+                  </div>
+                                  
+                </div>
+                                
+              </div>
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Questions Modal -->
+    <div class="modal modal-fs fade" id="modalAllQuestionFilter" tabindex="-1" role="dialog" aria-labelledby="modalAllQuestionFilterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="modalAllQuestionFilterTitle">Show/Hide Questions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            
+            <div class="container-fluid p-0">
+              
+              <div class="row">
+                                
+                <div class="col-md-auto">
+
+                  <!-- Categories -->
+                  <div class="sidepanel sidepanel--category sidepanel--selectlist js-category-panel js-category-question-panel">
+
+                    <div class="dropdown-menu show m-0 border-0">
+                      <h6 class="dropdown-header">Categories:</h6>
+                      
+                      <button type="button" class="dropdown-item md-cb">
+                        <input type="checkbox" value="strategy360">
+                        <label>Strategy 360°</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+
+                      <button type="button" class="dropdown-item md-cb active">
+                        <input type="checkbox" value="value-prop" checked>
+                        <label>Value Proposition</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+
+                      <button type="button" class="dropdown-item md-cb">
+                        <input type="checkbox" value="capabilities">
+                        <label>Capabilities</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+
+                      <button type="button" class="dropdown-item md-cb">
+                        <input type="checkbox" value="portfolio">
+                        <label>Portfolio</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+
+                      <button type="button" class="dropdown-item md-cb">
+                        <input type="checkbox" value="leadership">
+                        <label>Leadership</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+
+                      <button type="button" class="dropdown-item md-cb">
+                        <input type="checkbox" value="impact">
+                        <label>Impact</label>
+                        <label class="q-count">(10/15)</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                      
+                    </div>
+                                    
+                  </div>
+                                  
+                </div>
+
+                <div class="col p-0">
+
+                  <div class="fixflex">
+
+                    <div class="row justify-content-between fixflex__fix">
+                        
+                      <div class="col">
+                        <h5>Questions</h5>
+                      </div>
+
+                      <div class="col text-right p-0">
+                        <a href="#" class="text-danger js-btn-question-selection" data-checked="true">Select all</a>
+                        <span class="sep border-right"></span>
+                        <a href="#" class="text-danger js-btn-question-selection" data-checked="false">Unselect all</a>
+                      </div>
+
+
+                    </div>
+                 
+                    <!-- Question and its Graph -->
+                    <div class="fixflex fixflex__flex">
+                      <div class="fixflex__flex js-modal-allquestion">
+
+                        <!-- Questions Container -->
+                        <div class="questions-list">
+
+                          <table class="table table-striped">
+                            <tbody>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q1">
+                                    <input type="checkbox">
+                                    <label>Q1</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
+                                    <input type="checkbox">
+                                    <label>Q2</label>
+                                  </button>
+                                </th>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          
+                        </div>
+                        
+                      </div>
+
+                      <div class="fixflex__fix footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Save changes</button>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/d3.5.7.0.min.js"></script>
+    <script src="js/d3-legend.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Template for a single Category list -->
+    <script id="tpl_category" type="text/html">
+
+      {{#categories}}
+
+      <div id="id-{{qid}}">
+
+        <h5 class="mb-3 font-weight-bold position-relative">{{key}}
+          <button class="btn btn-download" style="right: 3rem;" data-html2canvas-ignore>
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn btn-download" data-target="#id-{{qid}}" data-html2canvas-ignore>
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </h5>
+
+        <div class="gq pb-4">
+
+          <!-- Breakdown By Rows -->
+          {{#values}}
+          <div class="row gq-tuple" data-id="{{qid}}-{{kid}}">
+            <div class="col-3 gq-tuple__title">
+              <label>{{key}}</label>
+            </div>
+            <div class="col gq-tuple__graph">
+
+              <figure class="percentage-graph row align-items-center">
+                
+                <div class="percentage-graph__bar" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
+                  <div class="percentage-graph__bar-bg" style="background: {{fill}};">
+                    <label class="percentage-graph__bar-value">{{value}}</label>
+                  </div>
+                </div>
+
+                <div class="hl-indicator col-3">
+                  <span class="hl-indicator__figure">{{movementValue}}</span>
+                  <span class="hl-indicator__indicator text-{{movementClass}}">
+                    <i class="fas fa-caret-{{movement}}"></i>
+                  </span>
+                  <span>vs</span>
+                  <span class="hl-indicator__year">{{prevYear}}</span>
+                </div>
+
+              </figure>
+
+            </div>
+          </div>
+          {{/values}}
+
+        </div>
+
+      </div>
+
+      {{/categories}}
+      
+    </script>
+
+    <!-- Template for a single question -->
+    <script id="tpl_question" type="text/html">
+
+      {{#questions}}
+
+        <div class="alert alert--head" data-category="{{key}}" role="alert">{{key}}</div>
+
+        <div class="ml-3">
+
+          {{#values}}
+          <div class="gq" id="qid-{{qid}}">
+
+            <h5 class="gq__title">
+              <b>Q{{srno}}:</b>{{key}}
+              <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
+                <i class="fas fa-arrow-down"></i>
+              </button>
+            </h5>
+            <!-- Breakdown By Rows -->
+            {{#values}}
+            <div class="row gq-tuple" data-id="{{qid}}-{{kid}}">
+              <div class="col-3 gq-tuple__title">
+                <label>{{key}}</label>
+              </div>
+              <div class="col gq-tuple__graph">
+                
+              </div>
+            </div>
+            {{/values}}
+
+            <!-- Legend -->
+            <div class="row gq-tuple" data-id="{{qid-kid}}">
+              <div class="col-3"></div>
+              <div class="col gq-tuple__legend"></div>
+            </div>
+            
+          </div>
+          {{/values}}
+
+        </div>
+
+      {{/questions}}
+      
+    </script>
+
+    <script type="text/javascript">
+
+      $(function(){
+
+        var bDrawQuestionsTabGraph = false,
+        aDataset = null,
+        edispatch = d3.dispatch('dataLoaded', 'tabOpened');
+
+        // Read data File
+        // 
+        d3.json('data/data.json').then(function(data, error){
+          if (error) {
+            alert('Error reading data file.');
+            return;
+          }
+          aDataset = data;
+
+          edispatch.call('dataLoaded', null, data);
+        });
+        
+        // Toggle Filter panels based on select tab: Categories or Insights
+        // 
+        $('.nav--sub a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+          $('.js-tab-category-controls').toggleClass('hide');
+          $('.js-tab-question-controls').toggleClass('hide');
+
+          edispatch.call('tabOpened', null, $(this).attr('href'));
+
+        });
+
+
+        // Draw Questions Graph;
+        // 
+        edispatch.on('tabOpened', function(sTabId){
+
+          // Questions Tab
+          // 
+          if (sTabId == '#nav-questions') {
+            bDrawQuestionsTabGraph = true;
+          }else{  // Details tab
+            bDrawQuestionsTabGraph = false;
+          }
+
+          // get active filters
+          dispatch.call('getPanelSettings');
+
+        });
+
+        // On Data Loaded
+        // 
+        edispatch.on('dataLoaded', function(data){
+          // get active filters
+          // 
+          dispatch.call('getPanelSettings');
+        });
+
+        // On Filter Change
+        // 
+        dispatch.on('filter.questions', function(oSettings){
+
+          if (!aDataset){
+            return false;
+          }
+
+          // If Details Tab
+          // 
+          if (!bDrawQuestionsTabGraph) {
+
+            // Update the graph based on new settings
+            // 
+            var aBreakdownBy = ['category', oSettings.breakdownBy];
+
+            // Filter the raw dataset and update
+            // 
+            drawDetailsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+
+            fixSVGIconFill();
+
+          }else{ 
+
+            // If Question Tab
+            // 
+
+            // Update the graph based on new settings
+            // 
+            var aBreakdownBy = ['category', 'question', oSettings.breakdownBy, 'response'];
+
+            // Filter the raw dataset and update
+            // 
+            drawQuestionsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+
+          }
+
+
+        });
+
+
+        /**
+         * Draw graphs for Questions tab
+         * @param  {array of Objects} data dataset
+         */
+        function drawQuestionsTabGraphs(data, aBreakdownBy) {
+
+          var oConfig,
+          tpl = $('#tpl_question').html(),
+          qData = [],
+          qDataMap = {},
+          target = $('#questions_list'),
+          tData;
+
+          function parseData(aData) {
+            // Assign a unique id to every question
+            // 
+            var i = 0,
+            j = 0,
+            key;
+
+            return aData.map(function(cat){
+
+              cat.values = cat.values.map(function(q, srno){
+                q.qid = 'q-'+ ++i;
+                q.srno = srno+1;
+
+                // Assign an Id to every Key
+                // Add a key for 'All'
+                // 
+                var iMaxKeyCount = d3.max(q.values, function(d){ return d.values.length; }),
+                iMaxKeys,
+                oAll;
+
+                // Find out index of max keys
+                // 
+                q.values.forEach(function(d, i){
+                  iMaxKeys = d.values.length == iMaxKeyCount ? i : iMaxKeys;
+                });
+
+                oAll = {
+                  key: 'All',
+                  values: q.values[iMaxKeys].values.map(function(d){ return {key: d.key, value: 0}; })
+                };
+
+                q.values.unshift(oAll);
+
+                q.values.map(function(k){
+
+                  k.kid = 'k-'+ ++j;
+
+                  key = q.qid + '-' + k.kid;
+                  
+                  qDataMap[key] = {
+                    category: cat.key,
+                    values: k.values
+                  };
+
+                  // Add values to 'All' Key
+                  if (k.key != 'All') {
+                    k.values.forEach(function(kv, z){
+                      oAll.values[z].value += kv.value;
+                    });
+                  }
+
+                  return k;
+
+                });
+
+                return q;
+              });
+
+              return cat;
+
+            });
+
+          }
+
+          qData = parseData(getStructuredData(data, aBreakdownBy));
+
+          tData = {
+            questions: qData
+          };
+
+          Mustache.parse(tpl);
+
+          // Add HTML
+          target.html(Mustache.render(tpl, tData));
+
+          // Render Charts
+          // 
+          var aLegendData = [];
+          target.find('.gq-tuple').each(function(){
+
+            var row = $(this),
+            id = row.data('id'),
+            data = qDataMap[id],  // generateData(),
+            el = row.find('.gq-tuple__graph'),
+            elLegend = row.find('.gq-tuple__legend'),
+            isGraph = !!el.length,
+            isLegend = !!elLegend.length;
+            
+            if (isGraph) {
+
+              StackedBar( oConfig = {
+                el: el[0],
+                width: el.width(),
+                height: 40,
+                barHeight: 20,
+                data: data.values,
+                category: data.category,
+                colors: categoryColorMap[data.category]
+              });
+              // choose the data with max keys
+              aLegendData = aLegendData.length < data.values.length ? data.values : aLegendData;
+
+            }else if (isLegend) {
+
+              drawLegend({
+                el: elLegend[0],
+                data: aLegendData,
+                colors: categoryColorMap[oConfig.category],
+                shapePadding: elLegend.width() / aLegendData.length
+              });
+
+            }
+
+          });
+
+          // Color the Category headings
+          // 
+          target.find('.alert[data-category]').each(function(){
+            var colors = categoryColorMap[$(this).data('category')];
+            // last color of the pallete
+            // 
+            $(this).css('background', colors ? colors[1] : 'gray');
+
+          });
+
+          initDownloadHook();
+
+        }
+
+        /**
+         * Draw graphs for Details tab
+         * @param  {array of Objects} data dataset
+         */
+        function drawDetailsTabGraphs(data, aBreakdownBy) {
+
+          var oConfig,
+          tpl = $('#tpl_category').html(),
+          qData = [],
+          qDataMap = {},
+          target = $('#categories_list'),
+          tData,
+          format = d3.format('.2%');
+
+          function parseData(aData) {
+            // Assign a unique id to every question
+            // 
+            var i = 0,
+            j = 0,
+            key;
+
+            return aData.map(function(cat, srno){
+
+              cat.qid = 'c-'+ ++i;
+              cat.srno = srno+1;
+
+              
+              // Add a key for 'All'
+              // 
+              var value = Math.random();
+
+              var oAll = {
+                key: 'All',
+                value: format(value),
+                width: format(value * .7), // 70% of the total width
+                fill: categoryColorMap[cat.key][1],
+                // movement details
+                // up or down
+                movement: 'up',
+                // 'success' for positive value otherwise 'danger'
+                movementClass: 'success',
+                // movement value in percentage
+                movementValue: '10%',
+                prevYear: 2017
+              };
+
+              cat.values = cat.values.map(function(k){
+
+                k.kid = 'k-'+ ++j;
+
+                key = cat.qid + '-' + k.kid;
+                
+                qDataMap[key] = {
+                  category: cat.key,
+                  values: [{key: 'response', value: k.value}]
+                };
+
+                // Graph Data
+                // 
+                var gd = {
+                  // Breakdown by Key
+                  key: k.key,
+                  // Percentage value
+                  value: format(value = Math.random()),
+                  width: format(value * .7),
+                  // background color
+                  fill: categoryColorMap[cat.key][1],
+
+                  // movement details
+                  // up or down
+                  movement: 'up',
+                  // 'success' for positive value otherwise 'danger'
+                  movementClass: 'success',
+                  // movement value in percentage
+                  movementValue: '10%',
+                  // previous year
+                  prevYear: 2017
+                }
+
+                return gd;
+
+              });
+
+              cat.values.unshift(oAll);
+
+              return cat;
+
+            });
+
+          }
+
+          qData = parseData(getStructuredData(data, aBreakdownBy));
+
+          tData = {
+            categories: qData
+          };
+
+          Mustache.parse(tpl);
+
+          // Add HTML
+          target.html(Mustache.render(tpl, tData));
+
+          initDownloadHook();
+
+        }
+
+      });
+      
+    </script>
+  </body>
+</html>

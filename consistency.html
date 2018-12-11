@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- fonts -->
+    <script defer src="fonts/js/all.min.js"></script>
+
+    <title>Strategy 360° Radar</title>
+  </head>
+  <body>
+
+    <header>
+
+      <!-- Logo -->
+      <nav class="site-nav-logo navbar navbar-light bg-light">
+        <div class="container">
+
+          <a class="navbar-brand" href="index.html">
+            <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
+            Strategy 360° radar
+          </a>
+
+          <!-- client logo -->
+          <a class="float-right" href="#">
+            <img class="rounded-circle border" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2275%22%20height%3D%2275%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2075%2075%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1675f575c26%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.1)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1675f575c26%22%3E%3Crect%20width%3D%2275%22%20height%3D%2275%22%20fill%3D%22white%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2218.5546875%22%20y%3D%2242%22%3E75x75%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" width="145" height="45" class="d-inline-block align-top" alt="">
+          </a>
+
+        </div>
+      </nav>
+
+      <!-- Navigation -->
+      <nav class="site-nav navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.html">Overview</a>
+              <a class="nav-item nav-link" href="details.html">Details</a>
+              <a class="nav-item nav-link" href="archetypes.html">Archetypes</a>
+              <a class="nav-item nav-link active" href="consistency.html">Consistency</a>
+              <a class="nav-item nav-link" href="demographics.html">Demographics</a>
+              <a class="nav-item nav-link" href="#">Pulse Check</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+
+
+    <main>
+      
+      <!-- Consistency Content -->
+      <div class="container consistency-container">
+
+        <div class="row">
+
+          <!-- Side Panel -->
+          <div class="col-3">
+
+            <!-- Filters -->
+            <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">Filter for:</h6>
+                <div class="dropright">
+                  <!-- TODO: On button click, toggle the checkbox :checked attribute -->
+                  <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="year" checked /> <label>Year</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="2018" checked /> <label>2018</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="2017" /> <label>2017</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active">
+                    <span class="dropdown-item-text">2018</span>
+                  </div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="management" checked /> <label>Management Level</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="C-Level" checked /> <label>C-Level</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Middle Management" checked /> <label>Middle Management</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Low Management" /> <label>Low Management</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="Staff" /> <label>Staff</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active">
+                    <span class="dropdown-item-text">C-Level</span>
+                    <span class="dropdown-item-text">Middle Management</span>
+                  </div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="geography" /> <label>Geography</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu"></div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+                <div class="dropright">
+                  <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="checkbox" value="tenure" /> <label>Tenure</label>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu--submenu">
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
+                    </button>
+                    <button class="dropdown-item md-cb" type="button">
+                      <input type="checkbox" value="3+ year" /> <label>3+ year</label>
+                    </button>
+                  </div>
+                  <div class="dropdown-item-selection active"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">Breakdown By:</h6>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sort By -->
+            <div class="sidepanel sidepanel--consistency clearfix js-consistency-panel">
+              <div class="dropdown-menu show">
+                <h6 class="dropdown-header">See consistency at:</h6>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="consistency" checked value="category" /> <label>Category level</label>
+                </button>
+                <button type="button" class="dropdown-item md-cb md-cb--radio">
+                  <input type="radio" name="consistency" value="question" /> <label>Question level</label>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- Insights Content -->
+          <div class="col-9 insights-content">
+            
+            <div class="row insights-content__text">
+              <div class="col-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa. Donec blandit, diam a tempor consequat, augue ante tristique mauris, aliquam dictum sem est vitae orci. </p>
+              </div>
+              <div class="col-4">
+                <div class="diamond">
+                  <i class="fas fa-caret-up fa-2x"></i>
+                  <i class="fas fa-caret-down fa-2x"></i>
+                  <p class="diamond-text">Average consistency</p>
+                </div>
+                <div class="underscore">
+                  <i class="far fa-window-minimize fa-2x"></i>
+                  <p class="underscore-text">1 standard deviation above/below average</p>
+                </div>
+                <!--<div class="camera-icon insights-content__cam-icon">
+                  <i class="fa fa-camera fa-lg" aria-hidden="true"></i>
+                </div>-->
+              </div>
+            </div>  
+
+            <div id="graph_list">
+              
+            </div>
+
+          </div>
+          
+        </div>
+        
+      </div>
+
+      <!-- Camera Button -->
+      <button class="btn btn-camera js-btn-camera" data-target="#graph_list">
+        <i class="fas fa-camera" aria-hidden="true"></i>
+      </button>
+      
+    </main>
+
+    <!-- Site Footer -->
+    <footer>
+
+      <div class="container">
+
+        <p>© 2018 PwC. All rights reserved. PwC refers to the PwC network and/or one or more of its member firms, each of which is a separate legal entity. Please see <a href="www.pwc.com/structure">www.pwc.com/structure</a> for further details.</p>
+
+        <nav class="nav">
+          <a class="nav-link pl-0" href="#">Privacy policy</a>
+          <a class="nav-link" href="#">Terms of use</a>
+          <a class="nav-link" href="#">Cookies info</a>
+          <a class="nav-link" href="#">About site provider</a>
+        </nav>
+        
+      </div>
+      
+    </footer>
+
+
+    <!-- Modals -->
+
+    <!-- 1. Categories Modal -->
+    <div class="modal fade" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="modalCategoriesTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCategoriesTitle">Show/Hide Categories</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            
+            <div class="container-fluid p-0">
+              
+              <div class="row justify-content-center m-0">
+                                
+                <div class="col sidepanel sidepanel--category clearfix m-0 p-0 js-category-panel">
+
+                  <div class="dropdown-menu show m-0 border-0">
+                    <h6 class="dropdown-header">Categories:</h6>
+                    
+                    <button type="button" class="dropdown-item md-cb" data-id="strategy360">
+                      <input type="checkbox">
+                      <label>Strategy 360°</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb" data-id="value-prop">
+                      <input type="checkbox">
+                      <label>Value Proposition</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb" data-id="capabilities">
+                      <input type="checkbox">
+                      <label>Capabilities</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb" data-id="portfolio">
+                      <input type="checkbox">
+                      <label>Portfolio</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb" data-id="leadership">
+                      <input type="checkbox">
+                      <label>Leadership</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item md-cb" data-id="impact">
+                      <input type="checkbox">
+                      <label>Impact</label>
+                    </button>
+
+                    
+                  </div>
+                                  
+                </div>
+                                
+              </div>
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Single Question Modal with Panel -->
+    <div class="modal modal-fs fade" id="modalQuestionFilter" tabindex="-1" role="dialog" aria-labelledby="modalQuestionFilterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            
+            <div class="container-fluid">
+              
+              <div class="row">
+                                
+                <div class="col-md-auto">
+
+                  <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+                    <div class="dropdown-menu show">
+                        <h6 class="dropdown-header">Filter for:</h6>
+                        <div class="dropright">
+                            <!-- TODO: On button click, toggle the checkbox :checked attribute -->
+                            <button type="button" class="dropdown-item md-cb active" data-id="year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="checkbox" /> <label>Year</label>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu--submenu">
+                                <button class="dropdown-item md-cb" type="button" data-id="2018">
+                                    <input type="checkbox" checked /> <label>2018</label>
+                                </button>
+                                <button class="dropdown-item md-cb" type="button" data-id="2017">
+                                    <input type="checkbox" /> <label>2017</label>
+                                </button>
+                            </div>
+                            <div class="dropdown-item-selection active">
+                                <span class="dropdown-item-text">2018</span>
+                            </div>
+                        </div>
+                        <div class="dropright">
+                            <button type="button" class="dropdown-item md-cb" data-id="org_unit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="checkbox" /> <label>Business Unit</label>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu--submenu"></div>
+                            <div class="dropdown-item-selection"></div>
+                        </div>
+                        <div class="dropright">
+                            <button type="button" class="dropdown-item md-cb active" data-id="management" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="checkbox" /> <label>Management Level</label>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu--submenu"></div>
+                            <div class="dropdown-item-selection active">
+                                <span class="dropdown-item-text">C-Level</span>
+                                <span class="dropdown-item-text">Middle Management</span>
+                            </div>
+                        </div>
+                        <div class="dropright">
+                            <button type="button" class="dropdown-item md-cb" data-id="geography" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="checkbox" /> <label>Geography</label>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu--submenu"></div>
+                            <div class="dropdown-item-selection"></div>
+                        </div>
+                        <div class="dropright">
+                            <button type="button" class="dropdown-item md-cb" data-id="tenure" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input type="checkbox" /> <label>Tenure</label>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu--submenu"></div>
+                            <div class="dropdown-item-selection"></div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- Categories -->
+                  <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
+                      <div class="dropdown-menu show">
+                          <h6 class="dropdown-header">Breakdown By:</h6>
+                          <button type="button" class="dropdown-item md-cb" data-id="year">
+                              <input type="checkbox" /> <label>Year</label>
+                          </button>
+                          <button type="button" class="dropdown-item md-cb" data-id="org_unit">
+                              <input type="checkbox" /> <label>Business Unit</label>
+                          </button>
+                          <button type="button" class="dropdown-item md-cb" data-id="management">
+                              <input type="checkbox" /> <label>Management Level</label>
+                          </button>
+                          <button type="button" class="dropdown-item md-cb" data-id="tenure">
+                              <input type="checkbox" /> <label>Tenure</label>
+                          </button>
+                      </div>
+                  </div>
+                                  
+                </div>
+
+                <div class="col">
+
+                  <div class="row">
+
+                    <p class="text-justify col"><b class="mr-1">How to use:</b> Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+
+                    <div class="col-md-auto p-2">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    
+                  </div>
+                 
+                  <!-- Question and its Graph -->
+                  <div class="js-modal-question">
+                    
+                  </div>
+
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/d3.5.7.0.min.js"></script>
+    <script src="js/d3-legend.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Template for a single Category list -->
+    <script id="tpl_category" type="text/html">
+
+      <h5 class="alert alert--head bg-red pl-3" role="alert">Categories</h5>
+
+      <div class="ml-3">
+      
+      {{#categories}}
+
+      <div id="cid-{{qid}}">
+
+        <h5 class="mb-3 font-weight-bold position-relative">{{key}}
+          <button class="btn btn-download" style="right: 3rem;" data-html2canvas-ignore>
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn btn-download" data-target="#cid-{{qid}}" data-html2canvas-ignore>
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </h5>
+
+        <div class="gq pb-4">
+
+          <!-- Breakdown By Rows -->
+          {{#values}}
+          <div class="row align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
+            <div class="col-3 gq-tuple__title">
+              <label>{{key}}</label>
+            </div>
+            <div class="col-1 gq-tuple__value">
+              {{#showAxis}}
+              <div class="diamond">
+                <svg width="20" height="20" class="js-skip-viewbox-auto-adjust">
+                  <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)"></path>
+                </svg>
+              </div>
+              {{/showAxis}}
+              <label><b>{{averageFormatted}}</b></label>
+            </div>
+            <div class="col gq-tuple__graph">
+
+            </div>
+          </div>
+          {{/values}}
+
+        </div>
+
+      </div>
+
+      {{/categories}}
+
+      </div>
+      
+    </script>
+
+    <!-- Template for a single question -->
+    <script id="tpl_question" type="text/html">
+
+      {{#questions}}
+      
+        <div class="alert alert--head" data-category="{{key}}" role="alert">{{key}}</div>
+
+        <div class="ml-3">
+
+          {{#values}}
+          <div class="gq" id="qid-{{qid}}">
+
+            <h5 class="gq__title">
+              <b>Q{{srno}}:</b>{{key}}
+              <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
+                <i class="fas fa-arrow-down"></i>
+              </button>
+            </h5>
+            <!-- Breakdown By Rows -->
+            {{#values}}
+            <div class="row align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
+              <div class="col-3 gq-tuple__title">
+                <label>{{key}}</label>
+              </div>
+              <div class="col-1 gq-tuple__value">
+                {{#showAxis}}
+                <div class="diamond">
+                  <svg width="20" height="20" class="js-skip-viewbox-auto-adjust">
+                    <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)"></path>
+                  </svg>
+                </div>
+                {{/showAxis}}
+                <label><b>{{averageFormatted}}</b></label>
+              </div>
+              <div class="col gq-tuple__graph">
+
+              </div>
+            </div>
+            {{/values}}
+            
+          </div>
+          {{/values}}
+
+        </div>
+
+      {{/questions}}
+      
+    </script>
+
+    <script type="text/javascript">
+
+      $(function(){
+
+        var bDrawQuestionsTabGraph = false,
+        aDataset = null,
+        edispatch = d3.dispatch('dataLoaded', 'tabOpened');
+
+        // Read data File
+        // 
+        d3.json('data/data.json').then(function(data, error){
+          if (error) {
+            alert('Error reading data file.');
+            return;
+          }
+          aDataset = data;
+
+          edispatch.call('dataLoaded', null, data);
+        });
+
+        // On Data Loaded
+        // 
+        edispatch.on('dataLoaded', function(data){
+          // get active filters
+          // 
+          dispatch.call('getPanelSettings');
+        });
+
+        // On Filter Change
+        // 
+        dispatch.on('filter.questions', function(oSettings){
+
+          if (!aDataset){
+            return false;
+          }
+
+          // If Details Tab
+          // 
+          if (oSettings.consistency == 'category') {
+
+            // Update the graph based on new settings
+            // 
+            var aBreakdownBy = ['category', oSettings.breakdownBy];
+
+            // Filter the raw dataset and update
+            // 
+            drawDetailsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+
+          }else{ 
+
+            // If Question Tab
+            // 
+
+            // Update the graph based on new settings
+            // 
+            var aBreakdownBy = ['category', 'question', oSettings.breakdownBy];
+
+            // Filter the raw dataset and update
+            // 
+            drawQuestionsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+
+          }
+
+          initDownloadHook();
+
+
+        });
+
+
+        /**
+         * Draw graphs for Questions tab
+         * @param  {array of Objects} data dataset
+         */
+        function drawQuestionsTabGraphs(data, aBreakdownBy) {
+
+          var oConfig,
+          tpl = $('#tpl_question').html(),
+          qData = [],
+          qDataMap = {},
+          target = $('#graph_list'),
+          tData,
+          format = d3.format('.0%');
+
+          function parseData(aData) {
+            // Assign a unique id to every question
+            // 
+            var i = 0,
+            j = 0,
+            key,
+            avg;
+
+            return aData.map(function(cat){
+
+              cat.values = cat.values.map(function(q, srno){
+                q.qid = 'q-'+ ++i;
+                q.srno = srno+1;
+
+                // Assign an Id to every Key
+                // Add a key for 'All'
+                // 
+                var oAll = {
+
+                  key: 'All',
+
+                  // Show Axis? True of 'All' data tuple
+                  showAxis: true
+
+                };
+
+                q.values.unshift(oAll);
+
+                q.values = q.values.map(function(k){
+
+                  k.kid = 'k-'+ ++j;
+
+                  key = q.qid + '-' + k.kid;
+
+                  // dummy data
+                  avg = d3.randomUniform(.3, .7)();
+                  
+                  // Graph Data
+                  // 
+                  var gd = {
+                    kid: k.kid,
+
+                    // Breakdown by Key
+                    key: k.key,
+
+                    // average
+                    average: avg,
+
+                    averageFormatted: format(avg),
+                    
+                    // lower deviation value
+                    lower: d3.randomUniform(.2, avg)(),
+
+                    // upper deviation value
+                    upper: d3.randomUniform(avg, 0.9)(),
+
+                    showAxis: k.showAxis
+                  }
+                  
+                  qDataMap[key] = {
+                    category: cat.key,
+                    values: gd
+                  };
+
+                  return gd;
+
+                });
+
+                return q;
+              });
+
+              return cat;
+
+            });
+
+          }
+
+          qData = parseData(getStructuredData(data, aBreakdownBy));
+
+          tData = {
+            questions: qData
+          };
+
+          Mustache.parse(tpl);
+
+          // Add HTML
+          target.html(Mustache.render(tpl, tData));
+
+          console.log(qData);
+
+          // Render Charts
+          // 
+          target.find('.gq-tuple').each(function(){
+
+            var row = $(this),
+            id = row.data('id'),
+            data = qDataMap[id],
+            el = row.find('.gq-tuple__graph'),
+            // Do we need to show the top axis?
+            bShowAxis = data.values.key == 'All';
+
+            DeviationBar({
+              el: el[0],
+              width: el.width(),
+              height: bShowAxis ? 55 : 30,
+              barHeight: bShowAxis ? 25 : 20,
+              data: data.values,
+              category: data.category,
+              fill: categoryColorMap[data.category][2],
+              showAxis: bShowAxis
+            });
+            
+
+          });
+
+          // Color the Category headings
+          // 
+          target.find('.alert[data-category]').each(function(){
+            var colors = categoryColorMap[$(this).data('category')];
+            // last color of the pallete
+            // 
+            $(this).css('background', colors ? colors[1] : 'gray');
+
+          });
+
+        }
+
+        /**
+         * Draw graphs for Details tab
+         * @param  {array of Objects} data dataset
+         */
+        function drawDetailsTabGraphs(data, aBreakdownBy) {
+
+          var oConfig,
+          tpl = $('#tpl_category').html(),
+          qData = [],
+          qDataMap = {},
+          target = $('#graph_list'),
+          tData,
+          format = d3.format('.0%');
+
+          function parseData(aData) {
+            // Assign a unique id to every question
+            // 
+            var i = 0,
+            j = 0,
+            key,
+            avg;
+
+            return aData.map(function(cat, srno){
+
+              cat.qid = 'c-'+ ++i;
+              cat.srno = srno+1;
+
+              // generate random average value
+              
+              cat.values = cat.values.map(function(k){
+
+                k.kid = 'k-'+ ++j;
+
+                key = cat.qid + '-' + k.kid;
+
+                // dummy data
+                avg = d3.randomUniform(.3, .7)();
+                
+                // Graph Data
+                // 
+                var gd = {
+                  kid: k.kid,
+
+                  // Breakdown by Key
+                  key: k.key,
+
+                  // average
+                  average: avg,
+
+                  averageFormatted: format(avg),
+                  
+                  // lower deviation value
+                  lower: d3.randomUniform(.2, avg)(),
+
+                  // upper deviation value
+                  upper: d3.randomUniform(avg, 0.9)()
+                }
+
+                qDataMap[key] = {
+                  category: cat.key,
+                  values: gd
+                };
+
+                return gd;
+
+              });
+
+              // Add a key for 'All'
+              // 
+              avg = d3.randomUniform(.3, .7)();
+              var oAll = {
+
+                kid: 'k-'+ ++j,
+
+                key: 'All',
+
+                // Show Axis? True of 'All' data tuple
+                showAxis: true,
+
+                // average
+                average: avg,
+
+                averageFormatted: format(avg),
+                
+                // lower deviation value
+                lower: d3.randomUniform(.2, avg)(),
+
+                // upper deviation value
+                upper: d3.randomUniform(avg, 0.9)()
+              };
+
+              cat.values.unshift(oAll);
+
+              qDataMap[cat.qid + '-' + oAll.kid] = {
+                category: cat.key,
+                values: oAll
+              };
+
+              return cat;
+
+            });
+
+          }
+
+          qData = parseData(getStructuredData(data, aBreakdownBy));
+
+          tData = {
+            categories: qData
+          };
+
+          Mustache.parse(tpl);
+
+          // Add HTML
+          target.html(Mustache.render(tpl, tData));
+
+          console.log('tData', tData, qDataMap);
+
+          // Render Charts
+          // 
+          var aLegendData = [];
+          target.find('.gq-tuple').each(function(){
+
+            var row = $(this),
+            id = row.data('id'),
+            data = qDataMap[id],
+            el = row.find('.gq-tuple__graph'),
+            // Do we need to show the top axis?
+            bShowAxis = data.values.key == 'All';
+
+            DeviationBar({
+              el: el[0],
+              width: el.width(),
+              height: bShowAxis ? 55 : 30,
+              barHeight: bShowAxis ? 25 : 20,
+              data: data.values,
+              category: data.category,
+              fill: categoryColorMap[data.category][2],
+              showAxis: bShowAxis
+            });
+            
+
+          });
+
+        }
+
+      });
+      
+    </script>
+
+  </body>
+</html>

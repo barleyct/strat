@@ -1,0 +1,969 @@
+/* Strategy 360 Styles */
+/**
+ * Variables
+ */
+/**
+ * Colors
+ */
+/**
+ * Site Navigation
+ */
+.site-nav-logo a {
+  font-size: 1rem;
+  line-height: 2;
+}
+.site-nav-logo a img {
+  margin-right: 0.75rem;
+}
+
+.site-nav {
+  padding-bottom: 0;
+}
+.site-nav .nav-item {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-right: 2rem;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+}
+.site-nav .nav-item:hover, .site-nav .nav-item:focus, .site-nav .nav-item.active {
+  border-bottom-color: #d93954;
+}
+
+.site-sub-nav .nav--sub .nav-link {
+  color: #252525;
+  font-size: 0.9rem;
+}
+.site-sub-nav .nav--sub .nav-link:first-child {
+  padding-left: 0;
+}
+.site-sub-nav .nav--sub .nav-link.active {
+  color: #d93954;
+  font-weight: bold;
+}
+
+.nav span.sep {
+  width: 0;
+  margin: 0.5rem 0;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  background: #6d6e72;
+  padding: 1rem 0;
+  width: 100%;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+footer a,
+footer p {
+  color: #fff;
+}
+footer a:hover {
+  color: #d93954;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+.cursor-p > * {
+  cursor: pointer;
+}
+
+/*===============================
+=            General            =
+===============================*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Arial, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Helvetica Neue";
+}
+
+h4 {
+  font-weight: bold;
+}
+
+main {
+  margin-top: 2rem;
+  position: relative;
+  min-height: 71vh;
+}
+
+span.sep {
+  width: 0;
+  margin: 0.5rem;
+}
+
+.hide {
+  display: none !important;
+}
+
+/**
+ * Buttons
+ */
+.btn-download {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: #d93954;
+}
+
+.btn-camera,
+.btn-pdf {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background-color: var(--yellow);
+}
+
+.btn-pdf {
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.fixflex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.fixflex__flex {
+  box-sizing: border-box;
+  min-height: 0;
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.fixflex__fix {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.data-link {
+  color: #d93954;
+  display: block;
+  text-decoration: underline;
+}
+
+.text-color-red {
+  color: #d93954;
+}
+
+.para-font-14 {
+  font-size: 14px;
+}
+
+.table .col-first {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 500;
+}
+.table .col-first.bold-font {
+  font-weight: 700;
+}
+.table .row-heading {
+  background-color: #d93954;
+  color: #fff;
+  font-weight: 500;
+}
+.table .row-heading .col-first-heading {
+  background-color: #9c9d9d;
+}
+.table .row-first {
+  font-weight: 700;
+}
+.table th {
+  padding: 0.5rem;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.bg-red {
+  background-color: #d93954;
+}
+
+.btn,
+.dropdown-menu,
+.dropdown-item,
+.alert {
+  border-radius: 0;
+}
+
+.text-success path,
+.text-success path {
+  fill: #28a745 !important;
+}
+
+.text-danger path {
+  fill: #d93954 !important;
+}
+
+/*=====  End of General  ======*/
+/*=====================================================
+=            Fixed Header and Column Table            =
+=====================================================*/
+.tbl-fixed {
+  /*.rest-columns > .thead > :last-child {margin-right: 50px;}*/
+}
+.tbl-fixed .fix-column {
+  float: left;
+  width: 35%;
+  height: 100%;
+}
+.tbl-fixed .fix-column .thead > span {
+  background-color: #9c9d9d;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+}
+.tbl-fixed .fix-column .tbody {
+  overflow: hidden;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+.tbl-fixed .fix-column .tbody > .trow {
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+.tbl-fixed .fix-column .tbody > .trow:first-child {
+  margin-top: 0px;
+}
+.tbl-fixed .fix-column .tbody > .trow span {
+  font-weight: bold;
+  width: 100%;
+  white-space: normal;
+}
+.tbl-fixed .thead {
+  height: 40px;
+  white-space: nowrap;
+}
+.tbl-fixed .thead > span {
+  display: inline-block;
+  width: 120px;
+  line-height: 40px;
+  background-color: #d93954;
+  text-align: left;
+  padding-left: 1rem;
+  color: white;
+  font-weight: bold;
+}
+.tbl-fixed .trow {
+  white-space: nowrap;
+  line-height: 4rem;
+  border-bottom: 1px solid #dee2e6;
+}
+.tbl-fixed .trow > span {
+  display: inline-block;
+  min-width: 120px;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  vertical-align: middle;
+  line-height: normal;
+  text-align: left;
+}
+.tbl-fixed .trow > span > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.tbl-fixed .tbody {
+  height: calc(100% - 40px);
+  overflow: auto;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tbl-fixed .rest-columns {
+  width: 100%;
+  height: 100%;
+}
+.tbl-fixed .rest-columns > .thead {
+  background-color: #d93954;
+  overflow: hidden;
+}
+.tbl-fixed .rest-columns > .thead > span {
+  margin-right: 50px;
+  margin-left: -50px;
+}
+.tbl-fixed .rest-columns > .thead > :first-child {
+  margin-left: 0px;
+}
+.tbl-fixed .rest-columns .tbody .trow {
+  text-align: center;
+  display: inline-block;
+}
+.tbl-fixed .rest-columns .tbody .trow:first-child .tbar {
+  margin-top: -6px;
+}
+.tbl-fixed .rest-columns .tbody .trow:first-child .tbar .tbar__value {
+  background-color: #252525;
+  height: 20px;
+}
+.tbl-fixed .tbar {
+  width: 50px;
+  height: 15px;
+  position: relative;
+  margin-top: -2px;
+}
+.tbl-fixed .tbar__value {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: gray;
+}
+
+/*=====  End of Fixed Header and Column Table  ======*/
+/*=================================
+=            Dashboard            =
+=================================*/
+.graph-container {
+  margin-top: 2rem;
+}
+.graph-container.perf-cat-graph .graph {
+  height: 450px;
+}
+.graph-container.perf-cat-graph .graph text.arcText {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.graph-container.perf-cat-graph .graph tspan.up {
+  fill: #28a745;
+}
+.graph-container.perf-cat-graph .graph tspan.down {
+  fill: #d93954;
+}
+.graph-container.perf-cat-graph .graph .g-text text tspan:not(:first-child) {
+  opacity: 0;
+  font-size: 0.875rem;
+}
+.graph-container.perf-cat-graph .graph.show-details .g-text text tspan:not(:first-child) {
+  opacity: 1;
+}
+.graph-container.perf-cat-graph .graph-info__value {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1;
+}
+.graph-container.perf-cat-graph .graph-info__benchmarkr1 {
+  margin-bottom: -5px;
+}
+
+.tb--dashb__highlights {
+  margin: 3rem 0 0 0;
+  padding: 1rem;
+  background-color: #dedede;
+}
+.tb--dashb__participation {
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.tb--dashb .graph-container .graph {
+  overflow-y: auto;
+}
+.tb--dashb .graph-container--table {
+  height: 520px;
+}
+.tb--dashb .graph-container--table .graph {
+  overflow: visible;
+}
+
+.highlights-content > * {
+  display: inline-block;
+  width: calc(50% - 1rem);
+}
+
+.hl-indicator {
+  margin-bottom: 1rem;
+}
+.hl-indicator__title {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.hl-indicator__content {
+  margin-bottom: 0;
+}
+.hl-indicator__figure {
+  font-weight: bold;
+}
+.hl-indicator span {
+  margin-right: 0.25rem;
+}
+
+.pc-indicator__icon {
+  font-size: 2.5rem;
+}
+
+.dashboard-select {
+  margin-left: 0.5rem;
+}
+.dashboard-select .dashboard-select__category {
+  color: #4e555b;
+  background-color: transparent;
+  border-color: #d93954;
+}
+.dashboard-select .dashboard-select__category:hover, .dashboard-select .dashboard-select__category:focus, .dashboard-select .dashboard-select__category:visited, .dashboard-select .dashboard-select__category.show, .dashboard-select .dashboard-select__category.active {
+  color: #4e555b;
+  background-color: transparent;
+  border-color: #d93954;
+}
+
+.insights-content__graph {
+  width: 100%;
+}
+.insights-content__graph svg {
+  display: block;
+  width: 100%;
+  height: 2520px;
+}
+.insights-content__graph svg path {
+  cursor: pointer;
+}
+.insights-content__graph svg text {
+  text-anchor: middle;
+}
+.insights-content__graph svg .g-text text tspan:first-child {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.insights-content__graph svg .g-text text tspan:not(:first-child) {
+  font-size: 0.875rem;
+}
+.insights-content__graph svg tspan.up {
+  fill: #28a745;
+}
+.insights-content__graph svg tspan.down {
+  fill: #d93954;
+}
+.insights-content__graphinfo .graph-info__value {
+  font-size: 1.5rem;
+}
+.insights-content__graphinfo .graph-info__benchmark {
+  line-height: 1;
+  font-size: 0.875rem;
+}
+
+/*=====  End of Dashboard  ======*/
+/*====================================
+=            Filter Panel            =
+====================================*/
+.sidepanel {
+  margin-bottom: 2rem;
+}
+.sidepanel .dropdown-header {
+  color: inherit;
+  font-weight: bold;
+}
+.sidepanel .dropdown-menu {
+  top: 0;
+  background-color: #dedede;
+  position: relative;
+  width: 100%;
+}
+.sidepanel .dropdown-menu .dropdown-item {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+}
+.sidepanel .dropdown-menu .dropdown-item label {
+  margin: 0;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.sidepanel .dropdown-menu .dropdown-item [data-icon] {
+  vertical-align: middle;
+}
+.sidepanel .dropdown-menu .dropdown-item.active:not(:active),
+.sidepanel .dropdown-menu .dropdown-item-selection.active:not(:active) {
+  background-color: #f8f9fa;
+  color: inherit;
+}
+.sidepanel--filter > .dropdown-menu:not(.dropdown-menu--submenu) .dropright > .dropdown-item > input[type=checkbox] {
+  right: auto;
+  width: 4rem;
+}
+.sidepanel--filter .dropdown-menu--submenu {
+  background-color: #f8f9fa;
+}
+.sidepanel--filter .dropdown-item {
+  font-weight: bold;
+}
+.sidepanel--filter .dropdown-item:active {
+  background-color: var(--gray);
+}
+.sidepanel--filter .dropdown-item.active {
+  color: inherit;
+}
+.sidepanel--filter .dropdown-item [data-icon] {
+  float: right;
+  margin-top: 0.25rem;
+}
+.sidepanel--filter .dropdown-item-selection {
+  padding-left: 2rem;
+  font-size: 0.925rem;
+}
+.sidepanel--action .dropdown-item [data-icon] {
+  margin-right: 0.875rem;
+}
+.sidepanel--selectlist .dropdown-item [data-icon] {
+  visibility: hidden;
+  display: inline-block;
+}
+.sidepanel--selectlist .dropdown-item.active [data-icon] {
+  visibility: visible;
+}
+
+.modal .sidepanel .dropdown-item [data-icon] {
+  margin-left: 1rem;
+  float: right;
+  margin-top: 0.25rem;
+}
+
+/*=====  End of Filter Panel  ======*/
+/*==================================
+=            Insights            =
+==================================*/
+.insights-content .insights-content__text p {
+  margin-bottom: 0.5rem;
+}
+.insights-content .insights-content__text .insights-content__cam-icon {
+  float: right;
+  margin-top: 4.5rem;
+  background: transparent;
+}
+
+/*=====  End of Insights  ======*/
+/*==================================
+=            Archetypes            =
+==================================*/
+.arch-container .arch-graph-container {
+  cursor: pointer;
+  margin-top: 0;
+  height: 345px;
+}
+.arch-container .arch-header-text {
+  margin-bottom: 1rem;
+}
+.arch-container .camera-icon {
+  background: transparent;
+}
+.arch-container .camera-icon.btn-download {
+  top: inherit;
+  width: 50px;
+  right: 8.5rem;
+}
+.arch-container .camera-icon svg {
+  float: right;
+}
+.arch-container .archetype {
+  color: #d93954;
+}
+.arch-container .archetype-descr {
+  font-size: 14px;
+}
+.arch-container .graph-text-note {
+  font-size: 14px;
+  margin-top: 1rem;
+}
+.arch-container .arch-table-header {
+  margin-bottom: 1rem;
+}
+.arch-container .graph-container--table {
+  height: 430px;
+}
+.arch-container .graph-container--table .tbody .trow:first-child {
+  font-weight: bold;
+}
+.arch-container .graph-container--table .fix-column .tbody .trow:not(:first-child) span {
+  font-weight: normal;
+}
+
+.arch-graph-container .graph {
+  background-image: url(../images/archetypeImage.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.arch-graph-container .graph svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.arch-graph-container .graph svg path {
+  cursor: pointer;
+  opacity: 0;
+  fill: #d93954;
+  stroke-width: 10px;
+  stroke: #fff;
+}
+.arch-graph-container .graph svg path.highlight, .arch-graph-container .graph svg path.active {
+  opacity: 1;
+}
+
+.modal .arch-graph-container .graph svg path:not(.active) {
+  fill: #252525 !important;
+}
+
+.tooltip:not([class*=bs-tooltip-]) {
+  opacity: 1;
+  background: white;
+  padding: 0.5rem;
+  max-width: 40%;
+  margin: 0 0 0 2rem;
+}
+
+.modal-archetype .modal-dialog {
+  max-width: 950px;
+}
+.modal-archetype .modal-dialog .modal-graph-container {
+  height: 350px;
+  margin-bottom: 3rem;
+  margin-left: 1rem;
+}
+
+/*=====  End of Archetypes  ======*/
+/*===================================
+=            Consistency            =
+===================================*/
+.consistency-container .diamond {
+  margin-left: 4.75rem;
+}
+.consistency-container .diamond svg {
+  position: absolute;
+  height: auto;
+}
+.consistency-container .diamond .fa-caret-up {
+  top: -0.2rem;
+}
+.consistency-container .diamond .fa-caret-down {
+  top: 0.3rem;
+}
+.consistency-container .diamond .diamond-text {
+  position: absolute;
+  left: 7.5rem;
+  top: 0.25rem;
+}
+.consistency-container .underscore {
+  margin-left: 4rem;
+}
+.consistency-container .underscore svg {
+  position: absolute;
+  top: 1.7rem;
+}
+.consistency-container .underscore .underscore-text {
+  position: absolute;
+  top: 2rem;
+  left: 7.5rem;
+  line-height: 1.2;
+}
+.consistency-container .consistency-row--category .diamond {
+  margin-top: 0rem;
+  font-size: 0.65rem;
+  position: relative;
+  margin-left: 0.5rem;
+}
+.consistency-container .consistency-row--category.show-axis .gq-tuple__value label {
+  display: block;
+  margin-top: 1.25rem;
+}
+.consistency-container .consistency-row--category.show-axis .gq-tuple__title label {
+  margin: 0;
+  padding-top: 0.5rem;
+}
+.consistency-container .consistency-row--category .diamond svg.fa-caret-down {
+  top: 2px;
+}
+
+/*=====  End of Consistency  ======*/
+/*====================================
+=            Demographics            =
+====================================*/
+.demographics-container .demographics-content__cam-icon {
+  background: transparent;
+  float: right;
+  margin-top: 2.5rem;
+}
+
+/*=====  End of Demographics  ======*/
+/*===============================
+=            Details            =
+===============================*/
+.questions-list {
+  max-height: 100%;
+  overflow-y: auto;
+  height: 400px;
+  margin-bottom: 1rem;
+}
+
+/*=====  End of Details  ======*/
+/*===================================
+=            Prototyping            =
+===================================*/
+.pl {
+  background-color: var(--gray);
+}
+
+/*=====  End of Prototyping  ======*/
+/*================================
+=            Checkbox            =
+================================*/
+.md-cb {
+  position: relative;
+  margin: 0;
+  text-align: left;
+}
+.md-cb.md-cb-inline {
+  display: inline-block;
+}
+.md-cb label:nth-of-type(1) {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.25rem;
+  vertical-align: middle;
+  clear: both;
+  padding-left: 1px;
+  margin: 0;
+}
+.md-cb label:nth-of-type(1):not(:empty) {
+  padding-left: 2rem;
+}
+.md-cb label:nth-of-type(1):before, .md-cb label:nth-of-type(1):after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.md-cb label:nth-of-type(1):before {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #fff;
+  border: 2px solid #d93954;
+  border-radius: 0.125rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.md-cb input[type=checkbox],
+.md-cb input[type=radio] {
+  outline: 0;
+  width: 1.25rem;
+  margin: 0;
+  display: block;
+  font-size: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+.md-cb input[type=checkbox]:checked + label:before,
+.md-cb input[type=radio]:checked + label:before {
+  background: #fff;
+}
+.md-cb input[type=checkbox]:checked + label:after,
+.md-cb input[type=radio]:checked + label:after {
+  transform: translate(0.25rem, 0.3365384615rem) rotate(-45deg);
+  width: 0.75rem;
+  height: 0.375rem;
+  border: 0.125rem solid #252525;
+  border-top-style: none;
+  border-right-style: none;
+}
+.md-cb input[type=checkbox]:disabled + label:before,
+.md-cb input[type=radio]:disabled + label:before {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+.md-cb input[type=checkbox]:disabled:checked + label:before,
+.md-cb input[type=radio]:disabled:checked + label:before {
+  background: rgba(0, 0, 0, 0.26);
+}
+.md-cb--radio label:nth-of-type(1):before {
+  border-radius: 100%;
+}
+.md-cb--radio input[type=radio]:checked + label:after {
+  transform: translate(0.25rem, 0.25rem);
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #252525;
+  border-radius: 100%;
+}
+
+/*=====  End of Checkbox  ======*/
+/*==============================
+=            Modals            =
+==============================*/
+.modal.modal-fs .modal-dialog {
+  width: 80% !important;
+  max-width: 80% !important;
+}
+.modal .modal-footer {
+  justify-content: flex-start;
+}
+
+/*=====  End of Modals  ======*/
+/*==========================================
+=            Question Graph Row            =
+==========================================*/
+.gq {
+  position: relative;
+  border-bottom: dotted 1px var(--gray);
+  margin-bottom: 1.5rem;
+}
+.gq__title {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.gq__title b {
+  margin-right: 0.5rem;
+}
+.gq-tuple__graph svg {
+  height: 35px;
+  width: 100%;
+  display: block;
+}
+.gq-tuple__graph svg.svg-inline--fa {
+  height: 1em;
+}
+.gq-tuple__legend {
+  padding-top: 1rem;
+}
+.gq-tuple__legend svg {
+  height: 50px;
+  width: 100%;
+  display: block;
+}
+
+.graph-single-question .gq {
+  border-bottom: 0;
+}
+.graph-single-question .gq .gq-tuple {
+  padding: 1rem 0;
+}
+.graph-single-question .gq .gq-tuple:not(:last-child) {
+  border-bottom: dotted 1px var(--gray);
+}
+.graph-single-question .gq .gq-tuple svg {
+  height: 24px;
+}
+
+.alert--head {
+  margin: 2rem 0 1rem 0;
+  color: white;
+  font-weight: bold;
+}
+
+.percentage-graph {
+  margin-bottom: 0;
+}
+.percentage-graph__bar {
+  vertical-align: middle;
+}
+.percentage-graph__bar-bg {
+  height: 25px;
+  margin: 0.35rem 0;
+}
+.percentage-graph__bar-value {
+  color: #fff;
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+.percentage-graph__bar > * {
+  vertical-align: middle;
+}
+.percentage-graph .hl-indicator {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+.percentage-graph .hl-indicator > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.demographics-content__graph .gq {
+  margin-bottom: 0;
+}
+.demographics-content__graph .gq .gq-tuple {
+  margin: 0;
+}
+.demographics-content__graph .gq-tuple__title {
+  background-color: #f8f9fa;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.demograph {
+  margin-bottom: 0;
+  padding-top: 1rem;
+}
+.demograph-bar {
+  padding-top: 0.6rem;
+}
+.demograph > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+.demograph__figures > * {
+  display: inline-block !important;
+  height: auto !important;
+  font-size: 1.5rem;
+}
+.demograph__value {
+  width: 3rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/*=====  End of Question Graph Row  ======*/
+/*==============================
+=            Graphs            =
+==============================*/
+.deviationbar .axis .tick:first-child text {
+  text-anchor: start;
+}
+.deviationbar .axis .tick:last-child text {
+  text-anchor: end;
+}
+
+/*=====  End of Graphs  ======*/
+/*===============================================
+=            Download Image specific            =
+===============================================*/
+.taking-snapshot .gq {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*=====  End of Download Image specific  ======*/
+
+/*# sourceMappingURL=style.css.map */
