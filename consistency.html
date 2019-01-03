@@ -14,7 +14,7 @@
     <!-- fonts -->
     <script defer src="fonts/js/all.min.js"></script>
 
-    <title>Strategy 360° Radar</title>
+    <title>Strategy& - Strategy threesixty - Consistency</title>
   </head>
   <body>
 
@@ -26,7 +26,7 @@
 
           <a class="navbar-brand" href="index.html">
             <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
-            Strategy 360° radar
+            Strategy threesixty radar
           </a>
 
           <!-- client logo -->
@@ -74,7 +74,6 @@
               <div class="dropdown-menu show">
                 <h6 class="dropdown-header">Filter for:</h6>
                 <div class="dropright">
-                  <!-- TODO: On button click, toggle the checkbox :checked attribute -->
                   <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <input type="checkbox" value="year" checked /> <label>Year</label>
                     <i class="fas fa-chevron-right"></i>
@@ -93,7 +92,7 @@
                 </div>
                 <div class="dropright">
                   <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                    <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
                     <i class="fas fa-chevron-right"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu--submenu">
@@ -165,18 +164,22 @@
             <!-- Categories -->
             <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
               <div class="dropdown-menu show">
-                <h6 class="dropdown-header">Breakdown By:</h6>
+                <h6 class="dropdown-header">Breakdown by:</h6>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
-                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org. Unit</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
               </div>
             </div>
@@ -196,20 +199,27 @@
 
           </div>
 
-
           <!-- Insights Content -->
           <div class="col-9 insights-content">
             
-            <div class="row insights-content__text">
+            <div class="row insights-content__text mb-3">
               <div class="col-8">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa. Donec blandit, diam a tempor consequat, augue ante tristique mauris, aliquam dictum sem est vitae orci. </p>
               </div>
               <div class="col-4">
+                <div class="diamond diamond--legend">
+                  <svg width="20" height="20" class="js-skip-viewbox-auto-adjust">
+                    <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)scale(.8)"></path>
+                  </svg>
+                  <p class="diamond-text">Average</p>
+                </div>
+                <!--
                 <div class="diamond">
                   <i class="fas fa-caret-up fa-2x"></i>
                   <i class="fas fa-caret-down fa-2x"></i>
-                  <p class="diamond-text">Average consistency</p>
+                  <p class="diamond-text">Average</p>
                 </div>
+                -->
                 <div class="underscore">
                   <i class="far fa-window-minimize fa-2x"></i>
                   <p class="underscore-text">1 standard deviation above/below average</p>
@@ -279,9 +289,9 @@
                   <div class="dropdown-menu show m-0 border-0">
                     <h6 class="dropdown-header">Categories:</h6>
                     
-                    <button type="button" class="dropdown-item md-cb" data-id="strategy360">
+                    <button type="button" class="dropdown-item md-cb" data-id="strategythreesixty">
                       <input type="checkbox">
-                      <label>Strategy 360°</label>
+                      <label>Strategy threesixty</label>
                     </button>
 
                     <button type="button" class="dropdown-item md-cb" data-id="value-prop">
@@ -399,21 +409,25 @@
 
                   <!-- Categories -->
                   <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
-                      <div class="dropdown-menu show">
-                          <h6 class="dropdown-header">Breakdown By:</h6>
-                          <button type="button" class="dropdown-item md-cb" data-id="year">
-                              <input type="checkbox" /> <label>Year</label>
-                          </button>
-                          <button type="button" class="dropdown-item md-cb" data-id="org_unit">
-                              <input type="checkbox" /> <label>Business Unit</label>
-                          </button>
-                          <button type="button" class="dropdown-item md-cb" data-id="management">
-                              <input type="checkbox" /> <label>Management Level</label>
-                          </button>
-                          <button type="button" class="dropdown-item md-cb" data-id="tenure">
-                              <input type="checkbox" /> <label>Tenure</label>
-                          </button>
-                      </div>
+                    <div class="dropdown-menu show">
+                      <h6 class="dropdown-header">Breakdown by:</h6>
+                      <button type="button" class="dropdown-item md-cb md-cb--radio">
+                        <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
+                      </button>
+                      <button type="button" class="dropdown-item md-cb md-cb--radio">
+                        <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org. Unit</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
+                      </button>
+                      <button type="button" class="dropdown-item md-cb md-cb--radio">
+                        <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
+                      </button>
+                      <button type="button" class="dropdown-item md-cb md-cb--radio">
+                        <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
+                      </button>
+                    </div>
                   </div>
                                   
                 </div>
@@ -456,6 +470,7 @@
     <script src="js/d3.5.7.0.min.js"></script>
     <script src="js/d3-legend.min.js"></script>
     <script src="js/mustache.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -463,12 +478,10 @@
     <script id="tpl_category" type="text/html">
 
       <h5 class="alert alert--head bg-red pl-3" role="alert">Categories</h5>
-
-      <div class="ml-3">
       
       {{#categories}}
 
-      <div id="cid-{{qid}}">
+      <div class="ml-3" id="cid-{{qid}}">
 
         <h5 class="mb-3 font-weight-bold position-relative">{{key}}
           <button class="btn btn-download" style="right: 3rem;" data-html2canvas-ignore>
@@ -483,7 +496,7 @@
 
           <!-- Breakdown By Rows -->
           {{#values}}
-          <div class="row align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
+          <div class="row pb-1 align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
             <div class="col-3 gq-tuple__title">
               <label>{{key}}</label>
             </div>
@@ -491,11 +504,11 @@
               {{#showAxis}}
               <div class="diamond">
                 <svg width="20" height="20" class="js-skip-viewbox-auto-adjust">
-                  <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)"></path>
+                  <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)scale(.8)"></path>
                 </svg>
               </div>
               {{/showAxis}}
-              <label><b>{{averageFormatted}}</b></label>
+              <label>{{averageFormatted}}</label>
             </div>
             <div class="col gq-tuple__graph">
 
@@ -508,8 +521,6 @@
       </div>
 
       {{/categories}}
-
-      </div>
       
     </script>
 
@@ -520,20 +531,29 @@
       
         <div class="alert alert--head" data-category="{{key}}" role="alert">{{key}}</div>
 
-        <div class="ml-3">
+        {{#values}}
+
+        {{^isFreeform}}
+
+        <div class="gq ml-3" id="qid-{{qid}}">
+
+          <h5 class="gq__title pr-5">
+            <b>Q{{srno}}:</b>{{key}}
+            <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
+              <i class="fas fa-arrow-down"></i>
+            </button>
+          </h5>
+          
+          <!-- Breakdown By Statements -->
 
           {{#values}}
-          <div class="gq" id="qid-{{qid}}">
+            <h6 class="gq__subtitle mt-3">
+              <b>{{key}}</b>
+            </h6>
 
-            <h5 class="gq__title">
-              <b>Q{{srno}}:</b>{{key}}
-              <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
-                <i class="fas fa-arrow-down"></i>
-              </button>
-            </h5>
-            <!-- Breakdown By Rows -->
+            <!-- Breakdown by: -->
             {{#values}}
-            <div class="row align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
+            <div class="row pb-1 align-items-center gq-tuple consistency-row--category {{#showAxis}}show-axis{{/showAxis}}" data-id="{{qid}}-{{kid}}">
               <div class="col-3 gq-tuple__title">
                 <label>{{key}}</label>
               </div>
@@ -541,22 +561,25 @@
                 {{#showAxis}}
                 <div class="diamond">
                   <svg width="20" height="20" class="js-skip-viewbox-auto-adjust">
-                    <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)"></path>
+                    <path d="M0,-9.070414177948088L9.164410617774521,0L0,9.070414177948088L-9.164410617774521,0Z" transform="translate(10, 10)scale(.8)"></path>
                   </svg>
                 </div>
                 {{/showAxis}}
-                <label><b>{{averageFormatted}}</b></label>
+                <label>{{averageFormatted}}</label>
               </div>
               <div class="col gq-tuple__graph">
 
               </div>
             </div>
             {{/values}}
-            
-          </div>
-          {{/values}}
 
+          {{/values}}
+          
         </div>
+
+        {{/isFreeform}}
+
+        {{/values}}
 
       {{/questions}}
       
@@ -572,7 +595,7 @@
 
         // Read data File
         // 
-        d3.json('data/data.json').then(function(data, error){
+        d3.json('data/data-new.json').then(function(data, error){
           if (error) {
             alert('Error reading data file.');
             return;
@@ -617,11 +640,17 @@
 
             // Update the graph based on new settings
             // 
-            var aBreakdownBy = ['category', 'question', oSettings.breakdownBy];
+            //var aBreakdownBy = ['category', 'question', oSettings.breakdownBy];
 
             // Filter the raw dataset and update
+            // Only question type: multipart and apply
             // 
-            drawQuestionsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+            oSettings.filters.push({
+              name: "qType",
+              values: ["multipart", "freeform"]
+            });
+            
+            drawQuestionsTabGraphs(filterData(aDataset, oSettings), oSettings.breakdownBy);
 
           }
 
@@ -635,7 +664,7 @@
          * Draw graphs for Questions tab
          * @param  {array of Objects} data dataset
          */
-        function drawQuestionsTabGraphs(data, aBreakdownBy) {
+        function drawQuestionsTabGraphs(data, sBreakdownBy) {
 
           var oConfig,
           tpl = $('#tpl_question').html(),
@@ -659,59 +688,81 @@
                 q.qid = 'q-'+ ++i;
                 q.srno = srno+1;
 
-                // Assign an Id to every Key
-                // Add a key for 'All'
-                // 
-                var oAll = {
+                // assign question type
+                q.isFreeform = q.qType == 'freeform';
+                q.isMultipart = q.qType == 'multipart';
+                q.isApply = q.qType == 'apply';
 
-                  key: 'All',
+                // only for multipart and apply types
+                if (!q.isFreeform) {
 
-                  // Show Axis? True of 'All' data tuple
-                  showAxis: true
+                  // for each statement
+                  q.values = q.values.map(function(s){
 
-                };
+                    // Assign an Id to every Key
+                    // Add a key for 'All'
+                    // 
+                    var oAll = {
 
-                q.values.unshift(oAll);
+                      key: 'All',
 
-                q.values = q.values.map(function(k){
+                      // Show Axis? True of 'All' data tuple
+                      showAxis: true
 
-                  k.kid = 'k-'+ ++j;
+                    };
 
-                  key = q.qid + '-' + k.kid;
+                    s.values.unshift(oAll);
 
-                  // dummy data
-                  avg = d3.randomUniform(.3, .7)();
-                  
-                  // Graph Data
-                  // 
-                  var gd = {
-                    kid: k.kid,
+                    s.values = s.values.map(function(k){
 
-                    // Breakdown by Key
-                    key: k.key,
+                      k.kid = 'k-'+ ++j;
 
-                    // average
-                    average: avg,
+                      key = q.qid + '-' + k.kid;
 
-                    averageFormatted: format(avg),
-                    
-                    // lower deviation value
-                    lower: d3.randomUniform(.2, avg)(),
+                      // dummy data
+                      avg = d3.randomUniform(.3, .7)();
+                      
+                      // Graph Data
+                      // 
+                      var gd = {
+                        kid: k.kid,
 
-                    // upper deviation value
-                    upper: d3.randomUniform(avg, 0.9)(),
+                        // Breakdown by Key
+                        key: k.key,
 
-                    showAxis: k.showAxis
-                  }
-                  
-                  qDataMap[key] = {
-                    category: cat.key,
-                    values: gd
-                  };
+                        // average
+                        average: avg,
 
-                  return gd;
+                        averageFormatted: format(avg),
+                        
+                        // lower deviation value
+                        lower: avg - .2,
 
-                });
+                        // upper deviation value
+                        upper: avg + .2,
+
+                        showAxis: k.showAxis
+                      }
+                      
+                      qDataMap[key] = {
+                        category: cat.key,
+                        values: gd
+                      };
+
+                      return gd;
+
+                    });
+
+                    // filter undefined key
+                    s.values = s.values.filter(function(d){
+                      return d.key != 'undefined';
+                    });
+
+                    return s;
+
+                  });
+
+                }
 
                 return q;
               });
@@ -722,7 +773,7 @@
 
           }
 
-          qData = parseData(getStructuredData(data, aBreakdownBy));
+          qData = parseData(getStructuredQuestionData(data, sBreakdownBy));
 
           tData = {
             questions: qData
@@ -749,12 +800,13 @@
             DeviationBar({
               el: el[0],
               width: el.width(),
-              height: bShowAxis ? 55 : 30,
+              height: bShowAxis ? 55 : 20,
               barHeight: bShowAxis ? 25 : 20,
               data: data.values,
               category: data.category,
               fill: categoryColorMap[data.category][2],
-              showAxis: bShowAxis
+              showAxis: bShowAxis,
+              isAll: bShowAxis
             });
             
 
@@ -766,7 +818,7 @@
             var colors = categoryColorMap[$(this).data('category')];
             // last color of the pallete
             // 
-            $(this).css('background', colors ? colors[1] : 'gray');
+            $(this).css('background', colors ? colors[2] : 'gray');
 
           });
 
@@ -824,10 +876,10 @@
                   averageFormatted: format(avg),
                   
                   // lower deviation value
-                  lower: d3.randomUniform(.2, avg)(),
+                  lower: avg - .2,
 
                   // upper deviation value
-                  upper: d3.randomUniform(avg, 0.9)()
+                  upper: avg + .2
                 }
 
                 qDataMap[key] = {
@@ -857,10 +909,10 @@
                 averageFormatted: format(avg),
                 
                 // lower deviation value
-                lower: d3.randomUniform(.2, avg)(),
+                lower: avg - .2,
 
                 // upper deviation value
-                upper: d3.randomUniform(avg, 0.9)()
+                upper: avg + .2
               };
 
               cat.values.unshift(oAll);
@@ -869,6 +921,11 @@
                 category: cat.key,
                 values: oAll
               };
+
+              // filter undefined key
+              cat.values = cat.values.filter(function(d){
+                return d.key != 'undefined';
+              });
 
               return cat;
 
@@ -904,12 +961,13 @@
             DeviationBar({
               el: el[0],
               width: el.width(),
-              height: bShowAxis ? 55 : 30,
+              height: bShowAxis ? 55 : 20,
               barHeight: bShowAxis ? 25 : 20,
               data: data.values,
               category: data.category,
               fill: categoryColorMap[data.category][2],
-              showAxis: bShowAxis
+              showAxis: bShowAxis,
+              isAll: bShowAxis
             });
             
 

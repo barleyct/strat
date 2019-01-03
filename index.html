@@ -14,7 +14,7 @@
     <!-- fonts -->
     <script defer src="fonts/js/all.min.js"></script>
 
-    <title>Strategy 360° Radar</title>
+    <title>Strategy& - Strategy threesixty - Dashboard</title>
   </head>
   <body>
 
@@ -26,7 +26,7 @@
 
           <a class="navbar-brand" href="index.html">
             <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
-            Strategy 360° radar
+            Strategy threesixty radar
           </a>
 
           <!-- client logo -->
@@ -100,7 +100,7 @@
               <!-- Graphs -->
               <div class="row">
 
-                <div class="col-5">
+                <div class="col-5 col-md-12 col-lg-5">
 
                   <h4>Performance by Category</h4>
 
@@ -110,14 +110,14 @@
                       <!-- Filled using template -->
                     </div>
 
-                    <div class="graph" id="perf_cat_graph">
+                    <div class="graph cursor-p" id="perf_cat_graph">
 
                       <svg class="w-100 h-100"></svg>
                       
                     </div>
 
                     <button type="button" class="md-cb btn btn-transparent pl-0 js-show-details" data-html2canvas-ignore>
-                      <input type="checkbox" /> <label>See Details</label>
+                      <input type="checkbox" /> <label>See details</label>
                     </button>
                     
                   </div>
@@ -128,7 +128,7 @@
                   
                 </div>
 
-                <div class="col-7">
+                <div class="col-7 col-md-12 col-lg-7 pr-5-ipad-l">
 
                   <div>
                     <h4 class="inline">Performance by</h4>
@@ -138,7 +138,6 @@
                         Org. Unit
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <a class="dropdown-item" href="#" data-value="Year">Year</a>
                         <a class="dropdown-item" href="#" data-value="Management Level">Management Level</a>
                         <a class="dropdown-item" href="#" data-value="Tenure">Tenure</a>
                         <a class="dropdown-item" href="#" data-value="Org. Unit">Org. Unit</a>
@@ -154,7 +153,7 @@
                     
                   </div>
 
-                  <button class="btn btn-download" data-target="#perf_cat_table" data-html2canvas-ignore>
+                  <button class="btn btn-download mr-5-ipad-l" data-target="#perf_cat_table" data-html2canvas-ignore>
                     <i class="fas fa-arrow-down"></i>
                   </button>
                   
@@ -200,16 +199,16 @@
             </div>
 
             <!-- Camera Button -->
-            <button class="btn btn-camera js-btn-camera" data-target="#nav-dashb" data-html2canvas-ignore>
+            <button class="btn btn-camera js-btn-download" data-target="#nav-dashb" data-html2canvas-ignore>
               <i class="fas fa-camera" aria-hidden="true"></i>
             </button>
 
 
-            <!-- PDF Button -->
+            <!-- PDF Button
             <button class="btn btn-pdf mt-5 js-btn-pdf" data-target="#nav-dashb" data-html2canvas-ignore>
               <i class="fas fa-file-pdf" aria-hidden="true"></i>
             </button>
-
+             -->
             
           </div>
 
@@ -247,7 +246,7 @@
                       </div>
                       <div class="dropright">
                         <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                          <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
                           <i class="fas fa-chevron-right"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
@@ -265,15 +264,15 @@
                       </div>
                       <div class="dropright">
                         <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="management" checked /> <label>Management Level</label>
+                          <input type="checkbox" value="management"/> <label>Management Level</label>
                           <i class="fas fa-chevron-right"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="C-Level" checked /> <label>C-Level</label>
+                            <input type="checkbox" value="C-Level"/> <label>C-Level</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Middle Management" checked /> <label>Middle Management</label>
+                            <input type="checkbox" value="Middle Management" /> <label>Middle Management</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
                             <input type="checkbox" value="Low Management" /> <label>Low Management</label>
@@ -282,10 +281,7 @@
                             <input type="checkbox" value="Staff" /> <label>Staff</label>
                           </button>
                         </div>
-                        <div class="dropdown-item-selection active">
-                          <span class="dropdown-item-text">C-Level</span>
-                          <span class="dropdown-item-text">Middle Management</span>
-                        </div>
+                        <div class="dropdown-item-selection active"></div>
                       </div>
                       <div class="dropright">
                         <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -322,17 +318,17 @@
                     <div class="dropdown-menu show">
                       <h6 class="dropdown-header">Go to:</h6>
 
-                      <button type="button" class="dropdown-item js-hook" data-url="details.html" data-tab="nav-cat" data-modal="modalCategories">
+                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-cat">
                         <i class="far fa-eye"></i>
                         <label>All Categories</label>
                       </button>
 
-                      <button type="button" class="dropdown-item js-hook" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter">
+                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions">
                         <i class="far fa-question-circle"></i>
                         <label>All Questions</label>
                       </button>
 
-                      <button type="button" class="dropdown-item js-hook" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter" data-tag="questions-not-on-chart">
+                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter" data-tag="questions-not-on-chart">
                         <i class="far fa-question-circle"></i>
                         <label>Questions not on<br>this chart</label>
                       </button>
@@ -351,14 +347,14 @@
                     <div class="col-10">
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa. Donec blandit, diam a tempor consequat, augue ante tristique mauris, aliquam dictum sem est vitae orci. </p>
                     </div>
-                    <div class="col-2">
+                    <div class="col-1">
                       <button class="btn btn-download" data-target="#sp_question_graph" data-html2canvas-ignore>
                         <i class="fas fa-arrow-down"></i>
                       </button>
                     </div>
                   </div>
 
-                  <div class="row" id="sp_question_graph">
+                  <div class="row" id="sp_question_graph" html2canvas-no-padding>
                     <!-- Graph Info -->
                     <div class="insights-content__graphinfo graph-info js-question-graph-info w-50 text-right">
                       <!-- Filled using template -->
@@ -433,8 +429,8 @@
                     <h6 class="dropdown-header">Categories:</h6>
                     
                     <button type="button" class="dropdown-item md-cb">
-                      <input type="checkbox" checked value="Strategy 360">
-                      <label>Strategy 360°</label>
+                      <input type="checkbox" checked value="strategythreesixty">
+                      <label>Strategy threesixty</label>
                     </button>
 
                     <button type="button" class="dropdown-item md-cb">
@@ -496,7 +492,7 @@
                     <div class="dropdown-menu show">
                       <h6 class="dropdown-header">Filter for:</h6>
                       <div class="dropright">
-                        <!-- TODO: On button click, toggle the checkbox :checked attribute -->
+                        
                         <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <input type="checkbox" value="year" checked /> <label>Year</label>
                           <i class="fas fa-chevron-right"></i>
@@ -515,7 +511,7 @@
                       </div>
                       <div class="dropright">
                         <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                          <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
                           <i class="fas fa-chevron-right"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
@@ -602,18 +598,22 @@
                   <!-- Categories -->
                   <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
                     <div class="dropdown-menu show">
-                      <h6 class="dropdown-header">Breakdown By:</h6>
+                      <h6 class="dropdown-header">Breakdown by:</h6>
                       <button type="button" class="dropdown-item md-cb md-cb--radio">
                         <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
                       </button>
                       <button type="button" class="dropdown-item md-cb md-cb--radio">
-                        <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                        <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org. Unit</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
                       </button>
                       <button type="button" class="dropdown-item md-cb md-cb--radio">
                         <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
                       </button>
                       <button type="button" class="dropdown-item md-cb md-cb--radio">
                         <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                        <span class="md-cb__unset js-md-cb-reset">&times;</span>
                       </button>
                     </div>
                   </div>
@@ -655,15 +655,16 @@
     <!-- Template -->
     <!-- Overall template for Dashboard -->
     <script type="text/html" id="tpl_perf_info">
-      <div>Overall</div>
+      <div style="font-size: 1.4rem; line-height: 1; ">Overall</div>
       <div class="graph-info__value ml-2 mr-3">{{value}}</div>
       <div class="graph-info__benchmark">
         <div class="hl-indicator graph-info__benchmarkr1">
-          <span class="hl-indicator__figure">{{movement}}</span>
-          <span class="hl-indicator__indicator {{#indicator}}text-success{{/indicator}} {{^indicator}}text-danger{{/indicator}}">
-            <i class="fas fa-caret-{{#indicator}}up{{/indicator}} {{^indicator}}down{{/indicator}}"></i>
-          </span>
-          <span>vs</span>
+          <span class="hl-indicator__figure mr-0">{{movement}}</span>
+          <i class="hl-indicator__indicator {{#indicator}}text-success{{/indicator}} {{^indicator}}text-danger{{/indicator}}">
+            <!--<i class="fas fa-caret-{{#indicator}}up{{/indicator}} {{^indicator}}down{{/indicator}}"></i>-->
+            {{#indicator}}▲{{/indicator}}{{^indicator}}▼{{/indicator}}
+          </i>
+          <span>vs.</span>
           <span class="hl-indicator__year">{{prevYear}}</span>
         </div>
         <div class="graph-info__benchmarkr2">
@@ -679,11 +680,12 @@
       </div>
       <div class="graph-info__benchmark">
         <div class="hl-indicator graph-info__benchmarkr1 mb-0">
-          <span class="hl-indicator__figure">{{movement}}</span>
-          <span class="hl-indicator__indicator {{#indicator}}text-success{{/indicator}} {{^indicator}}text-danger{{/indicator}}">
-            <i class="fas fa-caret-{{#indicator}}up{{/indicator}} {{^indicator}}down{{/indicator}}"></i>
-          </span>
-          <span>vs</span>
+          <span class="hl-indicator__figure mr-0">{{movement}}</span>
+          <i class="hl-indicator__indicator {{#indicator}}text-success{{/indicator}} {{^indicator}}text-danger{{/indicator}}">
+            <!--<i class="fas fa-caret-{{#indicator}}up{{/indicator}} {{^indicator}}down{{/indicator}}"></i>-->
+            {{#indicator}}▲{{/indicator}}{{^indicator}}▼{{/indicator}}
+          </i>
+          <span>vs.</span>
           <span class="hl-indicator__year">{{prevYear}}</span>
         </div>
         <div class="graph-info__benchmarkr2">
@@ -705,7 +707,7 @@
             </div>
             <div class="tbody">
                 {{#rows}}
-                <div class="trow">
+                <div class="trow" data-org-unit="{{firstCol}}">
                     <span>{{firstCol}}</span>
                 </div>
                 {{/rows}}
@@ -722,10 +724,10 @@
               {{#rows}}
               <div class="trow">
                   {{#otherCols}}
-                  <span>
-                    <b>{{.}}%</b>
+                  <span class="js-perf-row-click" data-org-unit="{{firstCol}}" data-year="{{year}}">
+                    <b>{{value}}%</b>
                     <div class="tbar">
-                      <div class="tbar__value" style="width: {{.}}%"></div>
+                      <div class="tbar__value" style="width: {{value}}%"></div>
                     </div>
                   </span>
                   {{/otherCols}}
@@ -752,7 +754,7 @@
 
         <div class="alert alert-secondary" role="alert">
           <b class="mr-2">Q{{srno}}:</b>{{key}}
-          <button class="btn btn-download" data-target="#id-{{qid}}-{{kid}}">
+          <button class="btn btn-download" data-target="#questions_list" data-html2canvas-ignore>
             <i class="fas fa-arrow-down"></i>
           </button>
         </div>
@@ -795,20 +797,23 @@
             <span class="pc-indicator__rt">{{rate}}%</span>
           </div>
 
+          <div class="col col-sm-auto">
+            <label>Progress:</label>
+            <span class="pc-indicator__pg">{{progressValue}}%</span>
+            <span class="pc-indicator__pgindicator text-{{#progressMovementUp}}success{{/progressMovementUp}}{{^progressMovementUp}}danger{{/progressMovementUp}}">
+              <!--
+              <i class="fas fa-caret-{{#progressMovementUp}}up{{/progressMovementUp}}{{^progressMovementUp}}down{{/progressMovementUp}}"></i>
+              -->
+              {{#progressMovementUp}}▲{{/progressMovementUp}}
+              {{^progressMovementUp}}▼{{/progressMovementUp}}
+            </span>
+            <span>vs.</span>
+            <span class="pc-indicator__pgyear">{{progressYear}}</span>
+          </div>
+
           <div class="col-md-auto">
             <label>Benchmark:</label>
             <span class="pc-indicator__bm">{{benchmark}}%</span>
-          </div>
-
-          <div class="col">
-            <label>Progress:</label>
-            <span class="pc-indicator__pg">{{progressValue}}%</span>
-            <span class="pc-indicator__pgfigure">{{progressMovement}}%</span>
-            <span class="pc-indicator__pgindicator text-{{#progressMovementUp}}success{{/progressMovementUp}}{{^progressMovementUp}}danger{{/progressMovementUp}}">
-              <i class="fas fa-caret-{{#progressMovementUp}}up{{/progressMovementUp}}{{^progressMovementUp}}down{{/progressMovementUp}}"></i>
-            </span>
-            <span>vs</span>
-            <span class="pc-indicator__pgyear">{{progressYear}}</span>
           </div>
           
         </div>
@@ -818,12 +823,12 @@
       <div class="col">
         {{#figureValue}}
         <span class="pc-indicator__icon text-danger">
-          <i class="fas fa-user-tie"></i>
+          <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --> <g> <g id="svg_1"> <path d="m0,0l0,101.000002l15.618055,0l2.875,-22.654862c1.229167,-3.766458 4.166667,-6.761389 7.888889,-8.037917l14.958333,-5.134167c0.173611,-0.056111 0.375,-0.014028 0.5,0.119236l1.166667,1.213403c1.854167,1.921806 4.333333,2.980903 6.993055,2.980903c2.659722,0 5.138889,-1.059097 6.993055,-2.980903l1.166667,-1.213403c0.131944,-0.133264 0.326389,-0.182361 0.5,-0.119236l14.958333,5.134167c3.722222,1.276528 6.659722,4.271458 7.888889,8.037917l2.875,22.654862l15.618055,0l0,-101.000002l-99.999999,0l0.000001,0zm95.743054,96.700488l-7.597222,0l-2.416667,-19.091806l-0.083333,-0.371736c-1.604167,-5.148195 -5.583333,-9.258334 -10.638889,-10.997778l-14.958333,-5.134167c-1.722222,-0.589167 -3.659722,-0.119236 -4.930555,1.199375l-1.166667,1.213403c-1.041667,1.080139 -2.4375,1.676319 -3.9375,1.676319c-1.493056,0 -2.895833,-0.596181 -3.9375,-1.676319l-1.166667,-1.213403c-1.270833,-1.318611 -3.208333,-1.788542 -4.930555,-1.199375l-14.958333,5.134167c-5.0625,1.739444 -9.041667,5.849583 -10.638889,10.997778l-2.5,19.463542l-7.597222,0l0,-92.386946l91.472221,0l0,92.386946l-0.013889,0zm-45.73611,-37.882015c4.159722,0 6.534722,-2.300556 9,-5.08507c3,-3.387708 4.513889,-9.21625 4.513889,-17.33132c0,-8.283403 -6.0625,-15.02375 -13.513889,-15.02375c-7.451389,0 -13.513889,6.740347 -13.513889,15.02375c0,8.11507 1.520833,13.943611 4.513889,17.33132c2.465278,2.7775 4.840278,5.08507 9,5.08507m0,-33.133612c5.097222,0 9.25,4.804514 9.25,10.710209c0,6.824514 -1.222222,11.958681 -3.430556,14.462639c-2.534722,2.868681 -3.784722,3.647222 -5.819444,3.647222c-2.034722,0 -3.284722,-0.785556 -5.819444,-3.647222c-2.215278,-2.503958 -3.430556,-7.638125 -3.430556,-14.462639c0,-5.905695 4.145833,-10.710209 9.25,-10.710209" id="svg_2" stroke="null" fill="#d93954"/> </g> </g> </svg>
         </span>
         {{/figureValue}}
         {{#figureValueInverse}}
         <span class="pc-indicator__icon text-secondary">
-          <i class="fas fa-user-tie"></i>
+          <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --> <g> <g id="svg_1"> <path d="m0,0l0,101.000002l15.618055,0l2.875,-22.654862c1.229167,-3.766458 4.166667,-6.761389 7.888889,-8.037917l14.958333,-5.134167c0.173611,-0.056111 0.375,-0.014028 0.5,0.119236l1.166667,1.213403c1.854167,1.921806 4.333333,2.980903 6.993055,2.980903c2.659722,0 5.138889,-1.059097 6.993055,-2.980903l1.166667,-1.213403c0.131944,-0.133264 0.326389,-0.182361 0.5,-0.119236l14.958333,5.134167c3.722222,1.276528 6.659722,4.271458 7.888889,8.037917l2.875,22.654862l15.618055,0l0,-101.000002l-99.999999,0l0.000001,0zm95.743054,96.700488l-7.597222,0l-2.416667,-19.091806l-0.083333,-0.371736c-1.604167,-5.148195 -5.583333,-9.258334 -10.638889,-10.997778l-14.958333,-5.134167c-1.722222,-0.589167 -3.659722,-0.119236 -4.930555,1.199375l-1.166667,1.213403c-1.041667,1.080139 -2.4375,1.676319 -3.9375,1.676319c-1.493056,0 -2.895833,-0.596181 -3.9375,-1.676319l-1.166667,-1.213403c-1.270833,-1.318611 -3.208333,-1.788542 -4.930555,-1.199375l-14.958333,5.134167c-5.0625,1.739444 -9.041667,5.849583 -10.638889,10.997778l-2.5,19.463542l-7.597222,0l0,-92.386946l91.472221,0l0,92.386946l-0.013889,0zm-45.73611,-37.882015c4.159722,0 6.534722,-2.300556 9,-5.08507c3,-3.387708 4.513889,-9.21625 4.513889,-17.33132c0,-8.283403 -6.0625,-15.02375 -13.513889,-15.02375c-7.451389,0 -13.513889,6.740347 -13.513889,15.02375c0,8.11507 1.520833,13.943611 4.513889,17.33132c2.465278,2.7775 4.840278,5.08507 9,5.08507m0,-33.133612c5.097222,0 9.25,4.804514 9.25,10.710209c0,6.824514 -1.222222,11.958681 -3.430556,14.462639c-2.534722,2.868681 -3.784722,3.647222 -5.819444,3.647222c-2.034722,0 -3.284722,-0.785556 -5.819444,-3.647222c-2.215278,-2.503958 -3.430556,-7.638125 -3.430556,-14.462639c0,-5.905695 4.145833,-10.710209 9.25,-10.710209" id="svg_2" stroke="null"/> </g> </g> </svg>
         </span>
         {{/figureValueInverse}}
       </div>
@@ -834,25 +839,29 @@
     <script id="tpl_highlights" type="text/html">
 
       {{#highlights}}
-      <div class="hl-indicator cursor-p" data-question="{{question}}">
+      <div class="hl-indicator cursor-p pr-lg-5" data-question="{{question}}">
 
         <h5 class="hl-indicator__title">{{title}}</h5>
 
         <p class="hl-indicator__content">{{question}}</p>
 
-        <div class="row justify-content-start">
+        <div class="row justify-content-start mt-2">
 
-          <div class="col-4">
+          <div class="col-4 col-sm-6">
             <span class="hl-indicator__figure">{{value}}%</span>
             <span class="hl-indicator__term">{{text}}</span>
           </div>
 
-          <div class="col-4">
+          <div class="col-4 col-sm-6">
             <span class="hl-indicator__figure">{{indicatorValue}}%</span>
             <span class="hl-indicator__indicator text-{{#indicatorMovementUp}}success{{/indicatorMovementUp}}{{^indicatorMovementUp}}danger{{/indicatorMovementUp}}">
+              <!--
               <i class="fas fa-caret-{{#indicatorMovementUp}}up{{/indicatorMovementUp}}{{^indicatorMovementUp}}down{{/indicatorMovementUp}}"></i>
+              -->
+              {{#indicatorMovementUp}}▲{{/indicatorMovementUp}}
+              {{^indicatorMovementUp}}▼{{/indicatorMovementUp}}
             </span>
-            <span>vs</span>
+            <span>vs.</span>
             <span class="hl-indicator__year">{{indicatorYear}}</span>
           </div>
           
@@ -868,6 +877,7 @@
     <script src="js/mustache.min.js"></script>
     <script src="js/d3.5.7.0.min.js"></script>
     <script src="js/d3-legend.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -879,7 +889,7 @@
 
       var categoryData = [{
         name: "Value Proposition",
-        color: categoryColorMap["Value Proposition"][1],
+        color: "#ec9ca9",
         value: 1,
         // actual percentage
         depth: 61,
@@ -890,7 +900,7 @@
         benchmark: '24%'
       }, {
         name: "Capabilities",
-        color: categoryColorMap["Capabilities"][1],
+        color: "#f5c57f",
         value: 1,
         depth: 31,
         indicator: 1,
@@ -899,7 +909,7 @@
         benchmark: '24%'
       }, {
         name: "Portfolio",
-        color: categoryColorMap["Portfolio"][1],
+        color: "#ffe9b2",
         value: 1,
         depth: 94,
         indicator: -1,
@@ -908,7 +918,7 @@
         benchmark: '24%'
       }, {
         name: "Leadership",
-        color: categoryColorMap["Leadership"][1],
+        color: "#f3aca5",
         value: 1,
         depth: 67,
         indicator: -1,
@@ -917,7 +927,7 @@
         benchmark: '24%'
       }, {
         name: "Impact",
-        color: categoryColorMap["Impact"][1],
+        color: "#e3bcbc",
         value: 1,
         depth: 26,
         // 1 for Up -1 for false
@@ -950,11 +960,26 @@
       // Performance breakdown by Category - Table Data 
       var tableData = {
         breakdownBy: "Org. Unit",
-        years: [2018, 2017, 2016, 2015],
-        rows: d3.range(15).map(function(d){
-          return {
-            firstCol: "Category " + d,
-            otherCols: [45, 85, 69, 89]
+        years: [2018, 2017],
+        rows: d3.range(1,15).map(function(d){
+          return d == 1 ? {
+            firstCol: "All",
+            otherCols: [{
+              value: 78,
+              year: 2018
+            }, {
+              value: 89,
+              year: 2017
+            }]
+          }: {
+            firstCol: "Org. Unit " + d,
+            otherCols: [{
+              value: 45,
+              year: 2018
+            }, {
+              value: 59,
+              year: 2017
+            }]
           };
         })
       };
@@ -966,7 +991,7 @@
       var benchmarkData = {
         
         "Value Proposition": {
-          color: categoryColorMap["Value Proposition"][1],
+          color: "#ec9ca9",
           value: "23%",
           allOrgValue: '45%',
           // 1 for Up -1 for false
@@ -976,7 +1001,7 @@
           benchmark: '24%'
         }, 
         "Capabilities": {
-          color: categoryColorMap["Capabilities"][1],
+          color: "#f5c57f",
           value: "23%",
           allOrgValue: '45%',
           indicator: 1,
@@ -985,7 +1010,7 @@
           benchmark: '24%'
           }, 
         "Portfolio": {
-          color: categoryColorMap["Portfolio"][1],
+          color: "#ffe9b2",
           value: "23%",
           allOrgValue: '45%',
           indicator: -1,
@@ -994,7 +1019,7 @@
           benchmark: '24%'
           }, 
         "Leadership": {
-          color: categoryColorMap["Leadership"][1],
+          color: "#f3aca5",
           value: "23%",
           allOrgValue: '45%',
           indicator: -1,
@@ -1002,8 +1027,8 @@
           prevYear: '2017',
           benchmark: '24%'
           }, 
-        "Strategy 360": {
-          color: categoryColorMap["Impact"][1],
+        "Impact": {
+          color: "#e3bcbc",
           value: "23%",
           allOrgValue: '45%',
           // 1 for Up -1 for false
@@ -1126,9 +1151,12 @@
         var firstArcSection = /(^.+?)L/;
         var adeg = Math.PI / 180;
         var svg = d3.select(target)
+          //.attr("viewBox", [-(width / 2), -(height / 2), width, height])
+          //.attr("preserveAspectRatio", "xMidYMid meet")
           .attr("text-anchor", "middle");
 
         var g = svg.append("g")
+          //.attr("transform", 'translate(0,0)');
           .attr("transform", 'translate(' + (width / 2) + ', ' + (height / 2) + ')');
 
         // Create full slices
@@ -1183,7 +1211,7 @@
           .attr("fill", function(d){ 
             return d.data.color; 
           })
-          .attr("fill-opacity", 0.8)
+          //.attr("fill-opacity", 0.8)
           .attr("stroke", "none")
           .attr("d", arc);
 
@@ -1228,14 +1256,15 @@
         var text = gText.selectAll("text")
           .data(arcs)
           .enter().append("text")
+          .style("font-size", "0.75rem")
           .attr("transform", function(d){ 
             return 'translate(' + arcLabel.centroid(d) + ')'; })
           .attr("dy", "0.35em");
 
         text.append("tspan")
           .attr("x", 0)
-          .attr("y", "-0.7em")
-          .style("font-size", "1.5em")
+          .attr("y", "-0.5em")
+          .style("font-size", "1.5rem")
           .style("font-weight", "bold")
           .text(function(d){ return d.data.depth + '%'; });
 
@@ -1275,6 +1304,56 @@
             // Not the first one
             return i > 0;
           });
+
+
+        // Handle size
+        // 
+        var bbox = svg.node().getBBox();        
+        svg
+          .attr("class", "graph-svg")
+          .attr("width", bbox.width)
+          .attr("height", bbox.height)
+          .style("width", bbox.width+'px')
+          .style("height", bbox.height+'px')
+          .attr("viewBox", [0, 0, bbox.width, bbox.height])
+          .attr("preserveAspectRatio", "xMidYMid meet");
+        
+
+        g.attr("transform", 'translate(' + (bbox.width / 2) + ', ' + (bbox.height / 2) + ')');
+        
+        // bind resize to set graph dimensions
+        // 
+        $( window ).resize(function() {
+          // only if details tab is active
+          // 
+          if (!bDrawQuestionsTabGraph) {
+            var parentbox = $(target).parent()[0].getBoundingClientRect(),
+            size = Math.min(parentbox.width, parentbox.height);
+
+            svg
+              .attr("width", size)
+              .attr("height", size)
+              .style("width", size+'px')
+              .style("height", size+'px');
+          }
+            
+        });
+
+        // bind click event
+        // 
+        svg.on('click', function(){
+          goToTab('nav-insights', {
+            year: '2018'
+          });
+        });
+
+
+      }
+
+      // Select a tab and set filter settings
+      function goToTab(sTabId, oFilterSettings) {
+        selectTab(sTabId);
+        initFilters(oFilterSettings);
       }
 
       // Category Graph - Table
@@ -1289,15 +1368,25 @@
         target.html(Mustache.render(tpl, tableData));
 
         initTableFixed();
+
+        // Bind click events
+        // 
+        target.find('.js-perf-row-click').on('click', function(){
+
+          var oData = $(this).data();
+
+          goToTab('nav-insights', {
+            year: oData.year.toString(),
+            org_unit: oData.orgUnit
+          });
+
+        })
         
       }
 
       // Question Graph - Insights
       // 
-      function drawQuestionsGraph(benchmarkData, progressData, aData) {
-
-        // Create a structure out of questions dataset
-        var data = generateBucketedData(aData);
+      function drawQuestionsGraph(benchmarkData, progressData, aData, bFilterOrgActive) {
 
         var target = '#questions_graph svg';
 
@@ -1305,15 +1394,31 @@
 
         var width = $(target).width(),
           height = $(target).height(),
-          iReduceRadiusBy = 60,
+          iReduceRadiusBy = 40,
           maxWidth = Math.min(width, height),
           width = maxWidth - 150,
           radius = width / 3,
           outerRadius = radius + 5 - iReduceRadiusBy,
           outerArcRadius = outerRadius + 20,
           maxRadius = outerArcRadius + 40,
-          labelRadius = maxRadius + 40;
-          
+          labelRadius = maxRadius + 40,
+          adeg = Math.PI/180,
+          ringData = d3.range(1, aData.length),
+          ringRadius = (radius - iReduceRadiusBy - 1) / aData.length;
+        
+        var qdata = d3.merge(aData.map(function(d){
+          return d.values.map(function(dv){
+            dv.name = d.key;
+            return dv;
+          });
+        }));
+
+        var cqdata = aData.map(function(d){
+          var obj = {};
+          obj.key = d.key;
+          obj.value = d3.sum(d.values, function(dv){ return dv.value; });
+          return obj;
+        });
 
         var pie = d3.pie()
         .sort(null)
@@ -1337,40 +1442,34 @@
         var x = d3.scaleLinear()
           .range([0, 2 * Math.PI]);
 
-        var partition = function(data){
-          return  d3.partition()
-            (d3.hierarchy(data, function(d){ return d.values; })
-              .count()
-              //.sum(d => d.value)
-              //.sort((a, b) => b.value - a.value)
-            );
-        };
-
-        var lArc = d3.arc()
-          .startAngle(function(d) { return x(d.x0); })
-          .endAngle(function(d) { return x(d.x1); })
-          .innerRadius(function(d, i) { 
-            return d.depth > 1 ? (y(d.y0) - iReduceRadiusBy) : 0;
-          })
-          .outerRadius(function(d, i) {
-            return y(d.y1)-.5 - iReduceRadiusBy;
-          })
-          .padAngle(function(d){ return Math.min((d.x1 - d.x0) / 2, 0.005); })
-          .padRadius(radius / 2);
-
-        var root = partition(data);
+        var qPie = d3.pie()
+        .sort(null)
+        .value(function(d) {
+          return d.value;
+        });
+        
+        var radiusScale = d3.scaleLinear()
+        .domain([0, d3.max(qdata, function(d){ return d.value; })])
+        .range([1, radius - iReduceRadiusBy - 1]);
+        
+        function fnOuterRadius(d) {
+          return radiusScale(d.value);
+        }
+        
+        var qarc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(fnOuterRadius);
+        
+        var qPieData = qPie(qdata);
 
         // Add Pie arcs
-        var pieData = pie(root.children.map(function(d){
-          return d;
-        }));
+        var pieData = pie(cqdata);
 
         function getBenchmarkData(sCategory) {
           return benchmarkData[sCategory] || {
 
           };
         }
-        
 
         var svg = d3.select(target)
         .classed('js-skip-viewbox-auto-adjust', true)
@@ -1380,19 +1479,36 @@
   
         var g = svg.append("g")
         .attr("transform", 'translate(' + (maxWidth / 2) + ', ' + /*(maxWidth / 2)*/ labelRadius + ')');
-  
+
         g.append("g")
-          .attr("fill-opacity", 0.6)
         .selectAll("path")
-        .data(root.descendants().filter(function(d){ return d.depth; }))
+        .data(qPieData)
         .enter().append("path")
-          .attr("fill", function(d){ while (d.depth > 1) d = d.parent; return getBenchmarkData(d.data.category).color; })
-          .attr("d", lArc)
+          .attr("fill", function(d){
+            return getBenchmarkData(d.data.name).color; 
+          })
+          .attr("stroke", "#ffffff")
+          .attr("stroke-width", 1)
+          .attr("d", qarc)
           .on('mouseover', showTooltip)
           .on('mouseout', hideTooltip)
           .on('click', function(d){
             onShowQuestion(d.data.key);
           });
+        
+        // Create concentric rings
+        var gRings = g.append("g")
+          .classed("g-rings", true)
+          .selectAll("circle")
+          .data(ringData);
+
+        gRings.enter().append("circle")
+          .attr("r", function(d) {
+          return d * ringRadius;
+        })
+        .attr("fill", "none")
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 1);
         
         
           // Create full slices
@@ -1442,44 +1558,135 @@
         var gText = g.append("g")
           .classed("g-text", true);
 
+        function isRight(d){
+          return (d.startAngle < 120 * adeg);
+        }
+
         var text = gText.selectAll("text")
           .data(pieData)
           .enter().append("text")
-          .attr("text-anchor", "middle")
-          .attr("transform", function(d){ 
-            return 'translate(' + arcLabel.centroid(d) + ')'; })
+          .attr("text-anchor", function(d){
+            return isRight(d) ? "end" : "start";
+          })
+          .style("font-size", "0.875rem")
+          .style("font-family", "Arial")
+          .attr("transform", function(d, i){ 
+            var cd = arcLabel.centroid(d),
+            topMargin = 30,
+            axisMargin = 100,
+            labelBoxSize = maxWidth - 50;
+            
+            // along a circular arc
+            cd[0] = cd[0] + (cd[0] > 0 ? 100 : -100) * (i == 2 ? 0 : 1);
+            
+            /**
+             * The placement of each label is as follows: - 
+             * Consider a square perimeter of the graph along which labels will be places. Starting point is top,left 0,0.
+             * 
+             * s - side of the square
+             * r - s/2
+             * 
+             * 1. Along X axis between s/2,0 to s,0
+             * 2. Along Y axis between s,s/5 to s,s-s/5
+             * 3. Along X axis between s/5,s to s-s/5,s
+             * 4. Along Y axis between 0, s/5 to 0, s-s/5
+             * 5. Along X axis between 0,0 to s/2,0
+             * 
+             */
+            switch(i){
+
+              case 0:
+                cd[0] = labelBoxSize/2;
+                cd[1] = -labelRadius + topMargin;
+                break;
+
+              case 1:
+                cd[0] = labelBoxSize/2;
+                // 2. Along Y axis between s,s/5 to s,s
+                // 
+                var ceil = -labelRadius + axisMargin,
+                floor = labelRadius - axisMargin;
+                
+                if (cd[1] < ceil) {
+                  cd[1] = ceil;
+                }else if (cd[1] > floor) {
+                  cd[1] = floor;
+                }
+
+                break;
+
+              case 2:
+                cd[1] = labelRadius;
+                break;
+
+              case 3:
+                cd[0] = -labelBoxSize/2;
+                // 2. Along Y axis between s,s/5 to s,s
+                // 
+                var ceil = -labelRadius + axisMargin,
+                floor = labelRadius - axisMargin;
+                
+                if (cd[1] < ceil) {
+                  cd[1] = ceil;
+                }else if (cd[1] > floor) {
+                  cd[1] = floor;
+                }
+
+                break;
+
+              case 4:
+                cd[0] = -labelBoxSize/2;
+                cd[1] = -labelRadius + topMargin;
+                break;
+
+            }
+
+            return 'translate(' + cd + ')'; 
+          })
           .attr("dy", "0.35em");
 
         text.append("tspan")
           .attr("x", 0)
           .attr("y", "-0.7em")
-          .text(function(d){ return d.data.data.category + ': ' + getBenchmarkData(d.data.data.category).value; });
+          .style("font-size", "1rem")
+          .style("font-weight", "bold")
+          .text(function(d){ return d.data.key + ': ' + getBenchmarkData(d.data.key).value; });
 
         text.append("tspan")
-          .attr("x", "-2em")
+          .attr("x", function(d){
+            return isRight(d) ? "-5em" : 0;
+          })
           .attr("y", "0.7em")
-          .text(function(d){ return getBenchmarkData(d.data.data.category).movement; });
+          .text(function(d){ return getBenchmarkData(d.data.key).movement; });
 
         text.append("tspan")
-          .attr("x", "-0.75em")
+          .attr("x", function(d){
+            return isRight(d) ? "-4em" : "1.65em";
+          })
           .attr("y", "0.7em")
-          .attr("class", function(d){ return getBenchmarkData(d.data.data.category).indicator > 0 ? 'up' : 'down'; })
-          .text(function(d){ return getBenchmarkData(d.data.data.category).indicator > 0 ? '▲' : '▼' });
+          .attr("class", function(d){ return getBenchmarkData(d.data.key).indicator > 0 ? 'up' : 'down'; })
+          .text(function(d){ return getBenchmarkData(d.data.key).indicator > 0 ? '▲' : '▼' });
 
         text.append("tspan")
-          .attr("x", "1.75em")
+          .attr("x", function(d){
+            return isRight(d) ? 0 : "2.75em";
+          })
           .attr("y", "0.7em")
-          .text(function(d){ return ('vs. ' + getBenchmarkData(d.data.data.category).prevYear); });
+          .text(function(d){ return ('vs. ' + getBenchmarkData(d.data.key).prevYear); });
+
+        if (bFilterOrgActive) {
+
+          text.append("tspan")
+            .attr("x", 0)
+            .attr("y", "1.7em")
+            .text(function(d){ return  'All Organization: ' + getBenchmarkData(d.data.key).allOrgValue; });
+
+        }
 
         text.append("tspan")
           .attr("x", 0)
-          .attr("y", "1.7em")
-          .text(function(d){ return  'All Organization: ' + getBenchmarkData(d.data.data.category).allOrgValue; });
-
-        text.append("tspan")
-          .attr("x", 0)
-          .attr("y", "2.8em")
-          .text(function(d){ return  'Benchmark: ' + getBenchmarkData(d.data.data.category).benchmark; });
+          .attr("y", bFilterOrgActive ? "2.8em" : "1.7em")
+          .text(function(d){ return  'Benchmark: ' + getBenchmarkData(d.data.key).benchmark; });
 
 
         try {
@@ -1557,6 +1764,11 @@
                   oAll.values[z].value += kv.value;
                 });
               }
+
+              // filter undefined key
+              k.values = k.values.filter(function(d){
+                return d.key != 'undefined';
+              });
 
               return k;
 
@@ -1657,7 +1869,7 @@
       
       // Show tooltip
       function showTooltip(d) {
-        console.log(d);
+        
         $('#tooltip')
           .css('top', d3.event.y + 'px')
           .css('left',  d3.event.x + 'px')
@@ -1673,8 +1885,7 @@
       // Open the Question details modal
       // 
       function onShowQuestion(id) {
-        console.log('question clicked', id);
-
+        
         hideTooltip();
 
         // assign this id in the Filter panel
@@ -1697,7 +1908,7 @@
 
       // Read data File
       // 
-      d3.json('data/data.json').then(function(data, error){
+      d3.json('data/data-new.json').then(function(data, error){
         if (error) {
           alert('Error reading data file.');
           return;
@@ -1712,6 +1923,8 @@
       $('.nav--sub a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
         edispatch.call('tabOpened', null, $(this).attr('href'));
+
+        updatePageTitle($(this).text());
 
       });
 
@@ -1784,7 +1997,8 @@
 
           // Filter the raw dataset and update
           // 
-          drawQuestionsGraph(benchmarkData, progressData, getStructuredData(filterData(aDataset, oSettings), aBreakdownBy));
+          var bFilterOrgActive = !!oSettings.filters.filter(function(d){ return d.name == 'org_unit'; }).length;
+          drawQuestionsGraph(benchmarkData, progressData, getStructuredData(filterData(aDataset, oSettings), aBreakdownBy), bFilterOrgActive);
 
           fixSVGIconFill();
 
@@ -1838,70 +2052,6 @@
       });
 
     });
-
-    // Generate nested Tree like data from a 1 level key:values structure
-    // 
-    function generateBucketedData(aData) {
-      // maps to help re-produce consisten hierarchy for a give dataset
-      var rMap = [3,3,2,3,1,2,3,1,3,2,1,3,2,3,3,2,2,1,3,2,1,3,3,1,2,1,1,2,2,1,3,2,2,2,3,3,1,2,1,2,3,1,3,3,1,2,2,1,1,1,1,1,1,2,1,1,3,1,1,2,2,1,1,2,2,3,1,1,3,3,2,3,2,3,2,1,2,2,1,3,3,1,1,2,3,3,3,3,3,3,2,2,3,3,3,1,1,1,1,3],
-      pMap = [2,1,2,2,1,2,3,2,1,2,1,1,2,3,2,2,1,3,3,3,3,3,3,2,2,3,1,3,3,1,2,1,1,1,3,1,3,3,3,2,1,1,3,2,3,1,3,2,2,1,2,3,1,3,2,1,3,3,2,1,1,1,2,3,1,1,3,3,1,2,2,1,1,3,2,2,2,3,2,1,2,2,2,2,1,1,3,2,2,2,2,1,2,1,1,3,1,3,2,3];
-      
-      function getBuckets(cat){
-        var partitions = cat.values.length,
-            bucket = 0,
-            ringCount = rMap.pop() || getRandomIntInclusive(1, 4),
-            maxLeafCount = Math.floor(partitions / ringCount),
-            dataset = [];
-        
-        // while all partitions have been put into buckets,
-        // iterate and put random buckets in nested levels
-        while(bucket < partitions){
-          var slice = cat.values.slice(bucket, (pMap.pop() || getRandomIntInclusive(1, 3)) + bucket),
-              first = slice.pop();
-              if(first){
-              dataset.push({
-                key: first.key,
-                name: first.key,
-                values: slice
-              });
-              bucket+=1;
-              }
-          bucket += slice.length;
-        }
-        return {
-          key: cat.key,
-          name: cat.key,
-          values: dataset
-        }
-      }
-      
-      // read each category
-      return {
-        "name": "root", 
-        "values": aData.map(function(cat){
-        
-          var firstLevel = getBuckets(cat);
-
-          firstLevel.category = cat.key;
-          
-          firstLevel.values = firstLevel.values.map(function(d){
-            return getBuckets(d);
-          });
-
-          // we don't need categories in the data
-          // just pick on question from the values and make it root
-          // 
-          var topQ = firstLevel.values.pop();
-
-          firstLevel.key = topQ.key;
-          firstLevel.name = topQ.name;
-
-          return firstLevel;
-        
-        })
-      };
-     
-    }
 
     </script>
   </body>

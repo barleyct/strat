@@ -1,5 +1,5 @@
 /**
- * Main asux script for the site.
+ * Main aux script for the site.
  * Event handling and auxillary things happen here.
  */
 
@@ -10,53 +10,16 @@ var colorMap = {
   'tangerine': ['#ffdca9', '#ffa929', '#eb8c00', '#ae6800', '#714300', '#452900'],
   'yellow': ['#ffecbd', '#ffc838', '#ffb600', '#c28a00', '#855f00', '#553d00'],
   'red': ['#f7c8c4', '#e86153', '#e0301e', '#aa2417', '#741910', '#461008'],
-  'burgunady': ['#e2a2a2', '#c25b5b', '#a32020', '#871010', '#5e0909', '#290000']
+  'burgundy': ['#e2a2a2', '#c25b5b', '#a32020', '#871010', '#5e0909', '#290000']
 },
 categoryColorMap = {
   'Value Proposition': colorMap['rose'],
   'Capabilities': colorMap['tangerine'],
   'Leadership': colorMap['red'],
-  'Strategy 360': colorMap['burgunady'],
-  'Impact': colorMap['burgunady'],
+  'strategythreesixty': colorMap['burgundy'],
+  'Impact': colorMap['burgundy'],
   'Portfolio': colorMap['yellow']
 };
-
-function processPayloadFromUrl() {
-	try{
-
-    var slug = window.location.href || '',
-    // entry after bookmakrked keyword
-    aSlug = slug.split('#'),
-    aPayload,
-    oPairs = {};
-
-    if (aSlug[1]) {
-
-    	aPayload = aSlug[1].split('&');
-
-    	aPayload.forEach(function(p){
-    		var _p = p.split('=');
-    		oPairs[_p[0]] = _p[1];
-    	});
-
-    	// is a tab to be selected?
-    	// 
-    	if (oPairs.tab) {
-    		selectTab(oPairs.tab);
-    	}
-
-    	// open a modal?
-    	// 
-    	if (oPairs.modal) {
-    		openModal(oPairs.modal);
-    	}
-
-    }    
-
-  }catch(e){
-    console.log('ERROR', e.message);
-  }
-}
 
 /**
  * Process the raw dataset and breakdon into a structure
@@ -69,7 +32,10 @@ function processPayloadFromUrl() {
 function getStructuredData(aData, aBreakdownBy /*, bRollup*/) {
 
   var nest = d3.nest(),
-  bRollup = true;
+  bRollup = true,
+  // sort based on following sequence
+  sortBy = ['Strategy threesixty', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
+  data;
 
   aBreakdownBy = aBreakdownBy || ['category', 'question', 'tenure', 'response'];
 
@@ -81,8 +47,156 @@ function getStructuredData(aData, aBreakdownBy /*, bRollup*/) {
     nest.rollup(function(response){ return response.length; })
   }
 
-  return nest.entries(aData);
+  data = nest.entries(aData);
 
+  // Sort the categories if that is the top level
+  // 
+  if (aBreakdownBy[0] == 'category') {
+    data.forEach(function(d){
+      d.sortIndex = sortBy.indexOf(d.key);
+    });
+
+    data.sort(function(a, b){
+      return d3.ascending(a.sortIndex, b.sortIndex);
+    });
+  }
+
+  return data;
+
+}
+
+/**
+ * Process the raw dataset and breakdon into a structure
+ * needed for our plotting purposes.
+ * Being used for Questions
+ * @param  {array}  aData         raw dataset
+ * @param  {string} sBreakdownBy  Key to breakdown responses by
+ * @return {array}                structured dataset
+ */
+function getStructuredQuestionData(aData, sBreakdownBy) {
+
+  var nest = d3.nest(),
+  bRollup = true,
+  // sort based on following sequence
+  sortBy = ['Strategy threesixty', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
+  data = [],
+  aNestBy,
+  aFreeform,
+  aMultipart,
+  aApply;
+
+
+  //--------------------
+  
+  aNestBy = ['category', 'question'];
+
+  aNestBy.forEach(function(k){
+    nest.key(function(d){ return d[k]; }).sortKeys(d3.ascending)
+  });
+  //  nest.rollup(function(response){ return response.map(function(d){ return d.feedback; }); })
+
+  aFreeform = nest.entries(aData.filter(function(d){ return d.qType == 'freeform'; }));
+
+  //--------------------
+
+  aNestBy = ['category', 'question', 'statement', sBreakdownBy, 'response'];
+
+  nest = d3.nest();
+
+  aNestBy.forEach(function(k){
+    nest.key(function(d){ return d[k]; }).sortKeys(d3.ascending)
+  });
+
+  if (bRollup) {
+    nest.rollup(function(response){ return response.length; })
+  }
+
+  aMultipart = nest.entries(aData.filter(function(d){ return d.qType == 'multipart'; }));
+
+  //--------------------
+
+  aNestBy = ['category', 'question', 'statement', sBreakdownBy, 'response'];
+
+  nest = d3.nest();
+
+  aNestBy.forEach(function(k){
+    nest.key(function(d){ return d[k]; }).sortKeys(d3.ascending)
+  });
+
+  if (bRollup) {
+    nest.rollup(function(response){ return response.length; })
+  }
+
+  aApply = nest.entries(aData.filter(function(d){ return d.qType == 'apply'; }));
+  
+  var aCategories = {};
+  
+  // for each category - freeform
+  aFreeform.forEach(function(c){
+    
+    aCategories[c.key] = aCategories[c.key] || [];
+    
+    var aQ = c.values.map(function(q){
+      q.qType = 'freeform';
+      return q;
+    });
+    
+    // Disable freeform for now
+    // TODO - enable it
+    aCategories[c.key].push(aQ);
+    
+  });
+  
+  // for each category - multipart
+  aMultipart.forEach(function(c){
+    
+    aCategories[c.key] = aCategories[c.key] || [];
+    
+    var aQ = c.values.map(function(q){
+      q.qType = 'multipart';
+      return q;
+    });
+    
+    aCategories[c.key].push(aQ);
+    
+  });
+  
+  // for each category - apply
+  aApply.forEach(function(c){
+    
+    aCategories[c.key] = aCategories[c.key] || [];
+    
+    var aQ = c.values.map(function(q){
+      q.qType = 'apply';
+      return q;
+    });
+    
+    aCategories[c.key].push(aQ);
+    
+  });
+  
+  Object.keys(aCategories).forEach(function(c){
+    
+     data.push({
+       key: c,
+       values: d3.merge(aCategories[c])
+     });
+    
+  });
+
+  // Sort the categories if that is the top level
+  // 
+  
+  data.forEach(function(d){
+    d.sortIndex = sortBy.indexOf(d.key);
+  });
+
+  data.sort(function(a, b){
+    return d3.ascending(a.sortIndex, b.sortIndex);
+  });
+
+  return data;
+  
 }
 
 /**
@@ -93,7 +207,17 @@ function getStructuredData(aData, aBreakdownBy /*, bRollup*/) {
  */
 function filterData(aDataset, oFilterSettings) {
 
-  var iFilterCount = oFilterSettings.filters.length;
+  function _getLowerCase(sVal){
+    return (sVal || '').toString().toLowerCase();
+  }
+
+  var iFilterCount = oFilterSettings.filters.length,
+  lowercaseFilters = oFilterSettings.filters.map(function(d){
+    d.values = d.values.map(function(v){
+      return v.toLowerCase();
+    });
+    return d;
+  });
 
   var aFD = aDataset.filter(function(d){
 
@@ -101,12 +225,12 @@ function filterData(aDataset, oFilterSettings) {
 
     // For each filter
     // 
-    oFilterSettings.filters.forEach(function(f, i){
+    lowercaseFilters.forEach(function(f, i){
 
       // check if values in the datum match values in an active filter
       //             
 
-      bMatch = bMatch && f.values.indexOf(d[f.name]) > -1;
+      bMatch = bMatch && f.values.indexOf(_getLowerCase(d[f.name])) > -1;
 
     });
 
@@ -125,8 +249,8 @@ function StackedBar(oConfig) {
 
   var el = oConfig.el,
   width = oConfig.width || 100,
-  height = oConfig.height || 80,
-  barHeight = oConfig.barHeight || 50,
+  isAll = !!oConfig.isAll,
+  barHeight = (oConfig.barHeight || 50) * (isAll ? 1.2 : 1),
   colors = oConfig.colors || d3.schemeAccent,
   margin = oConfig.margin || {top: 10, right: 0, bottom: 10, left: 0},
   y = d3.scaleLinear()
@@ -179,13 +303,16 @@ function StackedBar(oConfig) {
     // Add Text // Enter continued
     gEnter.append("text")
     .merge(g) // Enter + Update
-      .attr("fill", "white")
+      .attr("fill", function(d,i) {
+        //return d.percentage < .05 ? '#333' : '#fff'; 
+        return i == 0 ? '#222' : '#fff'; 
+      })
       .attr("text-anchor", "start")
       .style("font", "12px sans-serif")
       .attr("x", function(d, i) {
         return i ? y(d.cumPercentage - d.percentage) : 0;
       })
-      .attr("y", "10")
+      .attr("y", isAll ? 14.5 : 12)
       .attr("dx", "0.35em")  
       .attr("dy", "0.35em")
       .text(function(d,i) {
@@ -232,14 +359,16 @@ function DeviationBar(oConfig) {
   data = oConfig.data || [{average: 0.4, upper: 0.7, lower: 0.2}],
   lineStrokeWidth = 4,
   bShowAxis = oConfig.showAxis || false,
-  size = 95,
+  size = oConfig.isAll ? 114 : 95,
 
   y = d3.scaleLinear()
     .domain([0, 1])
     .range([margin.left, width - margin.right - margin.left]),
 
+  axisScale = y.copy().range([y.range()[0], y.range()[1]-1]),
+
   // Axis
-  axis = d3.axisTop(y).tickFormat(d3.format('.0%')),
+  axis = d3.axisTop(axisScale).tickFormat(d3.format('.0%')).tickSizeInner(10),
 
   svg,
   gOuter;
@@ -267,6 +396,12 @@ function DeviationBar(oConfig) {
     g.selectAll(".tick text").filter(function(){
       return ['0%', '50%', '100%'].indexOf(this.innerHTML) == -1
     }).remove();
+
+    g.select(".tick:first-child text")
+      .attr("text-anchor", "start");
+
+    g.select(".tick:last-child text")
+      .attr("text-anchor", "end");
   }
 
   function init() {
@@ -281,7 +416,7 @@ function DeviationBar(oConfig) {
       
       svg.append("g")
       	.classed('axis', true)
-        .attr("transform", "translate(0, 20)")
+        .attr("transform", "translate(0, 24)")
         .call(customAxis);
     }
 
@@ -290,7 +425,7 @@ function DeviationBar(oConfig) {
 
     if (bShowAxis) {
     	gOuter
-        .attr("transform", "translate(0, 20)");
+        .attr("transform", "translate(0, 24)");
     }
 
     renderer();
@@ -366,7 +501,8 @@ function drawLegend(oConfig) {
 
   var svg = d3.select(el).append('svg')
     .classed('graph-legend', true)
-    .classed('js-skip-viewbox-auto-adjust', true);
+    .classed('js-skip-viewbox-auto-adjust', true)
+    .style('font-family', 'Arial');
   
   var scale = d3.scaleOrdinal()
     .domain(data.map(fnKey))
@@ -409,6 +545,30 @@ function initTableFixed() {
   var fcBody = document.querySelector(".tbl-fixed .fix-column > .tbody"),
       rcBody = document.querySelector(".tbl-fixed .rest-columns > .tbody"),
       rcHead = document.querySelector(".tbl-fixed .rest-columns > .thead");
+
+  // adjust width of columns
+  // 
+  // if columns don't occupy full width, expand them
+  // 
+  var firstRow = $(rcBody).children()[0],
+  firstRowSize = firstRow.getBoundingClientRect(),
+  rcBodySize = $(rcBody)[0].getBoundingClientRect(),
+  colSize = 120,
+  offset = 10;
+
+  if (rcBodySize.width > firstRowSize.width) {
+    colSize = (rcBodySize.width / $(firstRow).children().length) - offset;
+
+    $('.tbl-fixed .rest-columns > .tbody > .trow > span').each(function(){
+      $(this).css('width', colSize);
+    });
+
+    $('.tbl-fixed .rest-columns > .thead > span').each(function(){
+      $(this).css('width', colSize);
+    });
+  }
+
+
   rcBody.addEventListener("scroll", function() {
       fcBody.scrollTop = this.scrollTop;
       rcHead.scrollLeft = this.scrollLeft;
@@ -465,9 +625,15 @@ function initJSHooks() {
     modal = data.modal,
     url = data.url,
     tag = data.tag,
-    sLocation = url + (tab ? '#tab='+tab : '') + (modal ? '&modal='+modal : '') + (tag ? '&tag='+tag : '');
+    bPassFilter = !!data.filter,
+    sLocation = url + (tab ? '?tab='+tab : '') + (modal ? '&modal='+modal : '') + (tag ? '&tag='+tag : '');
 
-    window.open(sLocation);
+    // Pass filter settings?
+    if (bPassFilter) {
+      sLocation += '&' + buildActiveFilterURL();
+    }
+
+    window.open(encodeURI(sLocation));
 
   });
 
@@ -494,17 +660,20 @@ function takeElementSnapshot(domElement){
     svgRendering: true,
     allowTaint: true,
     // Keeps the quality and size low
-    scale: 1, // window.devicePixelRatio
-    background: null,  // allows for transparent background 
+    scale: 2, // window.devicePixelRatio
+    //background: null,  // allows for transparent background 
     onclone: function(oDom){
       
-      var el = $(oDom).find('#'+domElement.id);
+      var el = $(oDom).find('#' + domElement.id);
       
       el.addClass("taking-snapshot");
 
       if (el.attr("html2canvas-no-padding") === undefined) {
         el.addClass("p-3");
       }
+
+      $(oDom).find('[data-html2canvas-ignore-maxheight]')
+        .css('max-height', '1000000000000px');
       
       applyDimensionsToSvg(el[0]);
     }
@@ -582,13 +751,270 @@ function getCanvasImage(sDataUrl) {
   dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename='+sFileName);
 
   return dt;
-};
+}
 
+function getPDF($target, imgData, bReturnRawPDF){
+
+  var HTML_Width = $target.width();
+  var HTML_Height = $target.height();
+  var top_left_margin = 15;
+  var margin = { top: 35, right:15, bottom: 35, left: 15 };
+  var PDF_Width = HTML_Width + margin.left + margin.right;
+  var PDF_Height = (PDF_Width*1.5)+ margin.top + margin.bottom;
+  var canvas_image_width = HTML_Width;
+  var canvas_image_height = HTML_Height,
+  printedHeight = 0;
+  
+  var totalPDFPages = Math.ceil(HTML_Height/PDF_Height);
+  
+  var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
+
+  console.log('totalPDFPages', totalPDFPages, HTML_Height/PDF_Height, HTML_Height, PDF_Height);
+
+  for (var i = 0; i <= totalPDFPages; i++) { 
+    if (i) {
+      pdf.addPage(/*PDF_Width, PDF_Height*/);
+    }
+
+    // add image
+    pdf.addImage(imgData, 'JPEG', 
+      margin.left, 
+      printedHeight + (margin.top) * (i ? 1 : 0),
+      canvas_image_width,
+      canvas_image_height
+    );
+
+    if (i) {
+
+      // top margin
+      pdf.setFillColor('#ffffff');
+      pdf.rect(0, 0, PDF_Width, margin.top, 'F');
+
+    }
+
+    // bottom margin
+    pdf.setFillColor('#ffffff');
+    pdf.rect(0, PDF_Height - margin.bottom, PDF_Width, PDF_Height, 'F');
+
+    printedHeight -= PDF_Height - margin.bottom - margin.top * (i ? 1 : 0);
+  }
+
+  // Return raw PDF?
+  // 
+  if (bReturnRawPDF) {
+    return pdf.output('blob');
+  }else{
+    pdf.save("Chart.pdf");
+  }
+}
+
+/**
+ * Generates a multi-page PDF from an array of image
+ * @param  {array}  aImages       An image to be printed on a single page
+ * @param  {int}    imageWidth    Width of an image
+ * @param  {array}  aImageHeight  Image height
+ * @return {object} jQuery Defferred
+ */
+function generatePDF(aImages, imageWidth, aImageHeight) {
+
+  var oDef = jQuery.Deferred();
+
+  // images should have the padding/margin
+  var margin = { top: 0, right: 0, bottom: 0, left: 0 };
+  var pageWidth = imageWidth + margin.left + margin.right;
+  var pageHeight = pageWidth*1.25 + margin.top + margin.bottom;
+  var totalPDFPages = aImages.length,
+  imageHeight = 1150,
+  ratio;
+  
+  var pdf = new jsPDF('p', 'px', /*[pageWidth, pageHeight]*/);
+
+  pageWidth = pdf.internal.pageSize.getWidth();
+  pageHeight = pdf.internal.pageSize.getHeight();
+
+  for (var i = 0; i < totalPDFPages; i++) { 
+    if (i) {
+      pdf.addPage();
+    }
+
+    ratio = pageWidth / imageWidth;
+
+    // add image
+    pdf.addImage(aImages[i], 'JPEG', 
+      margin.top, 
+      margin.left,
+      pageWidth,
+      Math.max(Math.min(ratio * aImageHeight[i], pageHeight), 125)
+    );
+
+  }
+
+  // Return PDF
+  oDef.resolve(pdf);
+
+  return oDef;
+
+}
+
+/**
+ * Create pages by spreading children into several pages
+ * which are currently inside a single outer parent.
+ * The children direclty under domElement are paginated.
+ * @param  {[type]} domElement  [description]
+ * @param  {[type]} iPageHeight [description]
+ * @return {[type]}             [description]
+ */
+function paginateElement(domElement, iPageHeight) {
+
+  iPageHeight = iPageHeight || 1150;
+
+  var iCount = 1,
+  total = $(domElement).children().length,
+  iChildStartCount = 0,
+  iChildEndCount = 0,
+  pageHeight = 0,
+  elCurrentPage,
+  iPageCount = 1;
+
+  function getId(i) {
+    return domElement.id + '-js-sp-' + i;
+  }
+
+  // if already paginated once, dont do it again
+  // 
+  if ($(domElement).find('.js-sp').length) {
+    return false;
+  }
+
+  // Start wrapping children into pages until a page reaches its height limit.
+  // Then, create a new page and repeat.
+
+  $(domElement).prepend('<div class="js-sp" id="'+getId(iPageCount)+'"></div>');
+
+  elCurrentPage = $(domElement).find('.js-sp');
+
+  while(iCount <= total){
+
+    var elNextChild = $(domElement).find('> :nth-child('+(iPageCount+1)+')'),
+    nextChildHeight = elNextChild[0].getBoundingClientRect().height;
+    pageHeight = elCurrentPage[0].getBoundingClientRect().height;
+
+    // collect children until the pageHeight is reached
+    // 
+    if ((pageHeight+nextChildHeight) > iPageHeight) {
+
+      // create next page
+      var pageCount = $(domElement).find('> .js-sp').length;
+      // increment page count
+      iPageCount = pageCount + 1;
+
+      // add next page
+      $(domElement).find('> .js-sp:nth-child('+pageCount+')').after('<div class="js-sp" id="'+getId(iPageCount)+'"></div>');
+      // update current page
+      elCurrentPage = $(domElement).find('> .js-sp:nth-child('+iPageCount+')');
+
+    }
+
+    elNextChild.appendTo(elCurrentPage);
+
+    iCount++;
+
+  }
+
+  
+}
+
+// Show a loader
+function loading(bShow) {
+  $('#site_loader').remove();
+  if (bShow) {
+    var tpl = '<div id="site_loader" class="loader"> <div class="loader__dots"> <span></span> <span></span> <span></span> </div> </div>';
+    $('body').append(tpl);
+  }
+
+}
 
 function initDownloadHook(){
   // Download Button
   // 
-  $('.btn-download, .js-btn-camera').off('click').on('click', function(){
+  $('.btn-download, .js-btn-download').off('click').on('click', function(){
+
+    var btn = $(this),
+    target = $(btn.data('target')),
+    isMultiPage = btn.data('multipage') !== undefined;
+
+    if (target.length) {
+      loading(true);
+
+      var oDeferred = takeElementSnapshot(target[0]);
+
+      // Do we have the snapshot?
+      jQuery.when(oDeferred)
+        .then(function(domImageDataURI){
+          var dt = getCanvasImage(domImageDataURI);
+          loading();
+          downloadImage(dt, 'Chart.jpeg');
+        });
+    }
+
+  });
+
+  // Download PDF of an element
+  // 
+  $('.js-btn-camera').off('click').on('click', function(){
+
+    var btn = $(this),
+    target = $(btn.data('target'));
+
+    if (target.length) {
+
+      loading(true);
+
+      setTimeout(function(){
+
+        // create pages inside the target
+        // whose snapshots will be taken
+        // 
+        paginateElement(target[0]);
+
+        // Take snapshot of every page
+        //
+        var aDeffered = [],
+        aImageHeight = [];
+        target.find('.js-sp').each(function(){
+          aImageHeight.push(this.getBoundingClientRect().height);
+          aDeffered.push(takeElementSnapshot(this));
+        });
+
+        // Do we have the snapshot?
+        $.when.apply($, aDeffered)
+          .then(function(){
+
+            $.when(generatePDF(arguments, $(target).width(), aImageHeight))
+              .then(function(pdf){
+
+                loading();
+
+                //if (bReturnRawPDF) {
+                //return pdf.output('blob');
+                
+                // Download PDF
+                // 
+                pdf.save("Chart.pdf");
+                
+              });
+
+          });
+
+      }, 0);
+    }
+
+  });
+
+  // Download Button
+  // 
+  /*
+  $('.js-btn-camera-na').off('click').on('click', function(){
 
     var btn = $(this),
     target = $(btn.data('target'));
@@ -599,12 +1025,83 @@ function initDownloadHook(){
       // Do we have the snapshot?
       jQuery.when(oDeferred)
         .then(function(domImageDataURI){
-          var dt = getCanvasImage(domImageDataURI);
-          downloadImage(dt, 'Chart.jpeg');
+          //var dt = getCanvasImage(domImageDataURI);
+          //downloadImage(dt, 'Chart.jpeg');
+          
+          //savePDF(getPDF(target, domImageDataURI, true));
+          getPDF(target, domImageDataURI);
+
         });
     }
 
   });
+  */
+}
+
+function savePDF(base64Data, sFilename) {
+
+  // Create a form
+  // <form enctype="multipart/form-data" method="post" name="fileinfo" id="fileinfo"></form>
+  var form = d3.select('body')
+    .append('form')
+    .attr('enctype', 'multipart/form-data') 
+    .attr('method', 'post')
+    .attr('name', 'savepdf');
+    //.style('visibility', 'hidden');
+    
+
+  // Add filedata to form
+  // 
+  var formData = new FormData(/*form.node()*/),
+  opts = {};
+
+  formData.append('pdf', base64Data);
+
+  // output as blob
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status !== 200) {
+        // handle error
+        console.log('Error: Uploading file', this)
+      }
+    }
+  }
+
+  xhr.open('POST', 'data/upload.php', true);
+  xhr.send(formData);
+
+  /*
+
+  opts = {
+    url: 'data/upload.php',
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    method: 'POST',
+    type: 'POST', // For jQuery < 1.9
+    success: function(data){
+      console.log('server results', data);
+    }
+  };
+
+  // Fallback for Old brosers
+  if(formData.fake) {
+    // Make sure no text encoding stuff is done by xhr
+    opts.xhr = function() { var xhr = jQuery.ajaxSettings.xhr(); xhr.send = xhr.sendAsBinary; return xhr; }
+    opts.contentType = "multipart/form-data; boundary="+data.boundary;
+    opts.data = data.toString();
+  }
+
+  //$.ajax(opts);
+  var xhr = new XMLHttpRequest();
+  xhr.open('post', 'data/upload.php', true ); //Post to php Script to save to server
+  xhr.send(opts.data);
+
+  */
+  
 }
 
 function fixSVGIconFill() {
@@ -613,6 +1110,302 @@ function fixSVGIconFill() {
       $(this).attr("fill", $(this).css('fill'));
     });
   }, 0)
+}
+
+function updatePageTitle(sectionName) {
+  document.title = 'Strategy& - Strategy threesixty' + (sectionName ? ('- ' + sectionName) : '');
+}
+
+/**
+ * Get an object representing the active 
+ * filter, breakdown and sort by values.
+ *
+ * Detects if a Modal is active. If true, filters inside the modal are returned.
+ * 
+ * @param {selector}  elTarget Optional container element which should be scanned for active filters
+ * @return {object}   JSON Object
+ */
+function getActiveFilters($elTarget) {
+
+  // Is there any active modal?
+  // 
+  // If a modal has class js-modal-inclusive, include this modal's sidepanels
+  // along with main sidepanels on the page (not inside a modal)
+  var elModal = $('.modal.show'),
+  isModal = !!elModal.length,
+  isInclusiveModal = elModal.hasClass('js-modal-inclusive');
+
+  var elSidepanels,
+  oConfig = {
+    filters: [],
+    breakdownBy: null,
+    sortBy: null,
+    consistency: null
+  };
+
+  // When no modal is active or a modal with inclusive class is active:
+  // Collect all filters which are
+  // 1. Not inside a modal
+  // 2. Inside a modal with class js-modal-inclusive
+  //
+  if ($elTarget && $elTarget.length) {
+    elSidepanels = $elTarget.find('.sidepanel');
+  }else if (!isModal || isInclusiveModal) {
+    var elMainPagePanels = $('.sidepanel').filter(function(){
+      return !$(this).closest('.modal').length;
+    }); 
+    var elModalPanels = $('.modal.js-modal-inclusive:not(.hide) .sidepanel:not(.js-non-iteractive)');
+
+    elSidepanels = elMainPagePanels.add(elModalPanels);
+  }else if (isModal) {  // Non inclusive modal is active
+    elSidepanels = elModal.find('.sidepanel:not(.js-non-iteractive)');
+  }
+
+  /*
+  // if target is not a modal,
+  // select only those panels which are not inside any hidden modal
+  //
+  var elMainPagePanels = elSidepanels.filter(function(){
+    return !$(this).closest('.modal').length;
+  }); 
+
+  // If No modal is active
+  if (!isModal) {
+    elSidepanels = elMainPagePanels;
+  }
+
+  // If inclusive modal, add its panels as well
+  
+  if (isInclusiveModal) {
+    elSidepanels = elSidepanels.add(elModal.find('.sidepanel'));
+  }*/
+
+  // Loop through each type of sidepanel
+  // 
+  elSidepanels.each(function(){
+
+    var elPanel = $(this),
+    isFilter = elPanel.hasClass('js-filter-panel'),
+    isBreakdownBy = elPanel.hasClass('js-breakdownby-panel'),
+    isSortBy = elPanel.hasClass('js-sortby-panel'),
+    isCategory = elPanel.hasClass('js-category-panel'),
+    isConsistency = elPanel.hasClass('js-consistency-panel');
+
+    if (isFilter) {
+
+      // For each selected menu item
+      // 
+      elPanel.find('> .dropdown-menu > .dropright > .dropdown-item > input[type=checkbox]').each(function(){
+
+        var obj = {
+          name: $(this).val(),
+          values: []
+        };
+
+        // get selected sub menu items
+        // 
+        $(this).closest('.dropright').find('.dropdown-item-selection').children().each(function(){
+          //obj.values.push($(this).html().toLowerCase());
+          obj.values.push($(this).html());
+        });
+
+
+        // only push a filter is it has a selection
+        // 
+        if (obj.values.length /*|| $(this).prop('checked')*/) {
+          oConfig.filters.push(obj);
+        }
+
+      });
+
+      // disable breakdown by options
+      disableBreakdownBy(oConfig.filters.map(function(d){
+        return d.name;
+      }));
+
+    }
+
+    if (isCategory) {
+
+      // For each selected menu item
+      // 
+      var aCategories = [];
+      elPanel.find('.dropdown-item > input[type=checkbox]:checked').each(function(){
+
+        //aCategories.push(this.value.toLowerCase());
+        aCategories.push(this.value);
+
+      });
+
+      oConfig.filters.push({
+        name: 'category',
+        values: aCategories
+      });
+
+    }
+
+    if (isSortBy) {
+
+      oConfig.sortBy = elPanel.find('input[type=radio]:checked').val();
+
+    }
+
+    if (isBreakdownBy) {
+
+      var $item = elPanel.find('input[type=radio]:checked');
+      if (!$item.parent().hasClass('disabled')) {
+        oConfig.breakdownBy = $item.val();
+      }
+
+    }
+
+    if (isConsistency) {
+
+      oConfig.consistency = elPanel.find('input[type=radio]:checked').val();
+
+    }
+
+  });
+
+
+
+  return oConfig;
+  
+}
+
+/**
+ * Disable BreakdownBy options
+ * @param  {array} aBreakdownBy string value representing breakdown by keys
+ */
+function disableBreakdownBy(aBreakdownBy){
+
+  $('.js-breakdownby-panel .md-cb.disabled').removeClass('disabled');
+
+  // disable each item
+  // 
+  aBreakdownBy.forEach(function(sItem){
+    var $item = $('.js-breakdownby-panel input[type="radio"][value="'+sItem+'"]');
+
+    $item.parent().addClass('disabled');
+  })
+
+}
+
+/**
+ * Build URL querystring encoding active filters
+ * @return {string} 
+ */
+function buildActiveFilterURL() {
+
+  var oFilters = getActiveFilters(),
+  payload = '';
+
+  oFilters.filters.forEach(function(of){
+
+    var sFilter = [of.name,'=', of.values.join('|')].join('');
+
+    // add to payload
+    payload += sFilter + '&';
+
+  });
+
+  // add flag for active filter playload
+  // 
+  payload += 'filter=1';
+  
+  return payload;
+
+}
+
+function processPayloadFromUrl() {
+  try{
+
+    var slug = decodeURI(window.location.href || ''),
+    // entry after bookmakrked keyword
+    aSlug = slug.split('?'),
+    aPayload,
+    oPairs = {};
+
+    if (aSlug[1]) {
+
+      aPayload = aSlug[1].split('&');
+
+      aPayload.forEach(function(p){
+        var _p = p.split('=');
+        oPairs[_p[0]] = _p[1];
+      });
+
+      // is a tab to be selected?
+      // 
+      if (oPairs.tab) {
+        selectTab(oPairs.tab);
+      }
+
+      // open a modal?
+      // 
+      if (oPairs.modal) {
+        openModal(oPairs.modal);
+      }
+
+      // Has active filters?
+      //
+      if (oPairs.hasOwnProperty('filter')) {
+        initFilters(oPairs);
+      }
+
+    }    
+
+  }catch(e){
+    console.log('ERROR', e.message);
+  }
+}
+
+
+function initFilters(oPayload) {
+
+  var elFilterPanel = $('.js-filter-panel');
+
+  // reset any applied filters
+  // 
+  elFilterPanel.find('input[type="checkbox"]')
+    .removeAttr('checked')
+    .prop('checked', false);
+
+  elFilterPanel.find('.dropdown-item-selection').html('');
+
+  // loop through available payloads
+  // and apply their values
+  // 
+  Object.keys(oPayload)
+  .filter(function(sFilter){
+    // only check for valid filters
+    return ['year', 'management', 'category', 'tenure', 'geography', 'org_unit'].indexOf(sFilter) > -1;
+  })
+  .forEach(function(sFilter){
+
+    // if year
+    // find filter item, check it
+    var elInput = elFilterPanel.find('input[type="checkbox"][value="'+ sFilter +'"]'),
+    oItem = elInput.parent(),
+    elSubMenu = oItem.parent().find('.dropdown-menu--submenu');
+
+    // check it
+    //oItem.prop('checked', 'checked');
+    
+    // also check its given values
+    // 
+    var sValue = oPayload[sFilter],
+    aValues = sValue.split('|');
+
+    aValues.forEach(function(sFilterValue){
+      // find the sub-menut item and click it
+      // 
+      elSubMenu.find('input[type="checkbox"][value="'+sFilterValue+'"]')
+        .trigger('click');
+    });
+
+  });
+  
 }
 
 
@@ -748,168 +1541,37 @@ $(function(){
 	// 
 	$('.js-breakdownby-panel .dropdown-item, .js-sortby-panel .dropdown-item, .js-category-panel .dropdown-item, .js-consistency-panel').on('click', function diClick(e) {
 
-		dispatch.call('getPanelSettings');
+    // check if item is disabled
+    // 
+    if (!$(this).hasClass('disabled')) {
+		  dispatch.call('getPanelSettings');
+    }else{
+      e.preventDefault();
+    }
 
 	});
 
-	// Category Panel for questions
-	// 
-	$('.js-category-question-panel .dropdown-item').on('click', function cqpiClick(e) {
+  // Checkbox reset for Breakdown By panel
+  // 
+  $('.js-md-cb-reset').on('click', function(e){
 
-		$(this).toggleClass('active');
+    //e.stopPropagation();
 
-	});
+    $(this).siblings('input[type="radio"]')
+      .prop('checked', false)
+      .removeAttr('checked');
 
-	// Toggle Question selection
-	// 
-	$('.js-btn-question-selection').on('click', function(e){
+  });
 
-		e.preventDefault();
-
-		var bChecked = $(this).data('checked') == true;
-
-		$('.js-modal-allquestion input[type=checkbox]').prop('checked', bChecked);
-
-	});
-
-	/**
-	 * Get an object representing the active 
-	 * filter, breakdown and sort by values.
-	 *
-	 * Detects if a Modal is active. If true, filters inside the modal are returned.
-	 * 
-	 * @param {selector} 	elTarget Optional container element which should be scanned for active filters
-	 * @return {object} 	JSON Object
-	 */
-	function getActiveFilters(elTarget) {
-
-		// Is there any active modal?
-		// 
-		// If a modal has class js-modal-inclusive, include this modal's sidepanels
-		// alsong with main sidepanels on the page (not inside a modal)
-		var elModal = $('.modal.show'),
-		isModal = false
-		isInclusiveModal = elModal.hasClass('js-modal-inclusive');
-
-		if (elModal.length && !isInclusiveModal) {
-			elTarget = elModal;
-			isModal = true;
-		}
-
-		var elSidepanels = elTarget ? $(elTarget).find('.sidepanel') : $('.sidepanel'),
-		oConfig = {
-			filters: [],
-			breakdownBy: null,
-			sortBy: null,
-			consistency: null
-		};
-
-		// if target is not a modal,
-		// select only those panels which are not inside any hidden modal
-		//
-		var elMainPagePanels = elSidepanels.filter(function(){
-			return !$(this).closest('.modal').length;
-		}); 
-
-		// If No modal is active
-		if (!isModal) {
-			elSidepanels = elMainPagePanels;
-		}
-
-		// If inclusive modal, add its panels as well
-		if (isInclusiveModal) {
-			elSidepanels = elSidepanels.add(elModal.find('.sidepanel'));
-		}
-
-		// Loop through each type of sidepanel
-		// 
-		elSidepanels.each(function(){
-
-			var elPanel = $(this),
-			isFilter = elPanel.hasClass('js-filter-panel'),
-			isBreakdownBy = elPanel.hasClass('js-breakdownby-panel'),
-			isSortBy = elPanel.hasClass('js-sortby-panel'),
-			isCategory = elPanel.hasClass('js-category-panel'),
-			isConsistency = elPanel.hasClass('js-consistency-panel');
-
-			if (isFilter) {
-
-				// For each selected menu item
-				// 
-				elPanel.find('> .dropdown-menu > .dropright > .dropdown-item > input[type=checkbox]').each(function(){
-
-					var obj = {
-						name: $(this).val(),
-						values: []
-					};
-
-					// get selected sub menu items
-					// 
-					$(this).closest('.dropright').find('.dropdown-item-selection').children().each(function(){
-						obj.values.push($(this).html());
-					});
-
-
-					// only push a filter is it has a selection
-					// 
-					if (obj.values.length /*|| $(this).prop('checked')*/) {
-						oConfig.filters.push(obj);
-					}
-
-				});
-
-			}
-
-			if (isCategory) {
-
-				// For each selected menu item
-				// 
-				var aCategories = [];
-				elPanel.find('.dropdown-item > input[type=checkbox]:checked').each(function(){
-
-					aCategories.push(this.value);
-
-				});
-
-				oConfig.filters.push({
-					name: 'category',
-					values: aCategories
-				});
-
-			}
-
-			if (isSortBy) {
-
-				oConfig.sortBy = elPanel.find('input[type=radio]:checked').val();
-
-			}
-
-			if (isBreakdownBy) {
-
-				oConfig.breakdownBy = elPanel.find('input[type=radio]:checked').val();
-
-			}
-
-			if (isConsistency) {
-
-				oConfig.consistency = elPanel.find('input[type=radio]:checked').val();
-
-			}
-
-		});
-
-
-
-		return oConfig;
-		
-	}
 
 	// Dispatch Events
 	// 
 
 	dispatch.on('getPanelSettings', function(){
 		console.log(getActiveFilters());
-		dispatch.apply('filter', null, [getActiveFilters()]);
+    setTimeout(function(){
+      dispatch.apply('filter', null, [getActiveFilters()]);
+    }, 1);
 	});
 
 	// Add Tooltip to Download buttons

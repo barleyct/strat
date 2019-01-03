@@ -14,7 +14,7 @@
     <!-- fonts -->
     <script defer src="fonts/js/all.min.js"></script>
 
-    <title>Strategy 360° Radar</title>
+    <title>Strategy& - Strategy threesixty - Demographics</title>
   </head>
   <body>
 
@@ -26,7 +26,7 @@
 
           <a class="navbar-brand" href="index.html">
             <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
-            Strategy 360° radar
+            Strategy threesixty radar
           </a>
 
           <!-- client logo -->
@@ -93,7 +93,7 @@
                 </div>
                 <div class="dropright">
                   <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                    <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
                     <i class="fas fa-chevron-right"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu--submenu">
@@ -165,18 +165,22 @@
             <!-- Categories -->
             <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
               <div class="dropdown-menu show">
-                <h6 class="dropdown-header">Breakdown By:</h6>
+                <h6 class="dropdown-header">Breakdown by:</h6>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
-                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org. Unit</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
               </div>
             </div>
@@ -192,7 +196,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa. Donec blandit, diam a tempor consequat, augue ante tristique mauris, aliquam dictum sem est vitae orci. </p>
               </div>
               <div class="col-2">
-                <button class="btn btn-download" data-target="#demographics_list">
+                <button class="btn btn-download mr-md-5" data-target="#demographics_list">
                   <i class="fas fa-arrow-down"></i>
                 </button>
               </div>
@@ -239,6 +243,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/d3.5.7.0.min.js"></script>
     <script src="js/mustache.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -262,7 +267,7 @@
 
           <!-- Breakdown By Rows -->
           
-          <div class="row gq-tuple" data-id="{{qid}}">
+          <div class="row align-items-center gq-tuple {{#isAll}}font-weight-bold{{/isAll}}" data-id="{{qid}}">
             <div class="col-2 gq-tuple__title">
               <label>{{key}}</label>
             </div>
@@ -275,11 +280,10 @@
 
                 <div class="demograph__figures">
                   {{#figureValue}}
-                  <i class="fas fa-user-tie text-danger"></i>
+                  <svg class="text-danger" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --> <g> <g id="svg_1"> <path d="m0,0l0,101.000002l15.618055,0l2.875,-22.654862c1.229167,-3.766458 4.166667,-6.761389 7.888889,-8.037917l14.958333,-5.134167c0.173611,-0.056111 0.375,-0.014028 0.5,0.119236l1.166667,1.213403c1.854167,1.921806 4.333333,2.980903 6.993055,2.980903c2.659722,0 5.138889,-1.059097 6.993055,-2.980903l1.166667,-1.213403c0.131944,-0.133264 0.326389,-0.182361 0.5,-0.119236l14.958333,5.134167c3.722222,1.276528 6.659722,4.271458 7.888889,8.037917l2.875,22.654862l15.618055,0l0,-101.000002l-99.999999,0l0.000001,0zm95.743054,96.700488l-7.597222,0l-2.416667,-19.091806l-0.083333,-0.371736c-1.604167,-5.148195 -5.583333,-9.258334 -10.638889,-10.997778l-14.958333,-5.134167c-1.722222,-0.589167 -3.659722,-0.119236 -4.930555,1.199375l-1.166667,1.213403c-1.041667,1.080139 -2.4375,1.676319 -3.9375,1.676319c-1.493056,0 -2.895833,-0.596181 -3.9375,-1.676319l-1.166667,-1.213403c-1.270833,-1.318611 -3.208333,-1.788542 -4.930555,-1.199375l-14.958333,5.134167c-5.0625,1.739444 -9.041667,5.849583 -10.638889,10.997778l-2.5,19.463542l-7.597222,0l0,-92.386946l91.472221,0l0,92.386946l-0.013889,0zm-45.73611,-37.882015c4.159722,0 6.534722,-2.300556 9,-5.08507c3,-3.387708 4.513889,-9.21625 4.513889,-17.33132c0,-8.283403 -6.0625,-15.02375 -13.513889,-15.02375c-7.451389,0 -13.513889,6.740347 -13.513889,15.02375c0,8.11507 1.520833,13.943611 4.513889,17.33132c2.465278,2.7775 4.840278,5.08507 9,5.08507m0,-33.133612c5.097222,0 9.25,4.804514 9.25,10.710209c0,6.824514 -1.222222,11.958681 -3.430556,14.462639c-2.534722,2.868681 -3.784722,3.647222 -5.819444,3.647222c-2.034722,0 -3.284722,-0.785556 -5.819444,-3.647222c-2.215278,-2.503958 -3.430556,-7.638125 -3.430556,-14.462639c0,-5.905695 4.145833,-10.710209 9.25,-10.710209" id="svg_2" stroke="null" fill="#d93954"/> </g> </g> </svg>
                   {{/figureValue}}
-
-                  {{#figureValueInverse}}
-                  <i class="fas fa-user-tie"></i>
+                  {{#figureValueInverse}}                  
+                  <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --> <g> <g id="svg_1"> <path d="m0,0l0,101.000002l15.618055,0l2.875,-22.654862c1.229167,-3.766458 4.166667,-6.761389 7.888889,-8.037917l14.958333,-5.134167c0.173611,-0.056111 0.375,-0.014028 0.5,0.119236l1.166667,1.213403c1.854167,1.921806 4.333333,2.980903 6.993055,2.980903c2.659722,0 5.138889,-1.059097 6.993055,-2.980903l1.166667,-1.213403c0.131944,-0.133264 0.326389,-0.182361 0.5,-0.119236l14.958333,5.134167c3.722222,1.276528 6.659722,4.271458 7.888889,8.037917l2.875,22.654862l15.618055,0l0,-101.000002l-99.999999,0l0.000001,0zm95.743054,96.700488l-7.597222,0l-2.416667,-19.091806l-0.083333,-0.371736c-1.604167,-5.148195 -5.583333,-9.258334 -10.638889,-10.997778l-14.958333,-5.134167c-1.722222,-0.589167 -3.659722,-0.119236 -4.930555,1.199375l-1.166667,1.213403c-1.041667,1.080139 -2.4375,1.676319 -3.9375,1.676319c-1.493056,0 -2.895833,-0.596181 -3.9375,-1.676319l-1.166667,-1.213403c-1.270833,-1.318611 -3.208333,-1.788542 -4.930555,-1.199375l-14.958333,5.134167c-5.0625,1.739444 -9.041667,5.849583 -10.638889,10.997778l-2.5,19.463542l-7.597222,0l0,-92.386946l91.472221,0l0,92.386946l-0.013889,0zm-45.73611,-37.882015c4.159722,0 6.534722,-2.300556 9,-5.08507c3,-3.387708 4.513889,-9.21625 4.513889,-17.33132c0,-8.283403 -6.0625,-15.02375 -13.513889,-15.02375c-7.451389,0 -13.513889,6.740347 -13.513889,15.02375c0,8.11507 1.520833,13.943611 4.513889,17.33132c2.465278,2.7775 4.840278,5.08507 9,5.08507m0,-33.133612c5.097222,0 9.25,4.804514 9.25,10.710209c0,6.824514 -1.222222,11.958681 -3.430556,14.462639c-2.534722,2.868681 -3.784722,3.647222 -5.819444,3.647222c-2.034722,0 -3.284722,-0.785556 -5.819444,-3.647222c-2.215278,-2.503958 -3.430556,-7.638125 -3.430556,-14.462639c0,-5.905695 4.145833,-10.710209 9.25,-10.710209" id="svg_2" stroke="null"/> </g> </g> </svg>
                   {{/figureValueInverse}}
                 </div>
                 
@@ -319,7 +323,7 @@
 
         // Read data File
         // 
-        d3.json('data/data.json').then(function(data, error){
+        d3.json('data/data-new.json').then(function(data, error){
           if (error) {
             alert('Error reading data file.');
             return;
@@ -367,7 +371,7 @@
           qDataMap = {},
           target = $('#demographics_list'),
           tData,
-          format = d3.format('.2%');
+          format = d3.format('.0%');
 
           function parseData(aData) {
             // Assign a unique id to every question
@@ -386,8 +390,9 @@
             rValue = Math.round(10*value),
             oAll = {
               key: 'All',
+              isAll: true,
               value: sumTotal,
-              valuePercentage: format(value),
+              valuePercentage: '100%',
               fill: '#333',
               figureValue: d3.range(rValue),
               figureValueInverse: d3.range(iMaxFigures-rValue)
@@ -420,7 +425,10 @@
 
             aData.unshift(oAll);
 
-            return aData;
+            // filter undefined key
+            return aData.filter(function(d){
+              return d.key != 'undefined';
+            });
 
           }
 

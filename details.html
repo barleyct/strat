@@ -14,7 +14,7 @@
     <!-- fonts -->
     <script defer src="fonts/js/all.min.js"></script>
 
-    <title>Strategy 360° Radar</title>
+    <title>Strategy& - Strategy threesixty - Category</title>
   </head>
   <body>
 
@@ -26,7 +26,7 @@
 
           <a class="navbar-brand" href="index.html">
             <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
-            Strategy 360° radar
+            Strategy threesixty radar
           </a>
 
           <!-- client logo -->
@@ -76,6 +76,7 @@
 
           <div class="gutter"></div>
           <div class="nav nav--sub" role="tablist">
+            <a class="nav-item nav-link" style="visibility: hidden; pointer-events: none; ">#######I</a>
             <a class="nav-item nav-link active" id="nav-cat-tab" data-toggle="tab" href="#nav-cat" role="tab" aria-controls="nav-cat" aria-selected="true">Categories</a>
             <span class="sep border-right"></span>
             <a class="nav-item nav-link" id="nav-questions-tab" data-toggle="tab" href="#nav-questions" role="tab" aria-controls="nav-questions" aria-selected="false">Questions</a>
@@ -94,7 +95,7 @@
         <div class="row">
 
           <!-- Side Panel -->
-          <div class="col-3">
+          <div class="col-3 js-detail-sidepanel">
 
             <!-- Filters -->
             <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
@@ -120,7 +121,7 @@
                 </div>
                 <div class="dropright">
                   <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <input type="checkbox" value="org_unit" /> <label>Org Unit</label>
+                    <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
                     <i class="fas fa-chevron-right"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu--submenu">
@@ -192,18 +193,22 @@
             <!-- Categories -->
             <div class="sidepanel sidepanel--breakdownby clearfix js-breakdownby-panel">
               <div class="dropdown-menu show">
-                <h6 class="dropdown-header">Breakdown By:</h6>
+                <h6 class="dropdown-header">Breakdown by:</h6>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="year" /> <label>Year</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
-                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org Unit</label>
+                  <input type="radio" name="breakdown_by" value="org_unit" /> <label>Org. Unit</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="management" /> <label>Management Level</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="breakdown_by" value="tenure" checked /> <label>Tenure</label>
+                  <span class="md-cb__unset js-md-cb-reset">&times;</span>
                 </button>
               </div>
             </div>
@@ -211,7 +216,7 @@
             <!-- Sort By -->
             <div class="sidepanel sidepanel--sortby hide clearfix js-sortby-panel js-tab-question-controls">
               <div class="dropdown-menu show">
-                <h6 class="dropdown-header">Sort By:</h6>
+                <h6 class="dropdown-header">Sort by:</h6>
                 <button type="button" class="dropdown-item md-cb md-cb--radio">
                   <input type="radio" name="sort_by" value="category" checked /> <label>Category</label>
                 </button>
@@ -256,7 +261,7 @@
               <!-- Categories -->
               <div class="tab-pane fade show active" id="nav-cat" role="tabpanel" aria-labelledby="nav-cat-tab">
 
-                <p>
+                <p class="mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -298,12 +303,12 @@
       </div>
 
       <!-- Camera Button -->
-      <button class="btn btn-camera js-btn-camera js-tab-question-controls" data-target="#questions_list">
+      <button class="btn btn-camera js-btn-camera js-tab-question-controls hide" data-target="#questions_list">
         <i class="fas fa-camera" aria-hidden="true"></i>
       </button>
 
       <!-- Camera Button -->
-      <button class="btn btn-camera js-btn-camera" data-target="#categories_list">
+      <button class="btn btn-camera js-btn-camera js-tab-category-controls" data-target="#categories_list">
         <i class="fas fa-camera" aria-hidden="true"></i>
       </button>
       
@@ -331,7 +336,7 @@
     <!-- Modals -->
 
     <!-- 1. Categories Modal -->
-    <div class="modal fade js-modal-inclusive" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="modalCategoriesTitle" aria-hidden="true">
+    <div class="modal fade js-modal-inclusive js-tab-category-controls" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="modalCategoriesTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -352,8 +357,8 @@
                     <h6 class="dropdown-header">Categories:</h6>
                     
                     <button type="button" class="dropdown-item md-cb">
-                      <input type="checkbox" checked value="Strategy 360">
-                      <label>Strategy 360°</label>
+                      <input type="checkbox" checked value="strategythreesixty">
+                      <label>Strategy threesixty</label>
                     </button>
 
                     <button type="button" class="dropdown-item md-cb">
@@ -398,7 +403,7 @@
     </div>
 
     <!-- 2. Questions Modal -->
-    <div class="modal modal-fs fade" id="modalAllQuestionFilter" tabindex="-1" role="dialog" aria-labelledby="modalAllQuestionFilterTitle" aria-hidden="true">
+    <div class="modal modal-fs fade js-tab-question-controls hide" id="modalAllQuestionFilter" tabindex="-1" role="dialog" aria-labelledby="modalAllQuestionFilterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
 
@@ -418,53 +423,10 @@
                 <div class="col-md-auto">
 
                   <!-- Categories -->
-                  <div class="sidepanel sidepanel--category sidepanel--selectlist js-category-panel js-category-question-panel">
+                  <div class="sidepanel sidepanel--category sidepanel--selectlist js-non-iteractive js-category-question-panel">
 
-                    <div class="dropdown-menu show m-0 border-0">
-                      <h6 class="dropdown-header">Categories:</h6>
-                      
-                      <button type="button" class="dropdown-item md-cb">
-                        <input type="checkbox" value="strategy360">
-                        <label>Strategy 360°</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-
-                      <button type="button" class="dropdown-item md-cb active">
-                        <input type="checkbox" value="value-prop" checked>
-                        <label>Value Proposition</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-
-                      <button type="button" class="dropdown-item md-cb">
-                        <input type="checkbox" value="capabilities">
-                        <label>Capabilities</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-
-                      <button type="button" class="dropdown-item md-cb">
-                        <input type="checkbox" value="portfolio">
-                        <label>Portfolio</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-
-                      <button type="button" class="dropdown-item md-cb">
-                        <input type="checkbox" value="leadership">
-                        <label>Leadership</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-
-                      <button type="button" class="dropdown-item md-cb">
-                        <input type="checkbox" value="impact">
-                        <label>Impact</label>
-                        <label class="q-count">(10/15)</label>
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                      
+                    <div class="dropdown-menu show m-0 border-0" id="select_categories_list">
+                      <!-- populated using template -->
                     </div>
                                     
                   </div>
@@ -495,133 +457,175 @@
                       <div class="fixflex__flex js-modal-allquestion">
 
                         <!-- Questions Container -->
-                        <div class="questions-list">
+                        <div class="questions-list" id="select_questions_list">
 
-                          <table class="table table-striped">
-                            <tbody>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q1">
-                                    <input type="checkbox">
-                                    <label>Q1</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-transparent md-cb" data-id="q2">
-                                    <input type="checkbox">
-                                    <label>Q2</label>
-                                  </button>
-                                </th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <!-- Populated using template -->
                           
                         </div>
                         
                       </div>
 
                       <div class="fixflex__fix footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-danger js-save-question-selection" data-dismiss="modal">Save changes</button>
                       </div>
 
                     </div>
 
+                  </div>
+
+                </div>
+              
+              </div>
+
+            </div>
+          
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Single Question Modal with Panel -->
+    <div class="modal modal-fs fade" id="modalQuestionFilter" tabindex="-1" role="dialog" aria-labelledby="modalQuestionFilterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header border-0">
+            <h5 class="modal-title pl-3">Free form answers</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            
+            <div class="container-fluid">
+              
+              <div class="row">
+                                
+                <div class="col-md-auto">
+
+                  <!-- Filters -->
+                  <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+                    <div class="dropdown-menu show">
+                      <h6 class="dropdown-header">Filter for:</h6>
+                      <div class="dropright">
+                        
+                        <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="year" checked /> <label>Year</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu">
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="2018" checked /> <label>2018</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="2017" /> <label>2017</label>
+                          </button>
+                        </div>
+                        <div class="dropdown-item-selection active">
+                          <span class="dropdown-item-text">2018</span>
+                        </div>
+                      </div>
+                      <div class="dropright">
+                        <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu">
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+                          </button>
+                        </div>
+                        <div class="dropdown-item-selection active"></div>
+                      </div>
+                      <div class="dropright">
+                        <button type="button" class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="management" checked /> <label>Management Level</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu">
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="C-Level" checked /> <label>C-Level</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Middle Management" checked /> <label>Middle Management</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Low Management" /> <label>Low Management</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="Staff" /> <label>Staff</label>
+                          </button>
+                        </div>
+                        <div class="dropdown-item-selection active">
+                          <span class="dropdown-item-text">C-Level</span>
+                          <span class="dropdown-item-text">Middle Management</span>
+                        </div>
+                      </div>
+                      <div class="dropright">
+                        <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="geography" /> <label>Geography</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu"></div>
+                        <div class="dropdown-item-selection active"></div>
+                      </div>
+                      <div class="dropright">
+                        <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="tenure" /> <label>Tenure</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu">
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
+                          </button>
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value="3+ year" /> <label>3+ year</label>
+                          </button>
+                        </div>
+                        <div class="dropdown-item-selection active"></div>
+                      </div>
+                      <div class="dropright hide">
+                        <button type="button" class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <input type="checkbox" value="question" checked /> <label>Question</label>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu--submenu">
+                          <button class="dropdown-item md-cb" type="button">
+                            <input type="checkbox" value=""  /> <label></label>
+                          </button>
+                        </div>
+                        <div class="dropdown-item-selection active">
+                          <!-- When a question is clicked on the Graph, its key is placed here -->
+                          <span class="dropdown-item-text" id="selected_question"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col">
+
+                  <div class="row">
+
+                    <p class="text-justify col"><b class="mr-1">How to use:</b> Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+                    
+                  </div>
+                 
+                  <!-- Question and its Graph -->
+                  <div class="js-modal-question graph-single-question" id="ff_questions_list">
+                    
                   </div>
 
               </div>
@@ -629,6 +633,7 @@
             </div>
           </div>
           
+          </div>
         </div>
       </div>
     </div>
@@ -643,8 +648,46 @@
     <script src="js/d3.5.7.0.min.js"></script>
     <script src="js/d3-legend.min.js"></script>
     <script src="js/mustache.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Template for question listing in the Show/Hide Questions modal -->
+    <script id="tpl_question_list" type="text/html">
+
+      <table class="table table-striped">
+        <tbody>
+          {{#questions}}
+          <tr>
+            <th scope="row">
+              <button type="button" class="btn btn-transparent md-cb" data-qid="{{qid}}">
+                <input type="checkbox" {{#active}}checked{{/active}} data-qid="{{qid}}">
+                <label>Q{{qid}}</label>
+              </button>
+            </th>
+            <td>{{question}}</td>
+          </tr>
+          {{/questions}}
+        </tbody>
+      </table>
+      
+    </script>
+
+    <!-- List of categories in the Show/Hide Questions modal -->
+    <script id="tpl_category_list" type="text/html">
+      <h6 class="dropdown-header">Categories:</h6>
+      {{#categories}}
+      <button type="button" class="dropdown-item md-cb" data-active-qid="{{#value}}{{activeQid}}{{/value}}">
+        <input type="checkbox" checked value="{{key}}">
+        <label>{{key}}</label>
+        {{#value}}
+        <label class="q-count">({{activeCount}}/{{totalCount}})</label>
+        {{/value}}
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      {{/categories}}
+
+    </script>
 
     <!-- Template for a single Category list -->
     <script id="tpl_category" type="text/html">
@@ -666,7 +709,7 @@
 
           <!-- Breakdown By Rows -->
           {{#values}}
-          <div class="row gq-tuple" data-id="{{qid}}-{{kid}}">
+          <div class="row gq-tuple align-items-center" data-id="{{qid}}-{{kid}}">
             <div class="col-3 gq-tuple__title">
               <label>{{key}}</label>
             </div>
@@ -674,18 +717,16 @@
 
               <figure class="percentage-graph row align-items-center">
                 
-                <div class="percentage-graph__bar" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
+                <div class="percentage-graph__bar {{#isAll}}percentage-graph__bar--all{{/isAll}}" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
                   <div class="percentage-graph__bar-bg" style="background: {{fill}};">
-                    <label class="percentage-graph__bar-value">{{value}}</label>
+                    <label class="percentage-graph__bar-value" style="color: {{color}};">{{value}}</label>
                   </div>
                 </div>
 
-                <div class="hl-indicator col-3">
-                  <span class="hl-indicator__figure">{{movementValue}}</span>
-                  <span class="hl-indicator__indicator text-{{movementClass}}">
-                    <i class="fas fa-caret-{{movement}}"></i>
-                  </span>
-                  <span>vs</span>
+                <div class="hl-indicator ml-4 pl-1">
+                  <span class="hl-indicator__figure mr-0">{{movementValue}}</span>
+                  <i class="hl-indicator__indicator text-{{movementClass}}">{{#movement}}▲{{/movement}}{{^movement}}▼{{/movement}}</i>
+                  <span>vs.</span>
                   <span class="hl-indicator__year">{{prevYear}}</span>
                 </div>
 
@@ -710,27 +751,40 @@
 
         <div class="alert alert--head" data-category="{{key}}" role="alert">{{key}}</div>
 
-        <div class="ml-3">
+        {{#values}}
+        <div class="gq ml-3 {{^isMultipart}}pb-3{{/isMultipart}}" id="qid-{{qid}}">
 
-          {{#values}}
-          <div class="gq" id="qid-{{qid}}">
+          <h5 class="gq__title pr-5 {{#isFreeform}}mb-3{{/isFreeform}}">
+            <b>Q{{srno}}:</b>{{key}}
+            {{^isFreeform}}
+            <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            {{/isFreeform}}
+          </h5>
 
-            <h5 class="gq__title">
-              <b>Q{{srno}}:</b>{{key}}
-              <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
-                <i class="fas fa-arrow-down"></i>
-              </button>
-            </h5>
-            <!-- Breakdown By Rows -->
+          <!-- Breakdown By Statements -->
+
+          <!-- 1. Question Type - multipart -->
+          {{#isMultipart}}
+
             {{#values}}
-            <div class="row gq-tuple" data-id="{{qid}}-{{kid}}">
-              <div class="col-3 gq-tuple__title">
-                <label>{{key}}</label>
+              <h6 class="gq__subtitle">
+                <b>{{key}}</b>
+              </h6>
+
+              <!-- Breakdown by: -->
+              {{#values}}
+              <div class="row gq-tuple pb-2 align-items-center" data-id="{{qid}}-{{kid}}">
+                <div class="col-3 gq-tuple__title">
+                  <label>{{key}}</label>
+                </div>
+                <div class="col gq-tuple__graph">
+                  
+                </div>
               </div>
-              <div class="col gq-tuple__graph">
-                
-              </div>
-            </div>
+              {{/values}}
+
             {{/values}}
 
             <!-- Legend -->
@@ -738,13 +792,105 @@
               <div class="col-3"></div>
               <div class="col gq-tuple__legend"></div>
             </div>
-            
+
+          {{/isMultipart}}
+
+          <!-- 2. Question Type - apply -->
+          {{#isApply}}
+
+            {{#values}}
+              <h6 class="gq__subtitle mt-3">
+                <b>{{key}}</b>
+              </h6>
+
+              <!-- Breakdown by: -->
+              {{#values}}
+              <div class="row gq-tuple align-items-center" data-id="{{qid}}-{{kid}}">
+                <div class="col-3 gq-tuple__title">
+                  <label>{{key}}</label>
+                </div>
+                <div class="col gq-tuple__graph">
+
+                  <figure class="percentage-graph row align-items-center">
+                    
+                    <div class="percentage-graph__bar {{#isAll}}percentage-graph__bar--all{{/isAll}}" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
+                      <div class="percentage-graph__bar-bg" style="background: {{fill}};">
+                        <label class="percentage-graph__bar-value" style="color: {{color}};">{{value}}</label>
+                      </div>
+                    </div>
+
+                  </figure>
+
+                </div>
+              </div>
+              {{/values}}
+
+            {{/values}}
+
+          {{/isApply}}
+
+          <!-- 3. Question Type - freeform -->
+          {{#isFreeform}}
+
+          <div class="row gq-tuple" data-id="{{qid-kid}}">
+            <div class="col">
+              <a href="javascript:;" class="text-color-red text-underline js-show-freeform-modal" data-id="{{key}}">See free form answers</a>
+            </div>
           </div>
+
+          {{/isFreeform}}
+
+        </div>
+        {{/values}}
+
+      {{/questions}}
+      
+    </script>
+
+    <!-- Template for free form question -->
+    <script id="tpl_question_freeform" type="text/html">
+
+      {{#data}}
+
+        <div class="alert alert-secondary pr-5" role="alert">
+          <b class="mr-2">Q{{srno}}:</b>{{key}}
+          <button class="btn btn-download js-btn-camera" data-target="#ff_questions_list_wrapper">
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+
+        <div class="ff-question-wrapper" id="ff_questions_list_wrapper" data-html2canvas-ignore-maxheight>
+
+        {{#questions}}
+
+          <div class="alert alert--head mt-3" data-category="{{key}}" role="alert">{{key}}</div>
+
+          {{#values}}
+
+            {{#values}}
+
+            <div class="gq p-3 m-0">
+
+              <h6><b>User feedback {{srno}}</b></h6>
+
+              <!-- Feedback -->
+              <ul class="m-0">
+              {{#feedback}}
+                <li>{{.}}</li>
+              {{/feedback}}
+              </ul>
+              
+            </div>
+
+            {{/values}}
+
           {{/values}}
+
+        {{/questions}}
 
         </div>
 
-      {{/questions}}
+      {{/data}}
       
     </script>
 
@@ -758,7 +904,7 @@
 
         // Read data File
         // 
-        d3.json('data/data.json').then(function(data, error){
+        d3.json('data/data-new.json').then(function(data, error){
           if (error) {
             alert('Error reading data file.');
             return;
@@ -776,6 +922,8 @@
           $('.js-tab-question-controls').toggleClass('hide');
 
           edispatch.call('tabOpened', null, $(this).attr('href'));
+
+          updatePageTitle($(this).text());
 
         });
 
@@ -813,9 +961,17 @@
             return false;
           }
 
-          // If Details Tab
+          // If Modal is open, Selected question tab
           // 
-          if (!bDrawQuestionsTabGraph) {
+          if ($('#modalQuestionFilter.show').length) {
+
+            // Filter the raw dataset and update
+            // 
+            drawQuestionModalGraph(filterData(aDataset, oSettings));
+
+          }else if (!bDrawQuestionsTabGraph) {
+            // If Details Tab
+            //
 
             // Update the graph based on new settings
             // 
@@ -834,30 +990,69 @@
 
             // Update the graph based on new settings
             // 
-            var aBreakdownBy = ['category', 'question', oSettings.breakdownBy, 'response'];
+            //var aBreakdownBy = ['category', 'question', oSettings.breakdownBy, 'response'];
 
             // Filter the raw dataset and update
             // 
-            drawQuestionsTabGraphs(filterData(aDataset, oSettings), aBreakdownBy);
+            drawQuestionsTabGraphs(filterData(aDataset, oSettings), oSettings.breakdownBy);
 
           }
 
 
         });
 
+        function bindQuestionClick() {
+
+          $(".js-show-freeform-modal")
+          .off('click')
+          .on('click', function(){
+
+            showFreeformQuestion.bind(this)();
+
+          });
+          
+        }
+
+        // Open freeform question details modal
+        // 
+        function showFreeformQuestion() {
+
+          var id = $(this).data('id');
+
+          console.log('question clicked', id);
+
+          // assign this id in the Filter panel
+          // to enable data filtering
+          // 
+          $('#selected_question').html(id);
+
+          // open the modal
+          $('#modalQuestionFilter').modal('show');
+
+          // trigger filter after modal is visible
+          $('#modalQuestionFilter').off('shown.bs.modal');
+          $('#modalQuestionFilter').on('shown.bs.modal', triggerFilter);
+
+          function triggerFilter() {
+            dispatch.call('getPanelSettings');
+          }
+
+        }
+
 
         /**
          * Draw graphs for Questions tab
          * @param  {array of Objects} data dataset
          */
-        function drawQuestionsTabGraphs(data, aBreakdownBy) {
+        function drawQuestionsTabGraphs(data, sBreakdownBy) {
 
           var oConfig,
           tpl = $('#tpl_question').html(),
           qData = [],
           qDataMap = {},
           target = $('#questions_list'),
-          tData;
+          tData,
+          format = d3.format('.0%');
 
           function parseData(aData) {
             // Assign a unique id to every question
@@ -872,45 +1067,134 @@
                 q.qid = 'q-'+ ++i;
                 q.srno = srno+1;
 
-                // Assign an Id to every Key
-                // Add a key for 'All'
-                // 
-                var iMaxKeyCount = d3.max(q.values, function(d){ return d.values.length; }),
-                iMaxKeys,
-                oAll;
+                // assign question type
+                q.isFreeform = q.qType == 'freeform';
+                q.isMultipart = q.qType == 'multipart';
+                q.isApply = q.qType == 'apply';
 
-                // Find out index of max keys
-                // 
-                q.values.forEach(function(d, i){
-                  iMaxKeys = d.values.length == iMaxKeyCount ? i : iMaxKeys;
-                });
+                // for each statement
+                q.values = q.values.map(function(s){
 
-                oAll = {
-                  key: 'All',
-                  values: q.values[iMaxKeys].values.map(function(d){ return {key: d.key, value: 0}; })
-                };
+                  // 1. Question type - multipart
+                  // 
+                  if (q.isMultipart) {
 
-                q.values.unshift(oAll);
+                    // Assign an Id to every Key
+                    // Add a key for 'All'
+                    // 
+                    var iMaxKeyCount = d3.max(s.values, function(d){ return d.values.length; }),
+                    iMaxKeys,
+                    oAll;
 
-                q.values.map(function(k){
-
-                  k.kid = 'k-'+ ++j;
-
-                  key = q.qid + '-' + k.kid;
-                  
-                  qDataMap[key] = {
-                    category: cat.key,
-                    values: k.values
-                  };
-
-                  // Add values to 'All' Key
-                  if (k.key != 'All') {
-                    k.values.forEach(function(kv, z){
-                      oAll.values[z].value += kv.value;
+                    // Find out index of max keys
+                    // 
+                    s.values.forEach(function(d, i){
+                      iMaxKeys = d.values.length == iMaxKeyCount ? i : iMaxKeys;
                     });
+
+                    oAll = {
+                      key: 'All',
+                      isAll: true,
+                      values: s.values[iMaxKeys].values.map(function(d){ return {key: d.key, value: 0}; })
+                    };
+
+                    s.values.unshift(oAll);
+
+                    s.values.map(function(k){
+
+                      k.kid = 'k-'+ ++j;
+
+                      key = q.qid + '-' + k.kid;
+                      
+                      qDataMap[key] = {
+                        category: cat.key,
+                        isAll: k.isAll,
+                        isMultipart: true,
+                        values: k.values
+                      };
+
+                      // Add values to 'All' Key
+                      if (k.key != 'All') {
+                        k.values.forEach(function(kv, z){
+                          oAll.values[z].value += kv.value;
+                        });
+                      }
+
+                      return k;
+
+                    });
+
+                    // filter undefined key
+                    s.values = s.values.filter(function(d){
+                      return d.key != 'undefined';
+                    });
+
                   }
 
-                  return k;
+                  // 2. Question type - apply
+                  // 
+                  if (q.isApply) {
+
+
+                    // Assign an Id to every Key
+                    // Add a key for 'All'
+                    // 
+                    var value = Math.random();
+
+                    var oAll = {
+                      key: 'All',
+                      isAll: true,
+                      value: format(value),
+                      width: format(value * .7), // 70% of the total width
+                      fill: categoryColorMap[cat.key][2]
+                    };
+
+                    s.values.unshift(oAll);
+
+                    s.values = s.values.map(function(k){
+
+                      k.kid = 'k-'+ ++j;
+
+                      key = q.qid + '-' + k.kid;
+                      
+                      qDataMap[key] = {
+                        category: cat.key,
+                        isAll: k.isAll,
+                        isApply: true,
+                        values: [{key: 'response', value: k.value}]
+                      };
+
+                      // Graph Data
+                      // 
+                      var gd = {
+                        // Breakdown by Key
+                        key: k.key,
+                        kid: k.kid,
+                        isAll: k.isAll,
+                        // Percentage value
+                        value: format(value = Math.random()),
+                        width: format(value * .7),
+                        // background color
+                        fill: categoryColorMap[cat.key][2],
+                        // color 
+                        // for less than 5%, color as black otherwise white
+                        color: value < .05 ? '#222' : '#fff',
+                      }
+
+                      return gd;
+
+                    });
+
+                    // filter undefined key
+                    s.values = s.values.filter(function(d){
+                      return d.key != 'undefined';
+                    });                    
+                  }
+
+                  // 3. Question type - freeform
+                  // 
+
+                  return s;
 
                 });
 
@@ -923,7 +1207,7 @@
 
           }
 
-          qData = parseData(getStructuredData(data, aBreakdownBy));
+          qData = parseData(getStructuredQuestionData(data, sBreakdownBy));
 
           tData = {
             questions: qData
@@ -947,13 +1231,15 @@
             isGraph = !!el.length,
             isLegend = !!elLegend.length;
             
-            if (isGraph) {
+            if (isGraph && data.isMultipart) {
 
+              // Question type: multipart
+              // 
               StackedBar( oConfig = {
                 el: el[0],
                 width: el.width(),
-                height: 40,
-                barHeight: 20,
+                barHeight: 25,
+                isAll: data.isAll,
                 data: data.values,
                 category: data.category,
                 colors: categoryColorMap[data.category]
@@ -980,9 +1266,11 @@
             var colors = categoryColorMap[$(this).data('category')];
             // last color of the pallete
             // 
-            $(this).css('background', colors ? colors[1] : 'gray');
+            $(this).css('background', colors ? colors[2] : 'gray');
 
           });
+
+          bindQuestionClick();
 
           initDownloadHook();
 
@@ -1000,7 +1288,7 @@
           qDataMap = {},
           target = $('#categories_list'),
           tData,
-          format = d3.format('.2%');
+          format = d3.format('.0%');
 
           function parseData(aData) {
             // Assign a unique id to every question
@@ -1021,14 +1309,16 @@
 
               var oAll = {
                 key: 'All',
+                isAll: true,
                 value: format(value),
                 width: format(value * .7), // 70% of the total width
-                fill: categoryColorMap[cat.key][1],
+                fill: categoryColorMap[cat.key][2],
+                color: value < .05 ? '#222' : '#fff',
                 // movement details
-                // up or down
-                movement: 'up',
+                // if up, true otherwise false
+                movement: value < .5 ? false : true,
                 // 'success' for positive value otherwise 'danger'
-                movementClass: 'success',
+                movementClass: value < .5 ? 'danger' : 'success',
                 // movement value in percentage
                 movementValue: '10%',
                 prevYear: 2017
@@ -1054,13 +1344,16 @@
                   value: format(value = Math.random()),
                   width: format(value * .7),
                   // background color
-                  fill: categoryColorMap[cat.key][1],
+                  fill: categoryColorMap[cat.key][2],
+                  // color 
+                  // for less than 5%, color as black otherwise white
+                  color: value < .05 ? '#222' : '#fff',
 
                   // movement details
-                  // up or down
-                  movement: 'up',
+                  // if up, true otherwise false
+                  movement: value < .5 ? false : true,
                   // 'success' for positive value otherwise 'danger'
-                  movementClass: 'success',
+                  movementClass: value < .5 ? 'danger' : 'success',
                   // movement value in percentage
                   movementValue: '10%',
                   // previous year
@@ -1072,6 +1365,11 @@
               });
 
               cat.values.unshift(oAll);
+
+              // filter undefined key
+              cat.values = cat.values.filter(function(d){
+                return d.key != 'undefined';
+              });
 
               return cat;
 
@@ -1094,7 +1392,332 @@
 
         }
 
+        /**
+         * Draw graphs for Selected Question modal
+         * @param  {array of Objects} data dataset
+         */
+        function drawQuestionModalGraph(data, aBreakdownBy) {
+
+          var oConfig,
+          tpl = $('#tpl_question_freeform').html(),
+          qData = [],
+          qDataMap = {},
+          target = $('#ff_questions_list'),
+          tData,
+          qKey,
+          qID;
+
+          function parseData(aData) {
+            // Assign a unique id to every question
+            // 
+            var i = 0,
+            key;
+
+            return aData.map(function(cat){
+
+              cat.values = cat.values.map(function(q){
+
+                qKey = q.key;
+
+                // for every feedback
+                q.values = q.values.map(function(k, j){
+
+                  qID = k.qid;
+
+                  // add serial no
+                  k.srno = j + 1;
+
+                  return k;
+
+                }).filter(function(q){
+                  return q.feedback && q.feedback.length;
+                });
+
+                return q;
+
+              });
+
+              return cat;
+
+              
+            });
+
+          }
+
+          qData = parseData(getStructuredQuestionData(data));
+
+          tData = {
+            data: {
+              key: qKey,
+              srno: qID,
+              questions: qData
+            }
+          };
+
+          Mustache.parse(tpl);
+
+          // Add HTML
+          target.html(Mustache.render(tpl, tData));
+
+          // Color the Category headings
+          // 
+          target.find('.alert[data-category]').each(function(){
+            var colors = categoryColorMap[$(this).data('category')];
+            // last color of the pallete
+            // 
+            $(this).css('background', colors ? colors[2] : 'gray');
+
+          });
+
+          initDownloadHook();
+
+
+        }
+
       });
+
+      initQuestionSelection();
+
+      function initQuestionSelection() {
+
+        var aQuestionDataset;
+        
+        // Read questions data File
+        // 
+        d3.json('data/question-data.json').then(function(data, error){
+          if (error) {
+            alert('Error reading question data file.');
+            return;
+          }
+          aQuestionDataset = data;
+
+          // edispatch.call('dataLoaded', null, data);
+          console.log('question data', data);
+        
+          // Parse the dataset
+          // Find category wise questions
+          var categoryWiseStats = d3.nest(aQuestionDataset)
+            .key(function(d){ return d.category; })
+            .rollup(function(q){ 
+              return {
+                activeCount: q.filter(function(d){ return d.active; }).length,
+                totalCount: q.length,
+                activeQid: q.filter(function(d){ return d.active; }).map(function(d){ return d.qid }).join(',')
+              }; 
+            })
+            .entries(aQuestionDataset),
+
+          categoryWiseQuestions = d3.nest(aQuestionDataset)
+            .key(function(d){ return d.category; })
+            .entries(aQuestionDataset);
+
+          var categoryWiseQuestionsMap = d3.map(categoryWiseQuestions, function(d){ return d.key });
+
+
+          console.log('question data', categoryWiseStats, categoryWiseQuestions);
+
+          // Render HTML
+          // 
+
+          // 1. List Categories
+          // 
+          var tpl = $('#tpl_category_list').html();
+          $('#select_categories_list').html(Mustache.render(tpl, {
+            categories: categoryWiseStats
+          }));
+
+          // When a category is selected, show its questions
+          // 
+          $('.js-category-question-panel .dropdown-item').on('click', function cqpiClick(e) {
+
+            // get category
+            var sCategory = $(this).find('input').val(),
+            bChecked = $(this).find('input').prop('checked'),
+            sQid = $(this).attr('data-active-qid'),
+            // get active questions ids
+            aActiveQid = !!sQid ? sQid.split(',') : [];
+
+            // if not active, show its questions
+            if (!$(this).hasClass('active')) {
+
+              $(this).toggleClass('active');
+
+              // List Questions
+              // 
+              var tpl = $('#tpl_question_list').html(),
+              aQuestions = categoryWiseQuestionsMap.get(sCategory).values,
+              aMarkedQuestions = aQuestions.map(function(q){
+                q.active = aActiveQid.indexOf(q.qid.toString()) > -1;
+                return q;
+              });
+
+              $('#select_questions_list').html(Mustache.render(tpl, {
+                questions: aMarkedQuestions
+              }));
+
+              // bind change
+              $('#select_questions_list input').off('change')
+              .on('change', function(){
+
+                updateQuestionCount();
+
+                updateQuestionSelection();
+
+              });
+
+            }
+
+            // only one can be active at a time
+            //
+            $(this).siblings().removeClass('active');
+
+          });
+          // show first category questions
+          $($('.js-category-question-panel .dropdown-item')[0]).trigger('click');
+
+          // When a category is selected, show its questions
+          // 
+          $('.js-category-question-panel .dropdown-item input').on('click', function cqpiClick(e) {
+
+            e.stopPropagation();
+            
+            var bChecked = $(this).prop('checked');
+
+            //mark selected category active
+            $(this).parent().addClass('active')
+              .siblings().removeClass('active');
+
+            toggleQuestions( bChecked );
+
+          });
+
+          // Toggle Question selection
+          // 
+          $('.js-btn-question-selection').on('click', function(e){
+
+            e.preventDefault();
+
+            var bChecked = $(this).data('checked') == true;
+
+            toggleQuestions(bChecked);
+
+          });
+
+
+          // On Save Settings
+          // 
+          $('.js-save-question-selection').on('click', function(){
+
+            var oSettings = getActiveFilters($('.js-detail-sidepanel'));
+
+            // add category and question filters
+            // 
+            var aCategories = [],
+            aQuestions = [];
+
+            $('#select_categories_list .dropdown-item input:checked').each(function(){
+              var sQid = $(this).parent().attr('data-active-qid');
+              if (!!sQid) {
+                aQuestions.push(sQid.split(','));
+              }
+              aCategories.push(this.value);
+            });
+
+            aQuestions = d3.merge(aQuestions);
+
+            // add to filer
+            // 
+            oSettings.filters.push({
+              name: 'category',
+              values: aCategories
+            });
+
+            oSettings.filters.push({
+              name: 'qid',
+              values: aQuestions
+            });
+
+            dispatch.apply('filter', null, [oSettings]);
+
+            // TODO - Save settings
+            // 
+            console.log('oSettings', oSettings);
+          });
+
+          function toggleQuestions(bChecked) {
+            $('.js-modal-allquestion input[type=checkbox]').prop('checked', bChecked);
+            updateQuestionSelection();
+            updateQuestionCount();
+          }
+
+          function updateQuestionCount() {
+            // Update count
+            // 
+            var tb = $('#select_questions_list tbody'),
+            total = tb.children().length,
+            selected = tb.find('input:checked').length;
+
+            // find active category
+            // 
+            $('.js-category-question-panel .dropdown-item.active .q-count').html('('+selected+'/'+total+')');
+
+          }
+
+          /**
+           * Stores current question selection in the active category dom
+           * @return {[type]} [description]
+           */
+          function updateQuestionSelection() {
+            // get active category
+            // 
+            var elCategory = $('#select_categories_list .dropdown-item.active'),
+            elQuestions = $('#select_questions_list input:checked'),
+            aQ = [];
+
+            elQuestions.each(function(){
+              aQ.push($(this).data('qid'));
+            })
+
+            elCategory.attr('data-active-qid', aQ.join(','));
+          }
+
+        });
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
     </script>
   </body>

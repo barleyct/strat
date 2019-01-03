@@ -138,7 +138,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Georgia, "Helvetica Neue";
+  //font-family: Georgia, "Helvetica Neue";
+  font-family: Arial;
 }
 
 
@@ -235,6 +236,10 @@ span.sep {
   color: $red;
 }
 
+.text-underline {
+  text-decoration: underline;
+}
+
 .para-font-14 {
   font-size: 14px;
 }
@@ -295,6 +300,55 @@ span.sep {
 }
 .text-danger path {
   fill: #d93954!important;
+}
+
+.loader {
+  align-items: center;
+  display: block;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1051;
+  background-color: rgba(255, 255, 255, 0.7);
+
+  &__dots { 
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: #868686;
+      margin: 35px 5px;
+    
+      &:nth-child(1) {
+        animation: loader-bounce 1s ease-in-out infinite;
+      }
+
+      &:nth-child(2) {
+        animation: loader-bounce 1s ease-in-out 0.33s infinite;
+      }
+
+      &:nth-child(3) {
+        animation: loader-bounce 1s ease-in-out 0.66s infinite;
+      }
+    }
+  }
+
+  @keyframes loader-bounce {
+    0%, 75%, 100% {
+      opacity: .5;
+      transform: translateY(0);
+    }
+
+    25% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+  }
 }
 
 /*=====  End of General  ======*/
@@ -413,7 +467,8 @@ span.sep {
   .rest-columns .tbody .trow {
     text-align: center;
     display: inline-block;
-
+    cursor: pointer;
+    
     &:first-child .tbar {
       margin-top: -6px;
 
@@ -531,14 +586,16 @@ span.sep {
 .highlights-content>* {
   display: inline-block;
   width: calc(50% - 1rem);
+  padding-right: 2rem;
 }
 
 .hl-indicator {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
 
   &__title {
     text-decoration: underline;
     font-weight: bold;
+    font-family: Arial;
   }
 
   &__content {
@@ -556,9 +613,20 @@ span.sep {
 
 .pc-indicator {
 
+  span {
+    font-weight: bold;
+  }
 
   &__icon {
-    font-size: 2.5rem;
+    //font-size: 2.5rem;
+    max-width: 10%;
+    display: inline-block;
+    //line-height: .5;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 }
 
@@ -602,7 +670,7 @@ span.sep {
       }
 
       text {
-        text-anchor: middle;
+        //text-anchor: middle;
       }
 
       .g-text {
@@ -644,6 +712,17 @@ span.sep {
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1070px) {
+
+   .pr-5-ipad-l {
+     padding-right: 2.5rem;
+   }
+   .mr-5-ipad-l {
+    margin-right: 2.5rem;
+   }
+
+}
+
 /*=====  End of Dashboard  ======*/
 
 /*====================================
@@ -673,6 +752,7 @@ span.sep {
         margin: 0;
         cursor: pointer;
         vertical-align: middle;
+        white-space: normal;
       }
 
       [data-icon] {
@@ -723,9 +803,13 @@ span.sep {
       }
 
       [data-icon] {
-        float: right;
-        margin-top: .25rem;
-        //margin-right: -0.5rem;
+        //float: right;
+        //margin-top: .25rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: .5rem;
+        margin-top: .2rem;
       }
     }
 
@@ -761,6 +845,10 @@ span.sep {
           visibility: visible;
         }
 
+      }
+
+      input[type="checkbox"] {
+        width: 4rem;
       }
     }
 
@@ -862,9 +950,9 @@ span.sep {
 }
 
 .arch-graph-container .graph {
-  background-image: url(../images/archetypeImage.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  //background-image: url(../images/Archetype-Graphic_AllGray850x570.gif);
+  //background-size: contain;
+  //background-repeat: no-repeat;
 
   svg {
     display: block;
@@ -873,25 +961,28 @@ span.sep {
 
     path {
       cursor: pointer;
-      opacity: 0;
-      fill: $red;
-      stroke-width: 10px;
-      stroke: $white;
+      opacity: 1;
+    }
 
-      &.highlight,
-      &.active {
-        opacity: 1;
+    .highlight,
+    .active {
+      path,
+      text {
+        fill: $red;
       }
     }
 
   }
 }
 
-.modal .arch-graph-container .graph svg path {
+.modal .arch-graph-container .graph svg {
 
-  &:not(.active) {
-    fill: $black !important;
-  }
+  .highlight{
+      path,
+      text {
+        fill: $black;
+      }
+    }
 }
 
 .tooltip:not([class*="bs-tooltip-"]) {
@@ -900,6 +991,7 @@ span.sep {
   padding: 0.5rem;
   max-width: 40%;
   margin: 0 0 0 2rem;
+  display: none;
 }
 
 //Modal styling
@@ -933,20 +1025,18 @@ span.sep {
     svg {
       position: absolute;
       height: auto;
-    }
-
-    .fa-caret-up {
-      top: -0.2rem;
-    }
-
-    .fa-caret-down {
-      top: 0.3rem;
+      top: -5px;
     }
 
     .diamond-text {
       position: absolute;
       left: 7.5rem;
       top: 0.25rem;
+    }
+
+    &--legend svg {
+      position: relative;
+      top: 1px;
     }
   }
 
@@ -1026,6 +1116,15 @@ span.sep {
   margin-bottom: 1rem;
 }
 
+.ff-question-wrapper {
+  overflow-y: auto;
+  max-height: 400px;
+
+  .gq:nth-child(even){
+    background-color: #e2e3e5;
+  }
+}
+
 
 /*=====  End of Details  ======*/
 
@@ -1075,6 +1174,18 @@ $md-cb-label-padding: 2rem;
     display: inline-block;
   }
 
+  &__unset {
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 2px;
+    padding: 0 .5rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
   label:nth-of-type(1) {
     position: relative;
     cursor: pointer;
@@ -1113,6 +1224,22 @@ $md-cb-label-padding: 2rem;
     }
   }
 
+  &.disabled {
+    color: inherit;
+    label:before,
+    label:after {
+      visibility: hidden;
+    }
+
+    input {
+      cursor: not-allowed !important;
+    }
+
+    .md-cb__unset {
+      display: none !important;
+    }
+  }
+
   input[type="checkbox"],
   input[type="radio"] {
     outline: 0;
@@ -1147,6 +1274,10 @@ $md-cb-label-padding: 2rem;
         border: $md-checkmark-width solid $md-checkmark-color;
         border-top-style: none;
         border-right-style: none;
+      }
+
+      +label+.md-cb__unset {
+        display: block;
       }
     }
 
@@ -1234,7 +1365,8 @@ $md-cb-label-padding: 2rem;
 
   position: relative;
   border-bottom: dotted 1px var(--gray);
-  margin-bottom: 1.5rem;
+  //padding-top: 1.5rem;
+  margin-bottom: 1.5rem !important;
 
   &__title {
     position: relative;
@@ -1297,7 +1429,7 @@ $md-cb-label-padding: 2rem;
 .alert {
 
   &--head {
-    margin: 2rem 0 1rem 0;
+    //margin: 2rem 0 1rem 0;
     color: white;
     font-weight: bold;
   }
@@ -1311,6 +1443,7 @@ $md-cb-label-padding: 2rem;
   &__bar {
 
     vertical-align: middle;
+    //overflow: hidden;
 
     &-bg {
       height: 25px;
@@ -1321,10 +1454,22 @@ $md-cb-label-padding: 2rem;
       color: $white;
       margin-left: 0.5rem;
       font-size: 0.875rem;
+      vertical-align: middle;
+      margin-bottom: 0;
+      height: 100%;
     }
 
     >* {
       vertical-align: middle;
+    }
+
+    &--all {
+      .percentage-graph__bar-bg {
+        height: 30px;
+      }
+      .percentage-graph__bar-value {
+        line-height: 30px;
+      }
     }
   }
 
@@ -1341,7 +1486,7 @@ $md-cb-label-padding: 2rem;
 
 .demographics-content__graph {
   .gq {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 
     .gq-tuple {
       margin: 0;
@@ -1358,10 +1503,10 @@ $md-cb-label-padding: 2rem;
 
 .demograph {
   margin-bottom: 0;
-  padding-top: 1rem;
+  //padding-top: 1rem;
 
   &-bar {
-    padding-top: .6rem;
+    //padding-top: .6rem;
   }
 
   >* {
@@ -1374,13 +1519,13 @@ $md-cb-label-padding: 2rem;
   &__figures>* {
     display: inline-block !important;
     height: auto !important;
-    font-size: 1.5rem;
+    width: 1.35rem !important;
   }
 
   &__value {
-    width: 3rem;
+    width: 2rem;
     font-size: 0.875rem;
-    font-weight: bold;
+    //font-weight: bold;
     margin-right: 0.5rem;
   }
 }
@@ -1390,6 +1535,11 @@ $md-cb-label-padding: 2rem;
 /*==============================
 =            Graphs            =
 ==============================*/
+
+.graph-svg {
+  display: block;
+  margin: auto;
+}
 
 .stackedbar {}
 
@@ -1414,8 +1564,9 @@ $md-cb-label-padding: 2rem;
 
 .taking-snapshot {
 
-  .gq {
-    border-bottom: 0;
+  .gq,
+  .gq-tuple {
+    border-bottom: 0 !important;
     margin-bottom: 0;
   }
 
