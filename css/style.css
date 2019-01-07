@@ -72,8 +72,8 @@ h5,
 h6 {
   font-family: Arial; }
 
-h4 {
-  font-weight: bold; }
+.font-heading {
+  font-family: Georgia, serif; }
 
 main {
   margin-top: 2rem;
@@ -95,18 +95,15 @@ span.sep {
   top: 0;
   right: 0;
   background-color: transparent;
-  color: #d93954; }
+  padding: 0.25rem; }
 
 .btn-camera,
 .btn-pdf {
   position: absolute;
   top: 0;
   right: 1rem;
+  padding: .25rem;
   background-color: var(--yellow); }
-
-.btn-pdf {
-  padding-left: 0.875rem;
-  padding-right: 0.875rem; }
 
 .btn-transparent {
   background-color: transparent;
@@ -221,6 +218,35 @@ span.sep {
   25% {
     opacity: 1;
     transform: translateY(-10px); } }
+.icon {
+  width: 2rem;
+  height: 2rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center; }
+  .icon--download {
+    background-image: url(../images/icons/download.png); }
+  .icon--search {
+    background-image: url(../images/icons/search.png); }
+  .icon--camera {
+    background-image: url(../images/icons/camera.png);
+    background-size: contain; }
+  .icon--pdf {
+    background-image: url(../images/icons/pdf.png);
+    background-size: contain; }
+  .icon--eye {
+    background-image: url(../images/icons/view.png); }
+  .icon--question {
+    background-image: url(../images/icons/question.png);
+    background-size: contain; }
+  .icon--deviation {
+    background-image: url(../images/icons/deviation.png);
+    width: 2rem;
+    background-position: 0 -28px;
+    height: 1.5rem; }
+
 /*=====  End of General  ======*/
 /*=====================================================
 =            Fixed Header and Column Table            =
@@ -254,20 +280,20 @@ span.sep {
     white-space: nowrap; }
   .tbl-fixed .thead > span {
     display: inline-block;
-    width: 120px;
     line-height: 40px;
     background-color: #d93954;
     text-align: left;
     padding-left: 1rem;
     color: white;
     font-weight: bold; }
+    .tbl-fixed .thead > span:not(:last-child), .tbl-fixed .thead > span:first-child {
+      border-right: solid 2px #fff; }
   .tbl-fixed .trow {
     white-space: nowrap;
     line-height: 4rem;
     border-bottom: 1px solid #dee2e6; }
   .tbl-fixed .trow > span {
     display: inline-block;
-    min-width: 120px;
     padding: .75rem .75rem .75rem 1rem;
     vertical-align: middle;
     line-height: normal;
@@ -316,6 +342,9 @@ span.sep {
 /*=================================
 =            Dashboard            =
 =================================*/
+.tb-dashboard h5 {
+  font-family: Georgia, serif; }
+
 .graph-container {
   margin-top: 2rem; }
   .graph-container.perf-cat-graph .graph {
@@ -409,7 +438,7 @@ span.sep {
     .insights-content__graph svg tspan.down {
       fill: #d93954; }
 .insights-content__graphinfo .graph-info__value {
-  font-size: 1.5rem; }
+  font-size: 1.25rem; }
 .insights-content__graphinfo .graph-info__benchmark {
   line-height: 1;
   font-size: 0.875rem; }
@@ -442,8 +471,10 @@ span.sep {
         cursor: pointer;
         vertical-align: middle;
         white-space: normal; }
-      .sidepanel .dropdown-menu .dropdown-item [data-icon] {
-        vertical-align: middle; }
+      .sidepanel .dropdown-menu .dropdown-item i {
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 0.5rem; }
     .sidepanel .dropdown-menu .dropdown-item.active:not(:active),
     .sidepanel .dropdown-menu .dropdown-item-selection.active:not(:active) {
       background-color: #f8f9fa;
@@ -579,6 +610,8 @@ span.sep {
     top: 1px; }
 .consistency-container .underscore {
   margin-left: 4rem; }
+  .consistency-container .underscore .icon--deviation {
+    margin-top: .5rem; }
   .consistency-container .underscore svg {
     position: absolute;
     top: 1.7rem; }
@@ -779,7 +812,7 @@ span.sep {
 
 .alert--head {
   color: white;
-  font-weight: bold; }
+  font-weight: normal; }
 
 .percentage-graph {
   margin-bottom: 0; }

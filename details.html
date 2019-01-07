@@ -238,12 +238,12 @@
               <div class="dropdown-menu show">
 
                 <button type="button" class="dropdown-item js-show-modal js-tab-category-controls" data-type="categories" data-toggle="modal" data-target="#modalCategories">
-                  <i class="far fa-eye"></i>
+                  <i class="icon icon--eye"></i>
                   <label>Show/Hide Categories</label>
                 </button>
 
                 <button type="button" class="dropdown-item js-show-modal js-tab-question-controls hide" data-type="questions-list" data-toggle="modal" data-target="#modalAllQuestionFilter">
-                  <i class="far fa-eye"></i>
+                  <i class="icon icon--eye"></i>
                   <label>Show/Hide Questions</label>
                 </button>
 
@@ -261,7 +261,7 @@
               <!-- Categories -->
               <div class="tab-pane fade show active" id="nav-cat" role="tabpanel" aria-labelledby="nav-cat-tab">
 
-                <p class="mb-3">
+                <p class="mb-3 mr-md-3">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -280,7 +280,7 @@
               <!-- Questions -->
               <div class="tab-pane fade" id="nav-questions" role="tabpanel" aria-labelledby="nav-questions-tab">
 
-                <p>
+                <p class="mr-md-3">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -303,13 +303,13 @@
       </div>
 
       <!-- Camera Button -->
-      <button class="btn btn-camera js-btn-camera js-tab-question-controls hide" data-target="#questions_list">
-        <i class="fas fa-camera" aria-hidden="true"></i>
+      <button class="btn btn-camera js-btn-camera js-tab-question-controls hide" data-target="#questions_list" data-paginate>
+        <i class="icon icon--camera"></i>
       </button>
 
       <!-- Camera Button -->
-      <button class="btn btn-camera js-btn-camera js-tab-category-controls" data-target="#categories_list">
-        <i class="fas fa-camera" aria-hidden="true"></i>
+      <button class="btn btn-camera js-btn-camera js-tab-category-controls" data-target="#categories_list" data-paginate>
+        <i class="icon icon--camera"></i>
       </button>
       
     </main>
@@ -696,14 +696,14 @@
 
       <div id="id-{{qid}}">
 
-        <h5 class="mb-3 font-weight-bold position-relative">{{key}}
-          <button class="btn btn-download" style="right: 3rem;" data-html2canvas-ignore>
-            <i class="fas fa-search"></i>
+        <h6 class="mb-3 font-weight-bold position-relative">{{key}}
+          <button class="btn btn-download" style="right: 2.2rem;" data-html2canvas-ignore>
+            <i class="icon icon--search"></i>
           </button>
           <button class="btn btn-download" data-target="#id-{{qid}}" data-html2canvas-ignore>
-            <i class="fas fa-arrow-down"></i>
+            <i class="icon icon--download"></i>
           </button>
-        </h5>
+        </h6>
 
         <div class="gq pb-4">
 
@@ -754,14 +754,14 @@
         {{#values}}
         <div class="gq ml-3 {{^isMultipart}}pb-3{{/isMultipart}}" id="qid-{{qid}}">
 
-          <h5 class="gq__title pr-5 {{#isFreeform}}mb-3{{/isFreeform}}">
+          <h6 class="gq__title pr-5 {{#isFreeform}}mb-3{{/isFreeform}}">
             <b>Q{{srno}}:</b>{{key}}
             {{^isFreeform}}
             <button class="btn btn-download" data-target="#qid-{{qid}}" data-html2canvas-ignore>
-              <i class="fas fa-arrow-down"></i>
+              <i class="icon icon--download"></i>
             </button>
             {{/isFreeform}}
-          </h5>
+          </h6>
 
           <!-- Breakdown By Statements -->
 
@@ -854,8 +854,8 @@
 
         <div class="alert alert-secondary pr-5" role="alert">
           <b class="mr-2">Q{{srno}}:</b>{{key}}
-          <button class="btn btn-download js-btn-camera" data-target="#ff_questions_list_wrapper">
-            <i class="fas fa-arrow-down"></i>
+          <button class="btn btn-download js-btn-camera" data-target="#ff_questions_list_wrapper" data-paginate>
+            <i class="icon icon--download"></i>
           </button>
         </div>
 

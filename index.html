@@ -56,20 +56,6 @@
         </div>
       </nav>
 
-      <!--
-      <nav class="site-sub-nav navbar navbar-light bg-light">
-        <div class="container">
-          <div class="gutter"></div>
-          <div class="navbar-collapse">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">Dashboard</a>
-              <a class="nav-item nav-link" href="#">Insights</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-      -->
-
       <!-- Navigation: Sub Header -->
       <nav class="site-sub-nav">
         <div class="container">
@@ -90,7 +76,7 @@
     <main class="mt-2">
       
         <!-- Tabbed Content -->
-        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content tb-dashboard" id="nav-tabContent">
 
           <!-- Dashboard -->
           <div class="tab-pane fade show active tb--dashb" id="nav-dashb" role="tabpanel" aria-labelledby="nav-dashb-tab">
@@ -102,7 +88,7 @@
 
                 <div class="col-5 col-md-12 col-lg-5">
 
-                  <h4>Performance by Category</h4>
+                  <h5>Performance by Category</h5>
 
                   <div class="graph-container perf-cat-graph" id="perf_cat_graph_full">
 
@@ -123,7 +109,7 @@
                   </div>
 
                   <button class="btn btn-download" data-target="#perf_cat_graph_full" data-html2canvas-ignore>
-                    <i class="fas fa-arrow-down"></i>
+                    <i class="icon icon--download"></i>
                   </button>
                   
                 </div>
@@ -131,7 +117,7 @@
                 <div class="col-7 col-md-12 col-lg-7 pr-5-ipad-l">
 
                   <div>
-                    <h4 class="inline">Performance by</h4>
+                    <h5 class="inline">Performance by</h5>
                     <div class="dropdown inline dashboard-select js-dropdown-category">
                       <!--btn-secondary removed to prevent click color change-->
                       <button class="btn dropdown-toggle dashboard-select__category" type="button" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -154,7 +140,7 @@
                   </div>
 
                   <button class="btn btn-download mr-5-ipad-l" data-target="#perf_cat_table" data-html2canvas-ignore>
-                    <i class="fas fa-arrow-down"></i>
+                    <i class="icon icon--download"></i>
                   </button>
                   
                 </div>
@@ -168,7 +154,7 @@
 
               <div class="container">
 
-                <h4 class="mb-4">Highlights</h4>
+                <h5 class="mb-4">Highlights</h5>
 
                 <div class="row">
 
@@ -188,7 +174,7 @@
 
               <div class="container">
 
-                <h4 class="mb-4">Participation</h4>
+                <h5 class="mb-4">Participation</h5>
 
                 <div id="participants_section" class="row pc-indicator align-items-center cursor-p js-hook" data-url="demographics.html">
                   <!-- Rendered using template -->
@@ -198,17 +184,16 @@
               
             </div>
 
+            <!-- PDF Button -->
+            <button class="btn btn-pdf js-btn-pdf" data-singlepage data-target="#nav-dashb" data-html2canvas-ignore>
+              <i class="icon icon--pdf"></i>
+            </button>
+
             <!-- Camera Button -->
-            <button class="btn btn-camera js-btn-download" data-target="#nav-dashb" data-html2canvas-ignore>
-              <i class="fas fa-camera" aria-hidden="true"></i>
+            <button class="btn btn-camera mt-5 js-btn-download" data-target="#nav-dashb" data-html2canvas-ignore>
+              <i class="icon icon--camera"></i>
             </button>
-
-
-            <!-- PDF Button
-            <button class="btn btn-pdf mt-5 js-btn-pdf" data-target="#nav-dashb" data-html2canvas-ignore>
-              <i class="fas fa-file-pdf" aria-hidden="true"></i>
-            </button>
-             -->
+            
             
           </div>
 
@@ -251,13 +236,13 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Commodity Chemicals" /> <label>Commodity Chemicals</label>
+                            <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Speciality Chemicals" /> <label>Speciality Chemicals</label>
+                            <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Agro Chemicals" /> <label>Agro Chemicals</label>
+                            <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
                           </button>
                         </div>
                         <div class="dropdown-item-selection active"></div>
@@ -319,17 +304,17 @@
                       <h6 class="dropdown-header">Go to:</h6>
 
                       <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-cat">
-                        <i class="far fa-eye"></i>
+                        <i class="icon icon--eye"></i>
                         <label>All Categories</label>
                       </button>
 
                       <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions">
-                        <i class="far fa-question-circle"></i>
+                        <i class="icon icon--question"></i>
                         <label>All Questions</label>
                       </button>
 
                       <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter" data-tag="questions-not-on-chart">
-                        <i class="far fa-question-circle"></i>
+                        <i class="icon icon--question"></i>
                         <label>Questions not on<br>this chart</label>
                       </button>
                       
@@ -349,19 +334,19 @@
                     </div>
                     <div class="col-1">
                       <button class="btn btn-download" data-target="#sp_question_graph" data-html2canvas-ignore>
-                        <i class="fas fa-arrow-down"></i>
+                        <i class="icon icon--download"></i>
                       </button>
                     </div>
                   </div>
 
                   <div class="row" id="sp_question_graph" html2canvas-no-padding>
                     <!-- Graph Info -->
-                    <div class="insights-content__graphinfo graph-info js-question-graph-info w-50 text-right">
+                    <div class="insights-content__graphinfo graph-info position-absolute pr-md-2 pr-lg-3 js-question-graph-info w-50 text-right">
                       <!-- Filled using template -->
                     </div>
 
                     <!-- Graph -->
-                    <div class="insights-content__graph" id="questions_graph">
+                    <div class="insights-content__graph mt-1" id="questions_graph">
                       <svg></svg>
                     </div>
                     
@@ -375,7 +360,7 @@
 
             <!-- Camera Button -->
             <button class="btn btn-camera js-btn-camera" data-target="#sp_question_graph">
-              <i class="fas fa-camera" aria-hidden="true"></i>
+              <i class="icon icon--camera"></i>
             </button>
             
           </div>
@@ -516,13 +501,13 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Commodity Chemicals" /> <label>Commodity Chemicals</label>
+                            <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Speciality Chemicals" /> <label>Speciality Chemicals</label>
+                            <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Agro Chemicals" /> <label>Agro Chemicals</label>
+                            <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
                           </button>
                         </div>
                         <div class="dropdown-item-selection active"></div>
@@ -688,9 +673,11 @@
           <span>vs.</span>
           <span class="hl-indicator__year">{{prevYear}}</span>
         </div>
+        {{#bFilterOrgActive}}
         <div class="graph-info__benchmarkr2">
           All Organization: {{allOrgValue}}
         </div>
+        {{/bFilterOrgActive}}
         <div class="graph-info__benchmarkr2">
           Benchmark: {{benchmark}}
         </div>
@@ -755,7 +742,7 @@
         <div class="alert alert-secondary" role="alert">
           <b class="mr-2">Q{{srno}}:</b>{{key}}
           <button class="btn btn-download" data-target="#questions_list" data-html2canvas-ignore>
-            <i class="fas fa-arrow-down"></i>
+            <i class="icon icon--download"></i>
           </button>
         </div>
 
@@ -841,7 +828,7 @@
       {{#highlights}}
       <div class="hl-indicator cursor-p pr-lg-5" data-question="{{question}}">
 
-        <h5 class="hl-indicator__title">{{title}}</h5>
+        <h6 class="hl-indicator__title">{{title}}</h6>
 
         <p class="hl-indicator__content">{{question}}</p>
 
@@ -1572,8 +1559,9 @@
           .style("font-family", "Arial")
           .attr("transform", function(d, i){ 
             var cd = arcLabel.centroid(d),
-            topMargin = 30,
-            axisMargin = 100,
+            topMargin = 90,
+            axisMarginTop = 160,
+            axisMarginBottom = 100,
             labelBoxSize = maxWidth - 50;
             
             // along a circular arc
@@ -1604,8 +1592,8 @@
                 cd[0] = labelBoxSize/2;
                 // 2. Along Y axis between s,s/5 to s,s
                 // 
-                var ceil = -labelRadius + axisMargin,
-                floor = labelRadius - axisMargin;
+                var ceil = -labelRadius + axisMarginTop,
+                floor = labelRadius - axisMarginBottom;
                 
                 if (cd[1] < ceil) {
                   cd[1] = ceil;
@@ -1623,8 +1611,8 @@
                 cd[0] = -labelBoxSize/2;
                 // 2. Along Y axis between s,s/5 to s,s
                 // 
-                var ceil = -labelRadius + axisMargin,
-                floor = labelRadius - axisMargin;
+                var ceil = -labelRadius + axisMarginTop,
+                floor = labelRadius - axisMarginBottom;
                 
                 if (cd[1] < ceil) {
                   cd[1] = ceil;
@@ -1682,11 +1670,16 @@
             .text(function(d){ return  'All Organization: ' + getBenchmarkData(d.data.key).allOrgValue; });
 
         }
+        overallData.bFilterOrgActive = bFilterOrgActive;
 
         text.append("tspan")
           .attr("x", 0)
           .attr("y", bFilterOrgActive ? "2.8em" : "1.7em")
           .text(function(d){ return  'Benchmark: ' + getBenchmarkData(d.data.key).benchmark; });
+
+        // Show overall info
+        // 
+        $('.js-question-graph-info').html(Mustache.render($('#tpl_perf_info_insights').html(), overallData));
 
 
         try {
@@ -2010,7 +2003,6 @@
       // Show Overall Info
       // 
       $('.js-perf-cat-graph-info').html(Mustache.render($('#tpl_perf_info').html(), overallData));
-      $('.js-question-graph-info').html(Mustache.render($('#tpl_perf_info_insights').html(), overallData));
       
 
       // Bind Events

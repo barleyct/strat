@@ -197,7 +197,7 @@
               </div>
               <div class="col-2">
                 <button class="btn btn-download mr-md-5" data-target="#demographics_list">
-                  <i class="fas fa-arrow-down"></i>
+                  <i class="icon icon--download"></i>
                 </button>
               </div>
             </div>  
@@ -213,8 +213,8 @@
       </div>
 
       <!-- Camera Button -->
-      <button class="btn btn-camera js-btn-camera" data-target="#demographics_list">
-        <i class="fas fa-camera" aria-hidden="true"></i>
+      <button class="btn btn-camera js-btn-download" data-target="#demographics_list">
+        <i class="icon icon--camera"></i>
       </button>
       
     </main>
@@ -253,11 +253,11 @@
       <div class="row mb-3">
         <div class="col"></div>
         <div class="col-5">
-          <h5 class="font-weight-bold">Participation rate</h5>
+          <h5 class="font-weight-bold font-heading">Participation rate</h5>
         </div>
 
         <div class="col-5">
-          <h5 class="font-weight-bold">Number of participants</h5>
+          <h5 class="font-weight-bold font-heading">Number of participants</h5>
         </div>
       </div>
 
@@ -392,7 +392,7 @@
               key: 'All',
               isAll: true,
               value: sumTotal,
-              valuePercentage: '100%',
+              valuePercentage: format(rValue/10),
               fill: '#333',
               figureValue: d3.range(rValue),
               figureValueInverse: d3.range(iMaxFigures-rValue)

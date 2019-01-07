@@ -10,9 +10,11 @@ var colorMap = {
   'tangerine': ['#ffdca9', '#ffa929', '#eb8c00', '#ae6800', '#714300', '#452900'],
   'yellow': ['#ffecbd', '#ffc838', '#ffb600', '#c28a00', '#855f00', '#553d00'],
   'red': ['#f7c8c4', '#e86153', '#e0301e', '#aa2417', '#741910', '#461008'],
-  'burgundy': ['#e2a2a2', '#c25b5b', '#a32020', '#871010', '#5e0909', '#290000']
+  'burgundy': ['#e2a2a2', '#c25b5b', '#a32020', '#871010', '#5e0909', '#290000'],
+  'black': ['#333','#333','#333','#333','#333','#333']
 },
 categoryColorMap = {
+  'Strategy threesixty': colorMap['black'],
   'Value Proposition': colorMap['rose'],
   'Capabilities': colorMap['tangerine'],
   'Leadership': colorMap['red'],
@@ -771,7 +773,7 @@ function getPDF($target, imgData, bReturnRawPDF){
 
   console.log('totalPDFPages', totalPDFPages, HTML_Height/PDF_Height, HTML_Height, PDF_Height);
 
-  for (var i = 0; i <= totalPDFPages; i++) { 
+  for (var i = 0; i < totalPDFPages; i++) { 
     if (i) {
       pdf.addPage(/*PDF_Width, PDF_Height*/);
     }
@@ -959,9 +961,9 @@ function initDownloadHook(){
 
   });
 
-  // Download PDF of an element
+  // Download PDF of an element which needs to be paginated
   // 
-  $('.js-btn-camera').off('click').on('click', function(){
+  $('.js-btn-camera[data-paginate]').off('click').on('click', function(){
 
     var btn = $(this),
     target = $(btn.data('target'));
@@ -1011,31 +1013,36 @@ function initDownloadHook(){
 
   });
 
-  // Download Button
+  // Download PDF of a single page element
   // 
-  /*
-  $('.js-btn-camera-na').off('click').on('click', function(){
+  $('.js-btn-camera:not([data-paginate]), .js-btn-pdf:not([data-paginate])').off('click').on('click', function(){
 
     var btn = $(this),
     target = $(btn.data('target'));
 
     if (target.length) {
-      var oDeferred = takeElementSnapshot(target[0]);
 
-      // Do we have the snapshot?
-      jQuery.when(oDeferred)
-        .then(function(domImageDataURI){
-          //var dt = getCanvasImage(domImageDataURI);
-          //downloadImage(dt, 'Chart.jpeg');
-          
-          //savePDF(getPDF(target, domImageDataURI, true));
-          getPDF(target, domImageDataURI);
+      loading(true);
 
-        });
+      setTimeout(function(){
+
+        var oDeferred = takeElementSnapshot(target[0]);
+
+        // Do we have the snapshot?
+        jQuery.when(oDeferred)
+          .then(function(domImageDataURI){
+            //savePDF(getPDF(target, domImageDataURI, true));
+            getPDF(target, domImageDataURI);
+
+            loading();
+
+          });
+
+      }, 0);
     }
 
   });
-  */
+
 }
 
 function savePDF(base64Data, sFilename) {
