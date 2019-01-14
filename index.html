@@ -14,7 +14,7 @@
     <!-- fonts -->
     <script defer src="fonts/js/all.min.js"></script>
 
-    <title>Strategy& - Strategy threesixty - Dashboard</title>
+    <title>Strategy& - Aperture - Dashboard</title>
   </head>
   <body>
 
@@ -26,7 +26,7 @@
 
           <a class="navbar-brand" href="index.html">
             <img src="images/co-brand-logo@1X.png" width="145" height="45" class="d-inline-block align-top" alt="">
-            Strategy threesixty radar
+            Aperture
           </a>
 
           <!-- client logo -->
@@ -236,13 +236,13 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+                            <input type="checkbox" value="Commodity Chemicals" /> <label>Commodity Chemicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+                            <input type="checkbox" value="Speciality Chemicals" /> <label>Speciality Chemicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+                            <input type="checkbox" value="Agro Chemicals" /> <label>Agro Chemicals</label>
                           </button>
                         </div>
                         <div class="dropdown-item-selection active"></div>
@@ -330,7 +330,7 @@
                   
                   <div class="row insights-content__text">
                     <div class="col-10">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa. Donec blandit, diam a tempor consequat, augue ante tristique mauris, aliquam dictum sem est vitae orci. </p>
+                      <p>Gain more insights about your organization’s performance in each category (measured on a scale from 0 to 100%). Every slice in the circular diagram corresponds to one survey question. The better your organization scores on a question, the larger the slice is. The smaller slices indicate a weaker performance score.  Mouse over any slice to see the question and click to see the breakdown of responses. The navigation on the left-hand side allows you to focus on responses from specific parts of the organization (filter function).</p>
                     </div>
                     <div class="col-1">
                       <button class="btn btn-download" data-target="#sp_question_graph" data-html2canvas-ignore>
@@ -415,7 +415,7 @@
                     
                     <button type="button" class="dropdown-item md-cb">
                       <input type="checkbox" checked value="strategythreesixty">
-                      <label>Strategy threesixty</label>
+                      <label>Overall</label>
                     </button>
 
                     <button type="button" class="dropdown-item md-cb">
@@ -501,13 +501,13 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu--submenu">
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Commodity Checmicals" /> <label>Commodity Checmicals</label>
+                            <input type="checkbox" value="Commodity Chemicals" /> <label>Commodity Chemicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Speciality Checmicals" /> <label>Speciality Checmicals</label>
+                            <input type="checkbox" value="Speciality Chemicals" /> <label>Speciality Chemicals</label>
                           </button>
                           <button class="dropdown-item md-cb" type="button">
-                            <input type="checkbox" value="Agro Checmicals" /> <label>Agro Checmicals</label>
+                            <input type="checkbox" value="Agro Chemicals" /> <label>Agro Chemicals</label>
                           </button>
                         </div>
                         <div class="dropdown-item-selection active"></div>
@@ -785,7 +785,7 @@
           </div>
 
           <div class="col col-sm-auto">
-            <label>Progress:</label>
+            <!-- <label>Progress:</label> -->
             <span class="pc-indicator__pg">{{progressValue}}%</span>
             <span class="pc-indicator__pgindicator text-{{#progressMovementUp}}success{{/progressMovementUp}}{{^progressMovementUp}}danger{{/progressMovementUp}}">
               <!--
@@ -1043,34 +1043,34 @@
       // 
       var highlightsData = [{
           title: "Most Positive",
-          question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 9",
+          question: "Do you think your company has a clear value proposition?",
           value: 70,
           text: "fully agree",
           indicatorValue: 10,
           indicatorMovementUp: true,
           indicatorYear: 2017
         },{
-          title: "Most Positive",
-          question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 11",
-          value: 70,
-          text: "fully agree",
+          title: "Biggest concern about strategy",
+          question: "Value proposition is not differentiated.",
+          value: 85,
+          text: "concerned",
           indicatorValue: 10,
-          indicatorMovementUp: true,
+          indicatorMovementUp: false,
           indicatorYear: 2017
         },{
-          title: "Most Positive",
-          question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 10",
-          value: 70,
+          title: "Biggest improvement",
+          question: "Do you understand the strategy?",
+          value: 60,
           text: "fully agree",
-          indicatorValue: 10,
-          indicatorMovementUp: true,
+          indicatorValue: 30,
+          indicatorMovementUp: false,
           indicatorYear: 2017
         },{
-          title: "Most Positive",
-          question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 2",
-          value: 70,
-          text: "fully agree",
-          indicatorValue: 10,
+          title: "Biggest concern about execution",
+          question: "Budgets are not inline with the strategy.",
+          value: 90,
+          text: "concerned",
+          indicatorValue: 30,
           indicatorMovementUp: true,
           indicatorYear: 2017
         }]

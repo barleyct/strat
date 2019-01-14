@@ -14,7 +14,7 @@ var colorMap = {
   'black': ['#333','#333','#333','#333','#333','#333']
 },
 categoryColorMap = {
-  'Strategy threesixty': colorMap['black'],
+  'Overall': colorMap['black'],
   'Value Proposition': colorMap['rose'],
   'Capabilities': colorMap['tangerine'],
   'Leadership': colorMap['red'],

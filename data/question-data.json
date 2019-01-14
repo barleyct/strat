@@ -3,7 +3,7 @@
     "qid": 0,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 0",
     "active": true,
-    "category": "Strategy threesixty"
+    "category": "Overall"
   },
   {
     "qid": 1,
@@ -39,7 +39,7 @@
     "qid": 6,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 6",
     "active": true,
-    "category": "Strategy threesixty"
+    "category": "Overall"
   },
   {
     "qid": 7,
@@ -75,7 +75,7 @@
     "qid": 12,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 12",
     "active": true,
-    "category": "Strategy threesixty"
+    "category": "Overall"
   },
   {
     "qid": 13,
@@ -111,7 +111,7 @@
     "qid": 18,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 18",
     "active": true,
-    "category": "Strategy threesixty"
+    "category": "Overall"
   },
   {
     "qid": 19,
@@ -147,7 +147,7 @@
     "qid": 24,
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex leo, facilisis quis eros in, imperdiet congue massa 24",
     "active": true,
-    "category": "Strategy threesixty"
+    "category": "Overall"
   },
   {
     "qid": 25,
