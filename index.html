@@ -427,7 +427,7 @@
                     <h6 class="dropdown-header">Categories:</h6>
                     
                     <button type="button" class="dropdown-item md-cb">
-                      <input type="checkbox" checked value="strategythreesixty">
+                      <input type="checkbox" checked value="Overall">
                       <label>Overall</label>
                     </button>
 
@@ -1877,8 +1877,8 @@
       function showTooltip(d) {
         
         $('#tooltip')
-          .css('top', d3.event.y + 'px')
-          .css('left',  d3.event.x + 'px')
+          .css('top', d3.event.pageY + 'px')
+          .css('left',  d3.event.pageX + 'px')
           .html(Mustache.render(tpl_question_tooltip, d.data))
           .show();
       }

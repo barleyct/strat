@@ -36,7 +36,7 @@ function getStructuredData(aData, aBreakdownBy /*, bRollup*/) {
   var nest = d3.nest(),
   bRollup = true,
   // sort based on following sequence
-  sortBy = ['Strategy threesixty', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
+  sortBy = ['Strategy threesixty', 'Overall', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
   data;
 
   aBreakdownBy = aBreakdownBy || ['category', 'question', 'tenure', 'response'];
@@ -80,7 +80,7 @@ function getStructuredQuestionData(aData, sBreakdownBy) {
   var nest = d3.nest(),
   bRollup = true,
   // sort based on following sequence
-  sortBy = ['Strategy threesixty', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
+  sortBy = ['Strategy threesixty', 'Overall', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
   data = [],
   aNestBy,
   aFreeform,

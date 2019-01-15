@@ -507,8 +507,8 @@
           };
 
           $('#tooltip')
-            .css('top', event.y + 'px')
-            .css('left',  event.x + 'px')
+            .css('top', event.pageY + 'px')
+            .css('left',  event.pageX + 'px')
             .html(Mustache.render(tpl_tooltip, data))
             .show();
 

@@ -357,7 +357,7 @@
                     <h6 class="dropdown-header">Categories:</h6>
                     
                     <button type="button" class="dropdown-item md-cb">
-                      <input type="checkbox" checked value="strategythreesixty">
+                      <input type="checkbox" checked value="Overall">
                       <label>Overall</label>
                     </button>
 
@@ -1061,7 +1061,11 @@
             j = 0,
             key;
 
-            return aData.map(function(cat){
+            // filter 'Overall' category
+            // 
+            return aData.filter(function(d){
+              return d.key != 'Overall';
+            }).map(function(cat){
 
               cat.values = cat.values.map(function(q, srno){
                 q.qid = 'q-'+ ++i;
