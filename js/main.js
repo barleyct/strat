@@ -829,7 +829,7 @@ function generatePDF(aImages, imageWidth, aImageHeight) {
   imageHeight = 1150,
   ratio;
   
-  var pdf = new jsPDF('p', 'px', /*[pageWidth, pageHeight]*/);
+  var pdf = new jsPDF('p', 'px'/*, [pageWidth, pageHeight]*/);
 
   pageWidth = pdf.internal.pageSize.getWidth();
   pageHeight = pdf.internal.pageSize.getHeight();
@@ -1453,6 +1453,11 @@ $(function(){
 		// 
 		if (el.data('toggle') == 'dropdown' && !hasSubMenuItems) {
 			input.prop('checked', bChecked = !input.prop('checked'));
+      if (bChecked) {
+        input.attr("checked", "checked");
+      }else{
+        input.removeAttr("checked");
+      }
 			bDispatch = true;
 		}
 
@@ -1474,6 +1479,11 @@ $(function(){
 			// Check menu item
 			// 
 			elMenuInput.prop('checked', bChecked = !!elCheckedSubMenuItems.length);
+      if (bChecked) {
+        elMenuInput.attr("checked", "checked");
+      }else{
+        elMenuInput.removeAttr("checked");
+      }
 
 			el = elMenuInput.parent();
 
@@ -1523,6 +1533,11 @@ $(function(){
 		if (hasSubMenuItems) {
 
 			elSubMenuItems.prop('checked', bChecked);
+      if (bChecked) {
+        elSubMenuItems.attr("checked", "checked");
+      }else{
+        elSubMenuItems.removeAttr("checked");
+      }
 			
 			// if unchecked, clear all submenu items
 			//

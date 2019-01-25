@@ -426,7 +426,7 @@ span.sep {
     display: block;
     width: 100%;
     height: 2520px; }
-    .insights-content__graph svg path {
+    .insights-content__graph svg .g-slices path {
       cursor: pointer; }
     .insights-content__graph svg .g-text text tspan:first-child {
       font-size: 1rem;
@@ -448,7 +448,10 @@ span.sep {
     padding-right: 2.5rem; }
 
   .mr-5-ipad-l {
-    margin-right: 2.5rem; } }
+    margin-right: 2.5rem; }
+
+  .graph-container.perf-cat-graph .graph .g-text text tspan:not(:first-child) {
+    font-size: 0.715rem !important; } }
 /*=====  End of Dashboard  ======*/
 /*====================================
 =            Filter Panel            =
@@ -817,7 +820,8 @@ span.sep {
 .percentage-graph {
   margin-bottom: 0; }
   .percentage-graph__bar {
-    vertical-align: middle; }
+    vertical-align: middle;
+    min-width: 1px; }
     .percentage-graph__bar-bg {
       height: 25px;
       margin: 0.35rem 0; }
@@ -836,7 +840,8 @@ span.sep {
       line-height: 30px; }
   .percentage-graph .hl-indicator {
     margin-bottom: 0;
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    height: 25px; }
   .percentage-graph .hl-indicator > * {
     display: inline-block;
     vertical-align: middle; }

@@ -643,6 +643,14 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      if (typeof Promise !== "function"){
+        document.write('<script src="js/es6-promise.auto.min.js"><\/script>');
+      }
+      if (typeof fetch !== "function"){
+        document.write('<script src="js/fetch-2.0.4.min.js"><\/script>');
+      }
+    </script>
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/d3.5.7.0.min.js"></script>
@@ -719,11 +727,11 @@
                 
                 <div class="percentage-graph__bar {{#isAll}}percentage-graph__bar--all{{/isAll}}" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
                   <div class="percentage-graph__bar-bg" style="background: {{fill}};">
-                    <label class="percentage-graph__bar-value" style="color: {{color}};">{{value}}</label>
+                    <label class="percentage-graph__bar-value" style="color: {{color}};{{#isSmall}}margin-left: 1.5rem;{{/isSmall}}">{{value}}</label>
                   </div>
                 </div>
 
-                <div class="hl-indicator ml-4 pl-1">
+                <div class="hl-indicator {{#isSmall}}ml-5{{/isSmall}}{{^isSmall}}ml-4{{/isSmall}} pl-1">
                   <span class="hl-indicator__figure mr-0">{{movementValue}}</span>
                   <i class="hl-indicator__indicator text-{{movementClass}}">{{#movement}}▲{{/movement}}{{^movement}}▼{{/movement}}</i>
                   <span>vs.</span>
@@ -807,7 +815,7 @@
               {{#values}}
               <div class="row gq-tuple align-items-center" data-id="{{qid}}-{{kid}}">
                 <div class="col-3 gq-tuple__title">
-                  <label>{{key}}</label>
+                  <label class="m-0">{{key}}</label>
                 </div>
                 <div class="col gq-tuple__graph">
 
@@ -815,7 +823,7 @@
                     
                     <div class="percentage-graph__bar {{#isAll}}percentage-graph__bar--all{{/isAll}}" style="-ms-flex: 0 0 {{width}};flex: 0 0 {{width}};max-width: {{width}};">
                       <div class="percentage-graph__bar-bg" style="background: {{fill}};">
-                        <label class="percentage-graph__bar-value" style="color: {{color}};">{{value}}</label>
+                        <label class="percentage-graph__bar-value" style="color: {{color}};{{#isSmall}}margin-left: 1.5rem;{{/isSmall}}">{{value}}</label>
                       </div>
                     </div>
 
@@ -1150,7 +1158,8 @@
                       isAll: true,
                       value: format(value),
                       width: format(value * .7), // 70% of the total width
-                      fill: categoryColorMap[cat.key][2]
+                      fill: categoryColorMap[cat.key][2],
+                      isSmall: value < .05
                     };
 
                     s.values.unshift(oAll);
@@ -1183,6 +1192,7 @@
                         // color 
                         // for less than 5%, color as black otherwise white
                         color: value < .05 ? '#222' : '#fff',
+                        isSmall: value < .05
                       }
 
                       return gd;
@@ -1317,6 +1327,7 @@
                 value: format(value),
                 width: format(value * .7), // 70% of the total width
                 fill: categoryColorMap[cat.key][2],
+                isSmall: value < .05,
                 color: value < .05 ? '#222' : '#fff',
                 // movement details
                 // if up, true otherwise false
@@ -1349,6 +1360,7 @@
                   width: format(value * .7),
                   // background color
                   fill: categoryColorMap[cat.key][2],
+                  isSmall: value < .05,
                   // color 
                   // for less than 5%, color as black otherwise white
                   color: value < .05 ? '#222' : '#fff',
