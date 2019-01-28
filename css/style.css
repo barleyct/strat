@@ -103,7 +103,7 @@ span.sep {
   top: 0;
   right: 1rem;
   padding: .25rem;
-  background-color: var(--yellow); }
+  background-color: #ffc107; }
 
 .btn-transparent {
   background-color: transparent;
@@ -610,7 +610,8 @@ span.sep {
     top: 0.25rem; }
   .consistency-container .diamond--legend svg {
     position: relative;
-    top: 1px; }
+    top: 1px;
+    height: 20px; }
 .consistency-container .underscore {
   margin-left: 4rem; }
   .consistency-container .underscore .icon--deviation {
@@ -633,7 +634,7 @@ span.sep {
   margin-top: 1.25rem; }
 .consistency-container .consistency-row--category.show-axis .gq-tuple__title label {
   margin: 0;
-  padding-top: 0.5rem; }
+  padding-top: 1.25rem; }
 .consistency-container .consistency-row--category .diamond svg.fa-caret-down {
   top: 2px; }
 
@@ -863,7 +864,7 @@ span.sep {
     margin: 0; }
   .demograph__figures > * {
     display: inline-block !important;
-    height: auto !important;
+    height: 1.35rem !important;
     width: 1.35rem !important; }
   .demograph__value {
     width: 2rem;

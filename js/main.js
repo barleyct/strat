@@ -1,3 +1,32 @@
+if (typeof Object.assign != 'function') {
+  // Must be writable: true, enumerable: false, configurable: true
+  Object.defineProperty(Object, "assign", {
+    value: function assign(target, varArgs) { // .length of function is 2
+      'use strict';
+      if (target == null) { // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+
+      var to = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        if (nextSource != null) { // Skip over if undefined or null
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    },
+    writable: true,
+    configurable: true
+  });
+}
 /**
  * Main aux script for the site.
  * Event handling and auxillary things happen here.
@@ -240,7 +269,7 @@ function filterData(aDataset, oFilterSettings) {
 
   });
 
-  console.log('filterData', aFD);
+  //console.log('filterData', aFD);
   
   return aFD;
 }
@@ -663,7 +692,7 @@ function takeElementSnapshot(domElement){
     allowTaint: true,
     // Keeps the quality and size low
     scale: 2, // window.devicePixelRatio
-    //background: null,  // allows for transparent background 
+    background: '#ffffff',  // allows for transparent background 
     onclone: function(oDom){
       
       var el = $(oDom).find('#' + domElement.id);
@@ -682,8 +711,22 @@ function takeElementSnapshot(domElement){
     //height: 5000  // Will use Window height by default
     //width: 960  // Will use Window width by default
   }).then(function(canvas) {
-    oDef.resolve(canvas.toDataURL("image/jpeg", 1));
+    
+    var imgBlob = canvas.toDataURL("image/jpeg", 1);
+    
+    oDef.resolve(imgBlob, canvas);
   });
+
+  // forEach method, could be shipped as part of an Object Literal/Module
+  var fnForEach = function (array, callback, scope) {
+    for (var i = 0; i < array.length; i++) {
+      callback.call(scope, i, array[i]); // passes back stuff we need
+    }
+  };
+
+  // Usage:
+  // optionally change the scope as final parameter too, like ECMA5
+  var myNodeList = document.querySelectorAll('li');
   
   // Some dom elements must have width/height dimensions applied to them
   // before a snapshot is taken.
@@ -694,7 +737,7 @@ function takeElementSnapshot(domElement){
     // 
     var nodeList = domElement.querySelectorAll("svg:not(.js-skip-viewbox-auto-adjust)");
     
-    nodeList.forEach(function(e){
+    fnForEach(nodeList, function (index, e) {
       try {
         var bb = e.getBBox(),
         padding = 10;
@@ -771,7 +814,7 @@ function getPDF($target, imgData, bReturnRawPDF){
   
   var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
 
-  console.log('totalPDFPages', totalPDFPages, HTML_Height/PDF_Height, HTML_Height, PDF_Height);
+  //console.log('totalPDFPages', totalPDFPages, HTML_Height/PDF_Height, HTML_Height, PDF_Height);
 
   for (var i = 0; i < totalPDFPages; i++) { 
     if (i) {
@@ -842,7 +885,7 @@ function generatePDF(aImages, imageWidth, aImageHeight) {
     ratio = pageWidth / imageWidth;
 
     // add image
-    pdf.addImage(aImages[i], 'JPEG', 
+    pdf.addImage(aImages[i][0], 'JPEG', 
       margin.top, 
       margin.left,
       pageWidth,
@@ -952,10 +995,18 @@ function initDownloadHook(){
 
       // Do we have the snapshot?
       jQuery.when(oDeferred)
-        .then(function(domImageDataURI){
-          var dt = getCanvasImage(domImageDataURI);
+        .then(function(domImageDataURI, canvas){
+          
           loading();
-          downloadImage(dt, 'Chart.jpeg');
+
+          if (canvas.msToBlob) {
+            //for IE
+            window.navigator.msSaveBlob(canvas.msToBlob(), 'Chart.jpeg');
+          }else{
+            var dt = getCanvasImage(domImageDataURI);
+            downloadImage(dt, 'Chart.jpeg');
+          }
+          
         });
     }
 
@@ -1115,6 +1166,9 @@ function fixSVGIconFill() {
   setTimeout(function(){
     $('[fill="currentColor"], tspan.down, tspan.up').each(function(){
       $(this).attr("fill", $(this).css('fill'));
+    });
+    $('[stroke="currentColor"]').each(function(){
+      $(this).attr("stroke", $(this).css('stroke'));
     });
   }, 0)
 }
@@ -1590,7 +1644,7 @@ $(function(){
 	// 
 
 	dispatch.on('getPanelSettings', function(){
-		console.log(getActiveFilters());
+		//console.log(getActiveFilters());
     setTimeout(function(){
       dispatch.apply('filter', null, [getActiveFilters()]);
     }, 1);

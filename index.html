@@ -75,308 +75,306 @@
 
     <main class="mt-2">
       
-        <!-- Tabbed Content -->
-        <div class="tab-content tb-dashboard" id="nav-tabContent">
+      <!-- Tabbed Content -->
+      <div class="tab-content tb-dashboard" id="nav-tabContent">
 
-          <!-- Dashboard -->
-          <div class="tab-pane fade show active tb--dashb" id="nav-dashb" role="tabpanel" aria-labelledby="nav-dashb-tab">
+        <!-- Dashboard -->
+        <div class="tab-pane fade show active tb--dashb" id="nav-dashb" role="tabpanel" aria-labelledby="nav-dashb-tab">
+
+          <div class="container">
+
+            <!-- Graphs -->
+            <div class="row">
+
+              <div class="col-5 col-md-12 col-lg-5">
+
+                <h5>Performance by Category</h5>
+
+                <div class="graph-container perf-cat-graph" id="perf_cat_graph_full">
+
+                  <div class="graph-info js-perf-cat-graph-info row justify-content-center align-items-end">
+                    <!-- Filled using template -->
+                  </div>
+
+                  <div class="graph cursor-p" id="perf_cat_graph">
+
+                    <svg class="w-100 h-100"></svg>
+                    
+                  </div>
+
+                  <div class="md-cb btn btn-transparent pl-0 js-show-details" data-html2canvas-ignore>
+                    <input type="checkbox" /> <label>See details</label>
+                  </div>
+                  
+                </div>
+
+                <button class="btn btn-download" data-target="#perf_cat_graph_full" data-html2canvas-ignore>
+                  <i class="icon icon--download"></i>
+                </button>
+                
+              </div>
+
+              <div class="col-7 col-md-12 col-lg-7 pr-5-ipad-l">
+
+                <div>
+                  <h5 class="inline">Performance by</h5>
+                  <div class="dropdown inline dashboard-select js-dropdown-category">
+                    <!--btn-secondary removed to prevent click color change-->
+                    <button class="btn dropdown-toggle dashboard-select__category" type="button" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Org. Unit
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownCategory">
+                      <a class="dropdown-item" href="#" data-value="Management Level">Management Level</a>
+                      <a class="dropdown-item" href="#" data-value="Tenure">Tenure</a>
+                      <a class="dropdown-item" href="#" data-value="Org. Unit">Org. Unit</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="graph-container graph-container--table mt-4">
+
+                  <div class="graph h-100" id="perf_cat_table">
+                    
+                  </div>
+                  
+                </div>
+
+                <button class="btn btn-download mr-5-ipad-l" data-target="#perf_cat_table" data-html2canvas-ignore>
+                  <i class="icon icon--download"></i>
+                </button>
+                
+              </div>
+              
+            </div>
+
+          </div>
+
+          <!-- Highlights -->
+          <div class="tb--dashb__highlights">
 
             <div class="container">
 
-              <!-- Graphs -->
+              <h5 class="mb-4">Highlights</h5>
+
               <div class="row">
 
-                <div class="col-5 col-md-12 col-lg-5">
+                <div class="col highlights-content" id="highlights_section">
+                  <!-- Rendered with Template -->
+                </div>
+                
+              </div>
 
-                  <h5>Performance by Category</h5>
 
-                  <div class="graph-container perf-cat-graph" id="perf_cat_graph_full">
+            </div>
+            
+          </div>
 
-                    <div class="graph-info js-perf-cat-graph-info row justify-content-center align-items-end">
-                      <!-- Filled using template -->
+          <!-- Participation -->
+          <div class="tb--dashb__participation">
+
+            <div class="container">
+
+              <h5 class="mb-4">Participation</h5>
+
+              <div id="participants_section" class="row pc-indicator align-items-center cursor-p js-hook" data-url="demographics.html">
+                <!-- Rendered using template -->
+              </div>
+
+            </div>
+            
+          </div>
+
+          <!-- PDF Button -->
+          <button class="btn btn-pdf js-btn-pdf" data-singlepage data-target="#nav-dashb" data-html2canvas-ignore>
+            <i class="icon icon--pdf"></i>
+          </button>
+
+          <!-- Camera Button -->
+          <button class="btn btn-camera mt-5 js-btn-download" data-target="#nav-dashb" data-html2canvas-ignore>
+            <i class="icon icon--camera"></i>
+          </button>
+          
+          
+        </div>
+
+        <!-- Insights -->
+        <div class="tab-pane fade" id="nav-insights" role="tabpanel" aria-labelledby="nav-insights-tab">
+
+          <div class="container">
+
+            <div class="row">
+
+              <!-- Side Panel -->
+              <div class="col-3">
+
+                <!-- Filters -->
+                <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
+                  <div class="dropdown-menu show">
+                    <h6 class="dropdown-header">Filter for:</h6>
+                    <div class="dropright">
+                      <div class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <input type="checkbox" value="year" checked /> <label>Year</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu--submenu">
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="2018" checked /> <label>2018</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="2017" /> <label>2017</label>
+                        </div>
+                      </div>
+                      <div class="dropdown-item-selection active">
+                        <span class="dropdown-item-text">2018</span>
+                      </div>
                     </div>
-
-                    <div class="graph cursor-p" id="perf_cat_graph">
-
-                      <svg class="w-100 h-100"></svg>
-                      
+                    <div class="dropright">
+                      <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu--submenu">
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Org. Unit 1" /> <label>Org. Unit 1</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Org. Unit 2" /> <label>Org. Unit 2</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Org. Unit 3" /> <label>Org. Unit 3</label>
+                        </div>
+                      </div>
+                      <div class="dropdown-item-selection active"></div>
                     </div>
+                    <div class="dropright">
+                      <div class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <input type="checkbox" value="management"/> <label>Management Level</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu--submenu">
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="C-Level"/> <label>C-Level</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Middle Management" /> <label>Middle Management</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Low Management" /> <label>Low Management</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Staff" /> <label>Staff</label>
+                        </div>
+                      </div>
+                      <div class="dropdown-item-selection active"></div>
+                    </div>
+                    <div class="dropright">
+                      <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <input type="checkbox" value="geography" /> <label>Geography</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu--submenu">
+                        
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="United States" /> <label>United States</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="China" /> <label>China</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="Germany" /> <label>Germany</label>
+                        </div>
+                        
+                        
+                        </div>
+                      <div class="dropdown-item-selection active"></div>
+                    </div>
+                    <div class="dropright">
+                      <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <input type="checkbox" value="tenure" /> <label>Tenure</label>
+                        <i class="fas fa-chevron-right"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu--submenu">
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
+                        </div>
+                        <div class="dropdown-item md-cb">
+                          <input type="checkbox" value="3+ year" /> <label>3+ year</label>
+                        </div>
+                      </div>
+                      <div class="dropdown-item-selection active"></div>
+                    </div>
+                  </div>
+                </div>
 
-                    <button type="button" class="md-cb btn btn-transparent pl-0 js-show-details" data-html2canvas-ignore>
-                      <input type="checkbox" /> <label>See details</label>
+                <!-- Trigger Modals -->
+                <div class="sidepanel sidepanel--action clearfix js-action-panel">
+
+                  <div class="dropdown-menu show">
+                    <h6 class="dropdown-header">Go to:</h6>
+
+                    <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-cat">
+                      <i class="icon icon--eye"></i>
+                      <label>All Categories</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions">
+                      <i class="icon icon--question"></i>
+                      <label>All Questions</label>
+                    </button>
+
+                    <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter" data-tag="questions-not-on-chart">
+                      <i class="icon icon--question"></i>
+                      <label>Questions not on<br>this chart</label>
                     </button>
                     
                   </div>
-
-                  <button class="btn btn-download" data-target="#perf_cat_graph_full" data-html2canvas-ignore>
-                    <i class="icon icon--download"></i>
-                  </button>
                   
                 </div>
 
-                <div class="col-7 col-md-12 col-lg-7 pr-5-ipad-l">
+              </div>
 
-                  <div>
-                    <h5 class="inline">Performance by</h5>
-                    <div class="dropdown inline dashboard-select js-dropdown-category">
-                      <!--btn-secondary removed to prevent click color change-->
-                      <button class="btn dropdown-toggle dashboard-select__category" type="button" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Org. Unit
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <a class="dropdown-item" href="#" data-value="Management Level">Management Level</a>
-                        <a class="dropdown-item" href="#" data-value="Tenure">Tenure</a>
-                        <a class="dropdown-item" href="#" data-value="Org. Unit">Org. Unit</a>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="graph-container graph-container--table mt-4">
-
-                    <div class="graph h-100" id="perf_cat_table">
-                      
-                    </div>
-                    
-                  </div>
-
-                  <button class="btn btn-download mr-5-ipad-l" data-target="#perf_cat_table" data-html2canvas-ignore>
-                    <i class="icon icon--download"></i>
-                  </button>
-                  
-                </div>
+              <!-- Insights Content -->
+              <div class="col-9 insights-content">
                 
-              </div>
+                <div class="row insights-content__text">
+                  <div class="col-10">
+                    <p>Gain more insights about your organization’s performance in each category (measured on a scale from 0 to 100%). Every slice in the circular diagram corresponds to one survey question. The better your organization scores on a question, the larger the slice is. The smaller slices indicate a weaker performance score.  Mouse over any slice to see the question and click to see the breakdown of responses. The navigation on the left-hand side allows you to focus on responses from specific parts of the organization (filter function).</p>
+                  </div>
+                  <div class="col-1">
+                    <button class="btn btn-download" data-target="#sp_question_graph" data-html2canvas-ignore>
+                      <i class="icon icon--download"></i>
+                    </button>
+                  </div>
+                </div>
 
-            </div>
+                <div class="row" id="sp_question_graph" html2canvas-no-padding>
+                  <!-- Graph Info -->
+                  <div class="insights-content__graphinfo graph-info position-absolute pr-md-2 pr-lg-3 js-question-graph-info w-50 text-right">
+                    <!-- Filled using template -->
+                  </div>
 
-            <!-- Highlights -->
-            <div class="tb--dashb__highlights">
-
-              <div class="container">
-
-                <h5 class="mb-4">Highlights</h5>
-
-                <div class="row">
-
-                  <div class="col highlights-content" id="highlights_section">
-                    <!-- Rendered with Template -->
+                  <!-- Graph -->
+                  <div class="insights-content__graph mt-1" id="questions_graph">
+                    <svg></svg>
                   </div>
                   
                 </div>
 
-
               </div>
               
             </div>
-
-            <!-- Participation -->
-            <div class="tb--dashb__participation">
-
-              <div class="container">
-
-                <h5 class="mb-4">Participation</h5>
-
-                <div id="participants_section" class="row pc-indicator align-items-center cursor-p js-hook" data-url="demographics.html">
-                  <!-- Rendered using template -->
-                </div>
-
-              </div>
-              
-            </div>
-
-            <!-- PDF Button -->
-            <button class="btn btn-pdf js-btn-pdf" data-singlepage data-target="#nav-dashb" data-html2canvas-ignore>
-              <i class="icon icon--pdf"></i>
-            </button>
-
-            <!-- Camera Button -->
-            <button class="btn btn-camera mt-5 js-btn-download" data-target="#nav-dashb" data-html2canvas-ignore>
-              <i class="icon icon--camera"></i>
-            </button>
-            
             
           </div>
 
-          <!-- Insights -->
-          <div class="tab-pane fade" id="nav-insights" role="tabpanel" aria-labelledby="nav-insights-tab">
-
-            <div class="container">
-
-              <div class="row">
-
-                <!-- Side Panel -->
-                <div class="col-3">
-
-                  <!-- Filters -->
-                  <div class="sidepanel sidepanel--filter clearfix js-filter-panel">
-                    <div class="dropdown-menu show">
-                      <h6 class="dropdown-header">Filter for:</h6>
-                      <div class="dropright">
-                        <div class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="year" checked /> <label>Year</label>
-                          <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu--submenu">
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="2018" checked /> <label>2018</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="2017" /> <label>2017</label>
-                          </div>
-                        </div>
-                        <div class="dropdown-item-selection active">
-                          <span class="dropdown-item-text">2018</span>
-                        </div>
-                      </div>
-                      <div class="dropright">
-                        <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="org_unit" /> <label>Org. Unit</label>
-                          <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu--submenu">
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Org. Unit 1" /> <label>Org. Unit 1</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Org. Unit 2" /> <label>Org. Unit 2</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Org. Unit 3" /> <label>Org. Unit 3</label>
-                          </div>
-                        </div>
-                        <div class="dropdown-item-selection active"></div>
-                      </div>
-                      <div class="dropright">
-                        <div class="dropdown-item md-cb active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="management"/> <label>Management Level</label>
-                          <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu--submenu">
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="C-Level"/> <label>C-Level</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Middle Management" /> <label>Middle Management</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Low Management" /> <label>Low Management</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Staff" /> <label>Staff</label>
-                          </div>
-                        </div>
-                        <div class="dropdown-item-selection active"></div>
-                      </div>
-                      <div class="dropright">
-                        <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="geography" /> <label>Geography</label>
-                          <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu--submenu">
-                          
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="United States" /> <label>United States</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="China" /> <label>China</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="Germany" /> <label>Germany</label>
-                          </div>
-                          
-                          
-                          </div>
-                        <div class="dropdown-item-selection active"></div>
-                      </div>
-                      <div class="dropright">
-                        <div class="dropdown-item md-cb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <input type="checkbox" value="tenure" /> <label>Tenure</label>
-                          <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu--submenu">
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="0-1 year" /> <label>0-1 year</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="1-3 year" /> <label>1-3 year</label>
-                          </div>
-                          <div class="dropdown-item md-cb">
-                            <input type="checkbox" value="3+ year" /> <label>3+ year</label>
-                          </div>
-                        </div>
-                        <div class="dropdown-item-selection active"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Trigger Modals -->
-                  <div class="sidepanel sidepanel--action clearfix js-action-panel">
-
-                    <div class="dropdown-menu show">
-                      <h6 class="dropdown-header">Go to:</h6>
-
-                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-cat">
-                        <i class="icon icon--eye"></i>
-                        <label>All Categories</label>
-                      </button>
-
-                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions">
-                        <i class="icon icon--question"></i>
-                        <label>All Questions</label>
-                      </button>
-
-                      <button type="button" class="dropdown-item js-hook" data-filter="true" data-url="details.html" data-tab="nav-questions" data-modal="modalAllQuestionFilter" data-tag="questions-not-on-chart">
-                        <i class="icon icon--question"></i>
-                        <label>Questions not on<br>this chart</label>
-                      </button>
-                      
-                    </div>
-                    
-                  </div>
-
-                </div>
-
-
-                <!-- Insights Content -->
-                <div class="col-9 insights-content">
-                  
-                  <div class="row insights-content__text">
-                    <div class="col-10">
-                      <p>Gain more insights about your organization’s performance in each category (measured on a scale from 0 to 100%). Every slice in the circular diagram corresponds to one survey question. The better your organization scores on a question, the larger the slice is. The smaller slices indicate a weaker performance score.  Mouse over any slice to see the question and click to see the breakdown of responses. The navigation on the left-hand side allows you to focus on responses from specific parts of the organization (filter function).</p>
-                    </div>
-                    <div class="col-1">
-                      <button class="btn btn-download" data-target="#sp_question_graph" data-html2canvas-ignore>
-                        <i class="icon icon--download"></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="row" id="sp_question_graph" html2canvas-no-padding>
-                    <!-- Graph Info -->
-                    <div class="insights-content__graphinfo graph-info position-absolute pr-md-2 pr-lg-3 js-question-graph-info w-50 text-right">
-                      <!-- Filled using template -->
-                    </div>
-
-                    <!-- Graph -->
-                    <div class="insights-content__graph mt-1" id="questions_graph">
-                      <svg></svg>
-                    </div>
-                    
-                  </div>
-
-                </div>
-                
-              </div>
-              
-            </div>
-
-            <!-- Camera Button -->
-            <button class="btn btn-camera js-btn-camera" data-target="#sp_question_graph">
-              <i class="icon icon--camera"></i>
-            </button>
-            
-          </div>
-
+          <!-- Camera Button -->
+          <button class="btn btn-camera js-btn-camera" data-target="#sp_question_graph">
+            <i class="icon icon--camera"></i>
+          </button>
+          
         </div>
 
       </div>
@@ -885,7 +883,15 @@
     <script src="js/d3.5.7.0.min.js"></script>
     <script src="js/d3-legend.min.js"></script>
     <script src="js/jspdf.min.js"></script>
-    <script src="js/html2canvas.min.js"></script>
+    <script>
+      // IE 11
+      if (!!window.MSInputMethodContext && !!document.documentMode){
+        document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"><\/script>');
+        document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.svg.min.js"><<\/script>');
+      }else{
+        document.write('<script src="js/html2canvas.min.js"><\/script>');
+      }
+    </script>
     <script src="js/main.js"></script>
 
     <script type="text/javascript">
