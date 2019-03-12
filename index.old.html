@@ -1108,7 +1108,6 @@
 
       var bDrawQuestionsTabGraph = false,
       aDataset = null,
-      aInsightsDataset = null,
       edispatch = d3.dispatch('dataLoaded', 'tabOpened');
 
       // Category Graph - Aster Chart
@@ -1466,9 +1465,7 @@
         });
         
         var radiusScale = d3.scaleLinear()
-        //.domain([0, d3.max(qdata, function(d){ return d.value; })])
-        // Values are assumed to be in percentage. Max value is 100
-        .domain([0, 100])
+        .domain([0, d3.max(qdata, function(d){ return d.value; })])
         .range([1, radius - iReduceRadiusBy - 1]);
         
         function fnOuterRadius(d) {
@@ -1934,50 +1931,6 @@
 
       }
 
-      /**
-       * Process the raw dataset and breakdon into a structure
-       * needed for our plotting purposes.
-       * @param  {array} aData        raw dataset
-       * @param  {array} aBreakdownBy an array of fields of the data in a sequence of structuring required, from top to bottom
-       *                              default ['category', 'question', 'tenure', 'response'] i.e. responses breakdown by tenure
-       * @return {array}             structured dataset
-       */
-      function getStructuredInsightsData(aData, aBreakdownBy /*, bRollup*/) {
-
-        var nest = d3.nest(),
-        bRollup = true,
-        // sort based on following sequence
-        sortBy = ['Strategy threesixty', 'Overall', 'Value Proposition', 'Capabilities', 'Portfolio', 'Leadership', 'Impact'],
-        data;
-
-        aBreakdownBy = aBreakdownBy || ['category', 'question'];
-
-        aBreakdownBy.forEach(function(k){
-          nest.key(function(d){ return d[k]; }).sortKeys(d3.ascending)
-        });
-
-        if (bRollup) {
-          nest.rollup(function(response){ return parseFloat(response[0].value); })
-        }
-
-        data = nest.entries(aData);
-
-        // Sort the categories if that is the top level
-        // 
-        if (aBreakdownBy[0] == 'category') {
-          data.forEach(function(d){
-            d.sortIndex = sortBy.indexOf(d.key);
-          });
-
-          data.sort(function(a, b){
-            return d3.ascending(a.sortIndex, b.sortIndex);
-          });
-        }
-
-        return data;
-
-      }
-
       // Read data File
       // 
       d3.json('data/data-new.json').then(function(data, error){
@@ -1987,20 +1940,8 @@
         }
         aDataset = data;
 
-        // Unique Questions dataset for Insights graph
-        // 
-        d3.json('data/data-insights.json').then(function(aInsightsData, error){
-          if (error) {
-            alert('Error reading data file.');
-            return;
-          }
-          aInsightsDataset = aInsightsData;
-
-          edispatch.call('dataLoaded', null, data);
-        });
-
+        edispatch.call('dataLoaded', null, data);
       });
-
         
       // Toggle Filter panels based on select tab: Categories or Insights
       // 
@@ -2082,8 +2023,8 @@
           // Filter the raw dataset and update
           // 
           var bFilterOrgActive = !!oSettings.filters.filter(function(d){ return d.name == 'org_unit'; }).length;
-          var qDataset = aInsightsDataset.filter(function(d){ return d.category != 'Overall'; });
-          drawQuestionsGraph(benchmarkData, progressData, getStructuredInsightsData(filterData(qDataset, oSettings), aBreakdownBy), bFilterOrgActive);
+          var qDataset = aDataset.filter(function(d){ return d.category != 'Overall'; });
+          drawQuestionsGraph(benchmarkData, progressData, getStructuredData(filterData(qDataset, oSettings), aBreakdownBy), bFilterOrgActive);
 
           fixSVGIconFill();
 
