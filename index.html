@@ -1108,7 +1108,6 @@
 
       var bDrawQuestionsTabGraph = false,
       aDataset = null,
-      aInsightsDataset = null,
       edispatch = d3.dispatch('dataLoaded', 'tabOpened');
 
       // Category Graph - Aster Chart
@@ -1957,7 +1956,11 @@
         });
 
         if (bRollup) {
-          nest.rollup(function(response){ return parseFloat(response[0].value); })
+          nest.rollup(function(response){ 
+            return d3.mean(response, function(d){
+              return parseFloat(d.value);
+            });
+          });
         }
 
         data = nest.entries(aData);
@@ -1987,17 +1990,7 @@
         }
         aDataset = data;
 
-        // Unique Questions dataset for Insights graph
-        // 
-        d3.json('data/data-insights.json').then(function(aInsightsData, error){
-          if (error) {
-            alert('Error reading data file.');
-            return;
-          }
-          aInsightsDataset = aInsightsData;
-
-          edispatch.call('dataLoaded', null, data);
-        });
+        edispatch.call('dataLoaded', null, data);
 
       });
 
@@ -2082,7 +2075,7 @@
           // Filter the raw dataset and update
           // 
           var bFilterOrgActive = !!oSettings.filters.filter(function(d){ return d.name == 'org_unit'; }).length;
-          var qDataset = aInsightsDataset.filter(function(d){ return d.category != 'Overall'; });
+          var qDataset = aDataset.filter(function(d){ return d.category != 'Overall'; });
           drawQuestionsGraph(benchmarkData, progressData, getStructuredInsightsData(filterData(qDataset, oSettings), aBreakdownBy), bFilterOrgActive);
 
           fixSVGIconFill();
