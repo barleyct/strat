@@ -2120,11 +2120,41 @@
         console.log('Selected Category:', itemValue);
 
         // Get table data
+        // Sample JSON format 
+        /*
+        tData = {"breakdownBy":"Org. Unit","years":[2018,2017],"rows":[{"firstCol":"All","otherCols":[{"value": 78,"year":2018},{"value": 89,"year":2017}]},{"firstCol":"Org. Unit 2","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 3","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 4","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 5","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 6","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 7","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 8","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 9","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 10","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 11","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 12","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 13","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]},{"firstCol":"Org. Unit 14","otherCols":[{"value": 45,"year":2018},{"value": 59,"year":2017}]}]};
+        */
+       
+        // generate random dataset
         // 
-        // tData = {"breakdownBy":"Org. Unit","years":[2018,2017,2016,2015],"rows":[{"firstCol":"Category 0","otherCols":[45,85,69,89]},{"firstCol":"Category 1","otherCols":[45,85,69,89]},{"firstCol":"Category 2","otherCols":[45,85,69,89]},{"firstCol":"Category 3","otherCols":[45,85,69,89]},{"firstCol":"Category 4","otherCols":[45,85,69,89]},{"firstCol":"Category 5","otherCols":[45,85,69,89]},{"firstCol":"Category 6","otherCols":[45,85,69,89]},{"firstCol":"Category 7","otherCols":[45,85,69,89]},{"firstCol":"Category 8","otherCols":[45,85,69,89]},{"firstCol":"Category 9","otherCols":[45,85,69,89]},{"firstCol":"Category 10","otherCols":[45,85,69,89]},{"firstCol":"Category 11","otherCols":[45,85,69,89]},{"firstCol":"Category 12","otherCols":[45,85,69,89]},{"firstCol":"Category 13","otherCols":[45,85,69,89]},{"firstCol":"Category 14","otherCols":[45,85,69,89]}]};
+        tData = {
+          breakdownBy: "Org. Unit",
+          years: [2018, 2017],
+          rows: d3.range(1,15).map(function(d){
+            return d == 1 ? {
+              firstCol: "All",
+              otherCols: [{
+                value: Math.round(Math.random()*100),
+                year: 2018
+              }, {
+                value: Math.round(Math.random()*100),
+                year: 2017
+              }]
+            }: {
+              firstCol: "Org. Unit " + d,
+              otherCols: [{
+                value: Math.round(Math.random()*100),
+                year: 2018
+              }, {
+                value: Math.round(Math.random()*100),
+                year: 2017
+              }]
+            };
+          })
+        };
         
         // draw table
-        //drawCategoryTable(tData);
+        drawCategoryTable(tData);
 
       });
 
