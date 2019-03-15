@@ -48,6 +48,7 @@ categoryColorMap = {
   'Capabilities': colorMap['tangerine'],
   'Leadership': colorMap['red'],
   'strategythreesixty': colorMap['burgundy'],
+  'Strategy threesixty': colorMap['burgundy'],
   'Impact': colorMap['burgundy'],
   'Portfolio': colorMap['yellow']
 };
